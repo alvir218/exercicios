@@ -1,0 +1,36 @@
+//programador: allan stuart virmond
+//professor: vinicius pozzobon borin
+//instituicao de ensino: escola superior politecnica uninter
+//disciplina: logica de programacao e algoritmos
+//ide: visual studio community 2019
+//exercicio: Elabore um algoritmo que recebe uma palavrade até 10 caracteres e armazena em uma variável. Concateneestapalavra com a palavra “UNINTER”e escreva o resultado na tela.
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+	char frasedousuario[20];
+	char uninter[9];
+
+	printf("\nconcatena uma frase com a palavra UNINTER\n\n\n");
+
+
+
+
+	strcpy_s (uninter, " UNINTER");
+
+
+	printf("digite uma palavra ou frase de ate 10 letras\n");
+	gets_s (frasedousuario);
+
+	strcat_s (frasedousuario, uninter);
+
+	puts(frasedousuario);
+
+	system("pause");
+	return 0;
+}

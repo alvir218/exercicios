@@ -1,0 +1,45 @@
+//programador: allan stuart virmond
+//professor: vinicius pozzobon borin
+//instituicao de ensino: escola superior politecnica uninter
+//disciplina: logica de programacao e algoritmos
+//ide: visual studio community 2019
+//exercicio: Elaborar um algoritmo que lê um conjunto de 30 valores e os coloca em 2 vetores conforme forem pares ou ímpares.
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	printf("varredura de vetores e separacao de numeros pares e impares\n\n\n\n");
+
+	int controle = 0, vetor[30], vetorpar[30], vetorimpar[30];
+
+
+	for (controle; controle < 30; controle = controle + 1)
+	{
+		printf("\ninsira um numero para posicao %d\n", controle);
+		scanf_s("%d", &vetor[controle]);
+
+
+		if ((vetor[controle] % 2) == 0)
+		{
+			vetorpar[controle] = vetor[controle];
+
+		}
+		else
+		{
+			vetorimpar[controle] = vetor[controle];
+
+		}
+
+	}
+
+
+
+
+	printf("\n");
+	system("pause");
+	return 0;
+}

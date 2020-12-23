@@ -1,0 +1,39 @@
+//programador: allan stuart virmond
+//professor: vinicius pozzobon borin
+//instituicao de ensino: escola superior politecnica uninter
+//disciplina: logica de programacao e algoritmos
+//ide: visual studio community 2019
+//exercicio: Escreva um algoritmo que leia um vetor de 100 posições. Em seguida, compacte o vetor, retirando os valores nulos e negativos. Coloque o resultado em outro vetor.
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int vetor1[100], vetor2[100];
+	int contador1 = 0, contador2 = 0;
+
+	printf("\nfiltra numeros nulos e negativos\n\n\n");
+
+	for (contador1; contador1 < 100; contador1 = contador1 + 1)
+	{
+		printf("digite um numero para posicao %d \n", contador1);
+		scanf_s("%d", &vetor1[contador1]);
+
+		if (vetor1[contador1] > 0)
+		{
+			vetor2[contador2] = vetor1[contador1];
+			contador2 = contador2 + 1;
+		}
+
+	}
+
+
+
+
+	printf("\n");
+	system("pause");
+	return 0;
+}

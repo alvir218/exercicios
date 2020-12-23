@@ -1,0 +1,96 @@
+//programador: allan stuart virmond
+//professor: vinicius pozzobon borin
+//instituicao de ensino: escola superior politecnica uninter
+//disciplina: logica de programacao e algoritmos
+//ide: visual studio community 2019
+//exercicio: Elabore um algoritmo que recebe uma matriz MxN digitada pelo usuário e escreve na tela a matriz transposta a matriz digitada;
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int matriz[100][100];
+	int linhaquantidade, colunaquantidade, linha, coluna;
+
+	printf("recebe uma matriz ate 100x100 e a transpoe.\n\n\n");
+
+
+
+
+	printf("\nqual o numero de linhas?\n");
+	scanf_s("%d", &linhaquantidade);
+
+	printf("\nqual o numero de colunas?\n");
+	scanf_s("%d", &colunaquantidade);
+
+	printf("\n\n");
+
+
+	for (linha = 0; linha < linhaquantidade; linha = linha + 1)
+	{
+		for (coluna = 0; coluna < colunaquantidade; coluna = coluna + 1)
+		{
+			printf("digite a coordenada %d ; %d \n", linha, coluna);
+			scanf_s("%d", &matriz[linha][coluna]);
+
+		}
+
+
+	}
+
+	printf("\na matriz digitada e\n\n");
+
+
+	for (linha = 0; linha < linhaquantidade; linha = linha + 1)
+	{
+		for (coluna = 0; coluna < colunaquantidade; coluna = coluna + 1)
+		{
+			printf("%d", matriz[linha][coluna]);
+			printf("\t");
+
+		}
+
+		printf("\n");
+	}
+
+	printf("\na matriz inversa e:\n\n");
+
+	for (linha = (linhaquantidade-1); linha >= 0; linha = linha - 1)
+	{
+		for (coluna = (colunaquantidade-1); coluna >= 0; coluna = coluna - 1)
+		{
+			printf("%d", matriz[linha][coluna]);
+			printf("\t");
+
+		}
+
+		printf("\n");
+	}
+
+
+
+	printf("\na matriz transposta e:\n\n");
+
+	for (coluna = 0; coluna < colunaquantidade; coluna = coluna + 1)
+	{
+		for (linha = 0; linha < linhaquantidade; linha = linha + 1)
+		{
+			printf("%d", matriz[linha][coluna]);
+			printf("\t");
+
+		}
+
+		printf("\n");
+	}
+
+
+
+
+	printf("\n");
+	system("pause");
+	return 0;
+}
+

@@ -1,0 +1,100 @@
+//programador: allan stuart virmond
+//professor: vinicius pozzobon borin
+//instituicao de ensino: escola superior politecnica uninter
+//disciplina: logica de programacao e algoritmos
+//ide: visual studio community 2019
+//exercicio: Elabore um algoritmo que receba uma matriz MxN de caracteres, depois nesta mesma matriz troque a primeira linha com a última linha da matriz e mostre na tela.
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	char matriz[100][100];
+	int linhaquantidade, colunaquantidade, linha, coluna;
+	char c;
+
+	printf("\n obtem uma matriz de caracteres; \n exibe a mesma na tela; \n troca a primeira linha com a ultima. \n\n\n");
+
+
+
+
+	printf("\nqual o numero de linhas?\n");
+	scanf_s("%d", &linhaquantidade);
+	while ((c = getchar()) != '\n' && c != EOF) {}
+
+	printf("\nqual o numero de colunas?\n");
+	scanf_s("%d", &colunaquantidade);
+	while ((c = getchar()) != '\n' && c != EOF) {}
+
+	printf("\n\n");
+
+
+	for (linha = 0; linha < linhaquantidade; linha = linha + 1)
+	{
+		for (coluna = 0; coluna < colunaquantidade; coluna = coluna + 1)
+		{
+			printf("\ndigite um caractere na linha: %d, coluna: %d \n", linha, coluna);
+			scanf_s("%c", &matriz[linha][coluna]);
+			while ((c = getchar()) != '\n' && c != EOF) {}
+
+		}
+	}
+
+
+	printf("\nexibindo matriz na ordem digitada\n\n");
+
+
+	for (linha = 0; linha < linhaquantidade; linha = linha + 1)
+	{
+		for (coluna = 0; coluna < colunaquantidade; coluna = coluna + 1)
+		{
+			printf("%c\t", matriz[linha][coluna]);
+
+		}
+
+		printf("\n");
+
+	}
+
+
+	printf("\n\nexibindo matriz trocando a primeira linha com a ultima\n\n");
+
+
+	for (coluna = 0; coluna < colunaquantidade; coluna = coluna + 1)
+	{
+		printf("%c\t", matriz[(linhaquantidade-1)][coluna]);
+
+	}
+	
+	printf("\n\n");
+	
+
+	for (linha = 1; linha < (linhaquantidade-1); linha = linha + 1)
+	{
+		for (coluna = 0; coluna < colunaquantidade; coluna = coluna + 1)
+		{
+			printf("%c\t", matriz[linha][coluna]);
+
+		}
+		
+		printf("\n");
+	}
+	
+
+	for (coluna = 0; coluna < colunaquantidade; coluna = coluna + 1)
+	{
+		printf("%c\t", matriz[0][coluna]);
+
+	}
+	printf("\n");
+
+
+
+
+	printf("\n\n");
+	system("pause");
+	return 0;
+}

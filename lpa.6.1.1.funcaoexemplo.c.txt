@@ -1,0 +1,72 @@
+//programador: allan stuart virmond
+//professor: vinicius pozzobon borin
+//instituicao de ensino: escola superior politecnica uninter
+//disciplina: logica de programacao e algoritmos
+//ide: visual studio community 2019
+//exercicio: exemplo de funcao que retorna o maior valor de 3 parametros
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int maior3(int x, int y, int z);
+
+//variavel global
+int maior;
+
+
+int main()
+{
+	int x, y, z;
+
+
+	printf("\nrecebe tres valores e encontra o maior\n\n\n");
+
+
+	printf("\ndigite x:\n");
+	scanf_s("%d", &x);
+
+	printf("\ndigite y:\n");
+	scanf_s("%d", &y);
+
+	printf("\ndigite z:\n");
+	scanf_s("%d", &z);
+
+
+
+	printf("\nmaior valor = %d\n", maior3(x, y, z));
+
+
+
+	printf("\n\n");
+	system("pause");
+	return 0;
+}
+
+//int maior3(int x, int y, int z)
+int maior3(int a, int b, int c)
+{
+//	int maior;
+
+	maior = a;
+
+
+
+	if (b > maior)
+		{
+			maior = b;
+
+		}
+
+	if (c > maior)
+		{
+			maior = c;
+
+		}
+
+	return maior;
+
+
+}

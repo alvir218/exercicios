@@ -1,0 +1,98 @@
+//programador: allan stuart virmond
+//professor: vinicius pozzobon borin
+//instituicao de ensino: escola superior politecnica uninter
+//disciplina: logica de programacao e algoritmos
+//ide: visual studio community 2019
+//exercicio: Elabore  um  algoritmo  que  construa  três  vetores  de  10  elementos,  com  valores fornecidos pelo usuário. Crie uma matriz 10x3 com estes vetores, sendo que a primeira coluna da matriz deverá conter o primeiro vetor escrito ao contrário e a última coluna conter o inverso do terceiro vetor digitado.
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	#define linhavetor 10
+
+
+	int vetorcolunaesquerda[linhavetor], vetorcolunameio[linhavetor], vetorcolunadireita[linhavetor];
+	int matriz[linhavetor][3];
+	int contador, linha, coluna;
+
+
+
+
+	printf("\npreenchimento de matriz com vetores em ordem inversa\nescreve a coluna esquerda e a direita em ordem inversa \naos seus respectivos vetores de origem\n\n\n");
+
+
+
+
+	for (contador = 0; contador < linhavetor; contador = contador + 1)
+	{
+		printf("preencha o vetor da coluna esquerda na linha %d \n", contador + 1);
+		scanf_s("%d", &vetorcolunaesquerda[contador]);
+
+		printf("preencha o vetor da coluna do meio na linha %d \n", contador + 1);
+		scanf_s("%d", &vetorcolunameio[contador]);
+
+		printf("preencha o vetor da coluna direita na linha %d \n", contador + 1);
+		scanf_s("%d", &vetorcolunadireita[contador]);
+
+	}
+
+
+	contador = 0;
+	linha = linhavetor;
+	while (contador < linhavetor)
+	{
+		linha = linha - 1;
+
+		matriz[linha][0] = vetorcolunaesquerda[contador];
+
+		contador = contador + 1;
+
+	}
+
+
+	for (linha = 0; linha <= linhavetor; linha = linha + 1)
+	{
+		matriz[linha][1] = vetorcolunameio[linha];
+
+	}
+
+
+	contador = 0;
+	linha = linhavetor;
+	while (contador < linhavetor)
+	{
+		linha = linha - 1;
+
+		matriz[linha][2] = vetorcolunadireita[contador];
+
+		contador = contador + 1;
+
+	}
+
+
+	printf("\nexibindo matriz\n\n");
+
+
+	for (linha = 0; linha < linhavetor; linha = linha + 1)
+	{
+		for (coluna = 0; coluna < 3; coluna = coluna + 1)
+		{
+			printf("%d \t", matriz[linha][coluna]);
+
+		}
+
+		printf("\n");
+
+	}
+
+
+
+
+	printf("\n");
+	system("pause");
+	return 0;
+}

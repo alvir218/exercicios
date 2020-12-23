@@ -1,0 +1,41 @@
+//programador: allan stuart virmond
+//professor: vinicius pozzobon borin
+//instituicao de ensino: escola superior politecnica uninter
+//disciplina: logica de programacao e algoritmos
+//ide: visual studio community 2019
+//exercicio: Escreva um algoritmo que leia um vetor de 80 elementos inteiros. Encontre e mostre o menor elemento e sua posição no vetor.
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int controle = 0, vetor[80], menor = 2147483647, indice;
+
+	printf("\nidentifica o menor numero entre o vetor\n\n\n");
+	
+	for (controle; controle < 80; controle++)
+	{
+		printf("digite o um valor para o indice: %d \n", controle);
+		scanf_s("%d", &vetor[controle]);
+
+
+		if (vetor[controle] < menor)
+		{
+			menor = vetor[controle];
+			indice = controle;
+		}
+	}
+
+
+	printf("\n\nmenor valor: %d \n\nindice: %d \n\nposicao: %d\n\n", menor, indice, indice+1);
+
+
+
+
+	printf("\n");
+	system("pause");
+	return 0;
+}

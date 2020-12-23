@@ -1,0 +1,121 @@
+//programador: allan stuart virmond
+//professor: vinicius pozzobon borin
+//instituicao de ensino: escola superior politecnica uninter
+//disciplina: logica de programacao e algoritmos
+//ide: visual studio community 2019
+//exercicio: Dizemos que uma matriz quadrada inteira é um quadrado mágico se a soma dos elementos de cada linha, a soma dos elementos de cada coluna e a soma dos elementos das diagonais principal e secundária são todas iguais. Dada uma matriz quadrada A, verifique se ela é um quadrado mágico através de um algoritmo.
+
+
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+	int matriz[3][3];
+	int linha, coluna;
+	int somalinha1=0, somalinha2=0, somalinha3=0;
+	int somacoluna1=0, somacoluna2=0, somacoluna3=0;
+	int somadiagonal1=0, somadiagonal2=0;
+	
+	printf("\tdetector de matriz quadrado magico.\n\n\n");
+
+
+
+
+	for (linha=0; linha<3; linha=linha+1)
+	{
+		for (coluna=0; coluna<3; coluna=coluna+1)
+		{
+			printf("insira o valor da linha: %d e coluna: %d\n",linha,coluna);
+			scanf_s("%d", &matriz[linha][coluna]);
+		
+		}
+		
+	}
+
+	printf("\na matriz digitada e:\n\n");
+
+	for (linha = 0; linha < 3; linha = linha + 1)
+	{
+		for (coluna=0; coluna<3; coluna=coluna+1)
+		{
+			printf("%d\t", matriz[linha][coluna]);
+		
+		}
+
+		printf("\n");
+	}
+
+	
+	for (coluna = 0; coluna < 3; coluna = coluna + 1)
+	{
+		somalinha1 = (somalinha1 + matriz[0][coluna]);
+	
+	}
+
+	for (coluna = 0; coluna < 3; coluna = coluna + 1)
+	{
+		somalinha2 = (somalinha2 + matriz[1][coluna]);
+		
+	}
+	
+	for (coluna = 0; coluna < 3; coluna = coluna + 1)
+	{
+		somalinha3 = (somalinha3 + matriz[2][coluna]);
+
+	}
+
+
+	for (linha = 0; linha < 3; linha = linha + 1)
+	{
+		somacoluna1 = (somacoluna1 + matriz[linha][0]);
+
+	}
+
+	for (linha = 0; linha < 3; linha = linha + 1)
+	{
+		somacoluna2 = (somacoluna2 + matriz[linha][1]);
+
+	}
+
+	for (linha = 0; linha < 3; linha = linha + 1)
+	{
+		somacoluna3 = (somacoluna3 + matriz[linha][2]);
+
+	}
+
+	coluna = 0;
+	for (linha=0; linha<3;linha=linha+1)
+	{
+		somadiagonal1 = (somadiagonal1+matriz[linha][coluna]);
+
+		coluna = coluna + 1;
+
+	}
+
+	coluna = 2;
+	for (linha = 0; linha < 3; linha = linha + 1)
+	{
+		somadiagonal2 = (somadiagonal2+matriz[linha][coluna]);
+			
+		coluna = coluna - 1;
+
+	}
+
+	if (   (somalinha1 == somalinha2) && (somalinha1 == somalinha3) && (somalinha1 == somacoluna1) && (somalinha1 == somacoluna2) && (somalinha1 == somacoluna3) && (somalinha1 == somadiagonal1) && (somalinha1 == somadiagonal2) && (somalinha2 == somalinha3) && (somalinha2 == somacoluna1) && (somalinha2 == somacoluna2) && (somalinha2 == somacoluna3) && (somalinha2 == somadiagonal1) && (somalinha2 == somadiagonal2) && (somalinha3 == somacoluna1) && (somalinha3 == somacoluna2) && (somalinha3 == somacoluna3) && (somalinha3 == somadiagonal1) && (somalinha3 == somadiagonal2) && (somacoluna1 == somacoluna2) && (somacoluna1 == somacoluna3) && (somacoluna1 == somadiagonal1) && (somacoluna1 == somadiagonal2) && (somacoluna2 == somacoluna3) && (somacoluna2 == somadiagonal1) && (somacoluna2 == somadiagonal2) && (somacoluna3 == somadiagonal1) && (somacoluna3 == somadiagonal2) && (somadiagonal1 == somadiagonal2)   )
+	{
+		printf("\nessa matriz e um quadrado magico.");
+
+	}
+
+	else
+	{
+		printf("\na matriz nao e um quadrado magico.\n");
+	
+	}
+
+	printf("\n\n");
+	system("pause");
+	return 0;
+}

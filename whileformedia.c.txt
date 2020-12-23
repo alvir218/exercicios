@@ -1,0 +1,76 @@
+//programador: allan stuart virmond
+//ide: visual studio community 2019
+//exercicio: exemplo de calculo de media com loop for
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	int contador;
+	float soma, media, numero;
+
+	soma=0;
+	contador=0;
+
+	printf("estrutura de repeticao com calculo de media\n\n\n\n");
+	
+	printf("teste com while\n\n");
+	while (contador<10)
+	{
+		printf("digite um numero:\n");
+		scanf_s("%f", &numero);
+		soma = soma + numero;
+		//pode ser escrito como
+		//soma += numero;
+		
+		contador = contador + 1;
+		//pode ser escrito como
+		//contador++;
+	
+
+	
+	
+	}
+
+	media = soma / contador;
+	printf("\n\na media1 dos valores e de %2.f \n\n\n\n",media);
+
+
+
+
+	soma = 0;
+	contador = 0;
+
+	printf("teste com for\n\n");
+		for (contador = 0; contador<10; contador=contador+1)
+		{
+			printf("digite um numero:\n");
+			scanf_s("%f", &numero);
+			soma = soma + numero;
+			//pode ser escrito como
+			//soma += numero;
+
+			//contador = contador + 1;
+			//pode ser escrito como
+			//contador++;
+			//contador incluso na declaracao do for 
+			//exlcuir ao usar for
+
+
+
+		}
+
+		media = soma / contador;
+		printf("\n\na media dos valores e de %2.f \n\n", media);
+
+
+
+
+
+		
+	system("pause");
+	return 0;
+}
