@@ -1,0 +1,50 @@
+<usuarios>
+user1 s1
+user2 s2
+user3 s3
+user4 s4
+user5 s5
+user6 s6
+</usuarios>
+
+<filmes>
+
+<filme>
+f2 f2
+2002
+user2
+3
+<notas>
+user2
+4
+user3
+2
+</notas>
+</filme>
+
+<filme>
+f1
+2001
+user2
+3.5
+<notas>
+user2
+4
+user3
+3
+</notas>
+</filme>
+
+<filme>
+f3 f3 f3
+2003
+user3
+3
+<notas>
+user3
+3
+</notas>
+</filme>
+
+</filmes>
+
