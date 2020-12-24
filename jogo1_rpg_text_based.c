@@ -1,4 +1,5 @@
 //programador: allan stuart virmond
+//programador: julho cesar radicheski da costa
 //professor: vinicius pozzobon borin
 //instituicao de ensino: escola superior politecnica uninter
 //disciplina: logica de programacao e algoritmos
