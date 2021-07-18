@@ -1,0 +1,7 @@
+numero resto 10 = ultimo digito
+
+numero / 10 = numero um digito a menos
+algarismo menos significativo
+
+numero + '0' = numero em formato char
+
