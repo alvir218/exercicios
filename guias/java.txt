@@ -1,0 +1,2865 @@
+Iterator<String> iterator = nomes.iterator();
+while (iterator.hasNext()){
+  System.out.printIn("imprimir lista: " + iterator.next())
+}
+
+for (String nomeDoItem: nomes){
+  System.out.printIn(nomeDoItem);
+}
+forma de imprimir os itens de uma lista nome
+lista conjunto coleçao
+forma mais primitiva
+
+plugins para ajudar com boas praticas
+pmd
+checkstyle
+estao no build do gradle
+em build.gradle
+plugins {
+  id 'checkstyle'
+  id 'pmd'
+}
+
+do{
+} while(i++ < 1)
+
+
+String.format("numero %.2f", 1.267234)
+retornara arredondado
+1.27
+
+String.format("texto %s e outro texto %s", string1, string2)
+
+operacoes com string.
+
+.substring(daqui, ate_aqui)
+corta a string
+
+.equalsIgnoreCase
+se é igual sem contar maiusculas de minusculas
+
+.equals
+se é igual
+retorna boolean
+
+.replace(esse, por_esse)
+substitui
+
+.contains("caractere")
+se tem caractere
+
+.toUpperCase
+todas para maiusculo
+
+.toLowerCase
+todas para minusculo
+
+.lenght
+tamanho contando
+
+.trim
+remove espaçamento redundante
+
+.charAt(numero)
+retorna o caractere na posicao numero
+começa do zero
+
+.valueOf
+transforma string ou wrappers em tipo primitivo
+.getBoolean
+string para boolean
+
+usado para unboxing
+
+char variavel = 15;
+pode ser adicionado numero com 2 digitos
+
+System.out.printIn("texto para exibir");
+
+javac codigo_fonte.java
+para compilar e gerar o .class
+
+instalaçao de ambiente
+
+openjdk
+no debian
+default-jdk
+
+oracle
+sudo add-apt-repository ppa:linuxuprising/java
+sudo apt update
+sudo apt install oracle-java10-installer
+export JAVA_HOME="/usr/lib/jvm/java-10-oracle"
+export PATH=$JAVA_HOME/bin:$PATH
+
+java --version
+
+ferramentas de build
+
+maven.apache.org
+export PATH=$PATH:/opt/maven/bin
+binary zip archive
+
+gradle.org
+export PATH=$PATH:/opt/gradle/bin
+gradle -v
+
+wrappers
+gradle wrapper
+./grale -v
+./gradlew
+
+maven-wrapper
+mvn -N io.takari:maven:wrapper
+./mvnw -v
+
+./firefox --new-instance --safe-mode
+
+intellij
+./bin/ideia.sh
+
+editar como root
+/etc/profile
+e adicionar as linhas
+export JAVA_HOME="/usr/lib/jvm/default-java"
+export PATH=$JAVA_HOME/bin:$PATH
+export PATH=$PATH:/opt/maven/bin
+export PATH=$PATH:/opt/gradle/bin
+/etc/environment
+JAVA_HOME="/usr/lib/jvm/default-java"
+recarregar arquivo
+source /etc/environment
+ou melhor
+/etc/profile.d/environmentvariables.sh
+
+
+gradle 
+moderna
+adroid studio
+groove em vez de xml
+descreve o build e as tasks
+
+maven 
+antigo e de legado 
+vem do ant
+
+wrapper
+resolve problemas de diferentes versoes
+depois de criado no projeto
+deve ser executado gradle de dentro do projeto
+mantem todos os developers com mesmo arquivo de jar e mesmo arquive de build
+
+group
+convençao na comunidade
+dominio da empresa onde trabalha
+dominio ao contrario
+one.digitallinnovation
+
+artifact
+projeto que esta trabalhando
+
+spring initializer
+pra criar no spring 
+tem que marcar web como dependencia
+
+importar projeto
+maven
+pom.xml
+importar com o pom.xml
+como o projeto maven deve ser configurado
+gradle
+build.gradle
+arquivo principal
+
+plugin
+para build
+para construir o projeto
+do maven
+do spring-boot
+spring-boot-maven-plugin
+
+
+rodar a aplicaçao
+menu da direita
+plugins
+spring-boot:run
+roda a aplicaçao
+pasta do projeto target
+executa o arquivo exemplo-maven...jar
+java -jar exemplo-maven...jar
+
+lifecycle
+install
+faz o build
+
+target
+contem todas as compilaçoes
+tem relatorio, testes, classes
+no gradle é build
+
+build
+contem todas as compilaçoes
+tem relatorio, testes,
+no maven é target
+para rodar
+o .jar esta em build..libs
+pra rodar 
+painel direito..application..bootrun
+
+para criar um projeto 
+abre o intellijidea 
+criar novo projeto
+gradle
+java
+
+groupid
+one.inovation.digital
+artefact
+caracteristicas-da-linguagem
+
+conferir
+file..project sctructure
+
+sourceCompatibility
+escolher versao java atual
+
+classes
+no java tem que começar com letra maiuscula
+
+construtor da classe
+metodo particular que leva o mesmo nome da classe
+informando como construir
+
+tipo primitivo
+nunca pode ser null
+pode nao ser inicializado com valor 
+
+long 
+deve ser colocado um L maiusculo ou minusculo
+no digito menos significativo
+
+float 
+deve ser colocado f 
+no digito menos significativo
+
+boolean
+coloca true ou false
+sem aspas
+
+a variavel deve ser inicializada
+para uso como parametro em funçao
+caso contrario é reconhecida como null
+
+wrappers 
+escreve o tipo com letra maiuscula na primeira letra
+é uma classe
+autoboxing 
+nao precisa dar new
+o compilador saber que deve construir
+pode ter valor null
+
+unboxing
+atribuir um wrapper para tipo primitivo
+
+nao primitivos
+com letra maiuscula
+String
+Number
+Object
+objeto principal do java
+todos os demais estendem de Object
+vantagem
+pode usar todos os metodos que a classe ja tem
+qualquer objeto
+
+tipagem estatica
+tipos verificados em tempo de compilaçao
+
+tipagem forte
+uma vez com um tipo sera esse tipo pra sempre
+
+tipo inferido
+consegue criar as variaveis
+atribuindo o tipo automaticamente
+usando var nome_da_variavel
+
+modificador de acesso
+palavras como public private
+
+pacotes
+sao as pastas do projeto
+
+classe abstract
+nao pode ser instanciada
+so pode ser usado fazendo override
+nao tem corpo
+
+static
+se mudar a variavel em uma das instancias
+tera o mesmo valor em todas as outras instancias
+é possivel executar sem instanciar
+
+final
+o metodo nao pode ser sobrescrito mesmo herdado
+em variavel a variavel nao pode ser mudada
+boa pratica usar para evitar erros de programaçao
+nao pode ser extendida
+
+metodos abstratos
+altamente relacionado com programaçao funcional
+sempre que adiciona um metodo novo 
+quebra o contrato e deve implementar novamente
+
+java nao possui herança multipla por padrao
+
+com a interface
+é obrigado a implementar 
+todos os metodos da interface
+
+chamar o metodo default da interface
+nao funciona fora de quem implementa
+
+enum
+nao pode ser instanciado
+
+contatenaçao 
+entre variaveis string com +
+
+++ a esquerda
+primeiro incrementa depois avalia a expressao
+a direita ++
+avalia a expressao depois incrementa
+
+boas praticas
+nome de classe primeira letra maiuscula
+classe com nomes compostas 
+cada palavra primeira maiuscula kamio case
+nomes de metodos primeira minuscula 
+e compelta com kamio case
+nao colocar numero nas variaveis
+nao colocar caractere especial em variaveis
+ferramentas
+checkstyle
+pmd
+gera uma html reportando os erros main.html
+
+evaluate expression
+no debug
+monitora mais de perto o comportamento do codigo
+
+construtor
+quando esta omitido na classe e
+e é apenas um construtor padrao
+o java interpreta como um construtor
+se nao for criado um construtor com parametro anteriormente
+
+nao existe destrutor
+quem libera o espaço na memoria é o garbage collector
+
+autoreferencia
+this.modelo
+esse vem do contexto
+
+em java todas as classes herdam de object
+
+super
+para usar o construtor da classe pai
+
+.equals
+considera a posiçao da memoria
+pode retornar falso se for a mesma caracteristica
+pois sao coisas diferentes
+
+instanciar
+new
+instanciar um objeto
+criar um objeto de uma determinada classe
+
+srp
+single responsability principle
+uma classe so deve ter uma unica responsabilidade
+para evitar god class
+
+ocp
+open closed principle
+nao devemos modificar as classes existentes
+e sim extendelas
+implements
+
+lsp
+liskov substitution principle
+se uma classe derivam de uma
+deve poder ser trocadas por essa classe base
+nem toda asbstraçao funciona a nao ser que ela seja
+possivelmente feita com sua classe base tambem
+
+isp
+interface segregation principle
+classe nao deve implementar
+metodos que nao serao utilizados por ela
+viola o principio por exemplo
+ave voar implements num pinguim
+resolve segregando ave com ave que nao voa
+
+dip
+dependency inversion principle
+dependa de abstraçoes e nao de implementaçoes
+
+array
+diferença de um array para lista
+array quando declarado de um tipo 
+todos os elementos sao do mesmo tipo
+em listas podem ter tipos distintos
+
+em java os cada elemento dos arrays
+sao inicializados com 0
+
+se mandar print no array sem o index 
+sera impresso seu valor na memoria
+
+para imprimir o tamanho do array 
+coloca o nome do array sem a estrutura index
+.lenght
+
+sao estrutura de dados
+
+sao estruturas estaticas
+uma vez criados nao mudam
+
+control + espaço
+para exibir os metodos da variavel
+no intellijidea
+
+tratamento de erro exceçao
+toda exceçao nao esperada herda de exception
+
+tratar em todo metodo que foi esperado
+
+checked exeptions
+esperado e tratado
+
+unchecked exception
+nao esperado
+
+no bloco catch pode ser adicionado varios catch
+
+finally
+executado antes do fim do metodo com exceçoes tratadas
+antes do return
+
+throw
+para lançar pra camada de cima um tipo de exceçao
+o metodo que chamou o metodo
+
+throws 
+assinatura do metodo
+explica a exceçao
+
+design patern
+separar a aplicaçao em camadas
+exceçoes acompanhando as camadas
+
+java.util.Collections
+interface principal da api collection
+ajuda a gerenciar os arrays
+util.list
+garante ordem de inserçao dos arrays
+mesma funcionalidades que os arrays possuem nativamente
+de forma dinamica
+sem necessidade de criaçao remoçao destruiçao de arrays
+tem que importar a java.util.List
+.add
+adiciona um elemento na lista
+.set(posicao, nome)
+metodo de atualizaçao
+.remove(numero)
+o que remove por indice 
+ou por objeto (nome)
+.get(numero)
+retorna o nome contido no indice numero
+IndexOutOfBoudsException
+exceçao de indice inexistente
+.size
+retorna o tamanho da lista
+.contains return boolean
+se tem ou nao esse elemento na lista
+.isEmpty returns boolean
+mostra se a lista esta vazia
+.clear
+limpa a lista
+.indexOf(nome)
+retorna o indice que contem o nome
+retorna -1 quando nao encontra
+.iterator
+importado da java.util
+com while
+explicaçoes em codigo
+.hasNext
+se tem proximo item retorna boleano
+
+java.util.Queue
+java.util.LikedList
+conceito de queue
+a ordem importa
+em queue o primeiro a entrar é o primeiro a sair
+nao é pilha 
+em pilha o primeiro que entra é o ultimo que sai
+so trabalha com adiçao e remoçao de elemento
+nao permite reordenaçao
+.poll
+retorna e remove o primeiro da fila
+se a fila estiver vazia retorna null
+.peek
+retorna mais nao remove
+se a fila estiver vazia retorna null
+.element
+retorna o primeiro e nao remove
+se a fila estiver vazia retorna uma exceçao
+NoSuchElementException
+.clear
+limpa a fila
+.iterator
+.size
+.isEmpty
+.add
+pode ser usado mas vai pro ultimo da fila
+
+util.Set
+HashSet
+nao garante a ordem de inserçao
+nao permite a reordenaçao
+criada pra ter performance
+nao permite valores repetidos
+escrita ainda perde um pouco de performance
+porem a leitura é tem muita performance
+nao permite buscar por um elemento especifico
+permite navegaçao atraves de iterator while for
+pode ser adicionado o null
+
+.linkedHashSet
+permite lidar com ordenaçao 
+custa performance
+.remove(indice)
+.isEmpty
+.clear
+.size
+.iterator
+.next
+
+TreeSet
+ordem alfabetica
+do menor pro maior
+o ultimo é considerado o maior
+o primeiro é consideardo menor
+.first
+retorna o topo da arvore
+.last
+retorna o ultimo
+.lower
+recebe um elemento
+retorna o elemento de baixo anterior
+.higher
+retorna o elemento de superior proximo
+.pollFirst
+alem de ver qual é o primeiro remove do set
+.pollLast
+alem de ver qual é remove o ultimo do set
+toda vez que remove ou adiciona
+ele refaz a ordenaçao
+a leitura continua bem rapida
+
+result set
+implementaçao de um set sdbc
+select retorna um result set
+set conhecido pela performance
+
+java.util.Map
+nao extende de Collection
+.add nao existe em map
+.conteins aprimorado
+tem proprio .size
+tem proprio .clear
+
+HashMap
+mais comum 
+performance e concistencia
+HashTable
+mais antigo
+sincronizaçao de threads 
+nao muito utilizada
+nao armazena apenas um tipo de objeto
+dois tipos
+chave key
+nao se repete 
+permite a indexaçao do map atravez da chave
+valor value
+valor de atribuiçao e comparaçao
+nao permite chave repetida
+permite valor repetido
+busca por valor possivel
+atualizaçao remoçao navegaçao
+pode ser reordenado
+.put
+para atualizar o valor de uma chave existente
+.get ("chave")
+.containsKey
+se a determinada chave existe
+.remove("chave")
+.containsValue("valor")
+se tem alguma chave com o valor informado
+.size
+retorna o tamanho do mapa
+quantos pares key value
+.entrySet
+retorna um set de um objeto entry da interface map
+ajuda a escolher entre o key e o value
+pra exibir um dos dois por exemplo
+.keySet
+retorna um set do tipo string do tipo da chave key
+pode mostrar a chave 
+e fazer um get do map pela key
+o value pode ser uma lista
+casos de performance
+sem ordenaçao
+
+LinkedHashMap
+mesma logica do hash set
+garante a ordem de inserçao
+hash map 
+mais performatico
+em alguns casos permite ordenaçao
+usando comparators
+
+TreeMap
+logica parecida do treeset
+ordem propria do algoritmo de arvore binaria
+nao necessariamente a ordem que é adicionada
+sera a ordem mantida
+metodos do treeset
+focando a key do map
+ordem crescente a partir do value
+.firstKey
+primeira chave da tree
+.lastKey
+ultima chave da tree
+lowerKey("key")
+da esquerda pra direita a da esquerda
+higherKey("key")
+da esquerda pra direita a da direita
+.firstEntry().getKey()
+a primeira entrada da lista e sua key
+.firstEntry().getValue()
+a primeira entrada da lista e seu value
+.pollFirstEntry
+.pollLastEntry
+retorna e remove
+
+RashTable
+em cenarios que tem concorrencia de threads
+sincronizado
+metodos acessiveis de threads diferentes
+
+Comparators
+para ordenaçao
+interface que permite padronizaçao 
+de objetos que podem ser ordenados
+para objeto nao primitivo
+para definir uma regra de negocio 
+para ordenar uma coleçao
+collections list
+podem ser utilizados com outras interfaces
+sera focado list
+.sort em objetos complexos
+necessario predefinir uma regra de negocio
+para ordenar a implementaçao
+exemplo chamando .collectionResponseSort 
+passando lista de objeto que extende 
+comparator ou comparable
+sem fazer essa implementaçao nao funcionara
+
+Comparable
+para implementar dentro da classe de dominio
+dentro da classe que quer ordenar
+comparaçao comum
+comparando um objeto que é tomado como atual
+para um proximo objeto dentro de uma coleçao
+compareTo
+retorna um inteiro positivo 
+representando que o objeto atual é maior 
+na escala de ordenaçao 
+do que o objeto do parametro
+negativo é menor
+0 é igual
+- ascendente numerica 
+reversa inverte a posicao do -
+comparable
+permite ordenar o objeto que esta sendo visto
+objeto valor de negocio
+classe entidade
+
+Comparator
+tambem tem metodo compare
+com dois argumentos
+para ser usado na classe externa
+nao a de dominio
+como a interface é uma interface funcional
+permite usar a sintaxe lambda
+se der idade repetida
+mantem a ordem de inserçao
+para usar em algoritmos sem muito acoplamento
+outra forma de fazer
+.sort da classe Collections
+
+comparators e comparables
+sao interfaces auxiliares da api collection
+para trabalhar com ordenaçao de coleçoes
+pode ser usado em conjunto com treemap e treeset
+
+optional
+para trabalhar com dados que podem ser opcionais (nulos)
+pra trabalhar com o null pointer exception
+banco de dados de um rh que o data de admissao tem
+mas a data de demissao nao existe
+o optional tem 2 estados
+estado presente
+contruido um optional com valor diferente de null
+estado vazio 
+estado inicial ou com um objeto null
+.ifPresentOrElse(1, 2)
+primeiro argumento
+expressao lambda que deve ser executada 
+se o valor estiver presente
+segundo argumento
+implementaçao da interface "fornaibou"
+.ofNullable
+se puder ser nulo
+faz o mesmo que .ifPresentOrElse(1, 2)
+com uma diferença
+se for null retornara um option vazio
+se o valor nao é null retorna o option com o valor recebido
+requireNonNull
+retorna uma exception ao receber null
+.empty()
+se quiser construir zerado
+reconstroi um optional vazio
+quando quer construir um optional
+por valor inicial empty
+ou se o optional precisar ser vazio
+se for nulo chama empty
+.of(null)
+se tiver certeza do valor estar presente
+nullPointerException
+.isEmpty
+quando esta vazio retorna true
+.isPresent
+quando esta presente retorna true
+.map
+pega um valor e executa um outro algoritmo 
+que transforma esse valor em outro valor
+.orElseThrow
+se o optional estiver presente tudo bem 
+caso contrario chama exception
+IllegalStateException
+
+Stream API
+no java 8 em 2014
+computaçao paralela
+nao manipula a origem dos dados
+passa pra uma list set ou map
+.count
+retorna o numero de elementos na stream
+do tipo long
+.max
+.min
+recebem comparator para ordenaçao
+pega a coleçao passa por um algoritmo de comparaçao
+de acordo com o parametro
+retorna o maior no .max
+retorna o menor no .min
+elementos na coleçao
+.filter
+retorna uma nova coleçao stream 
+que pode ser colecionado por uma coleçao
+pode se escolher os nomes com letra r por exemplo
+.map
+cria uma copia da stream 
+retorna o mesmo tipo de objeto
+ou outro tipo qualquer desejado
+.limit
+escolhe quantos quer retornar
+.peek
+nao retorna nada
+no exemplo para cada elemento
+executa uma funçao definida como parametro
+para cada elemento
+.forEach
+semelhante ao .peek
+nao retorna nada porem
+retorna um void
+finaliza a cadeia de stream
+.allMatch
+executa a lambda do parametro para cada elemento
+se todos elementos retornarem true
+retornara true
+.anyMatch
+se ao menos um elemento retornar true
+retornara true
+.noneMatch
+se retornar falso em todos elementos
+retornara true
+.findFirst
+encontra o primeiro
+.ifPresent
+retorna um optional vazio se estiver vazio
+.toList
+para lista
+.joining
+agrupando em unica string
+.toSet
+faz o mesmo
+nao garante ordem
+
+metodo (...valores)
+para receber parametros dinamicos
+
+
+
+
+
+
+
+
+SPRING
+
+era configurado manualmente
+meio xml ou java
+dispatcher servlet
+ao add starter detecta e executa o dispathcer servlet
+web.xml spring.mvc
+configurar o banco de dados
+
+ferramenta para configurar automaticamente os projetos spring
+criado pela spring source em 2012
+
+importar projeto pela pasta raiz
+
+src..main..java..resources..
+application.properties
+configuraçoes gerais do sistema
+dependencisa
+banco de dados
+segurança
+habilitar ou nao log
+porta do servidor
+debug=true
+spring.profile.active=dev
+escolhe qual perfil iniciar
+server.port=8080
+
+springinitializr
+dependencias
+referente aos starters
+adicionam conjunto de dependencias
+tanto do framework do spring
+spring web spring mvc
+com suas configuraçoes com auto configuration
+deixa pronto para o desenvolvimento
+
+instalando o web
+ele adiciona o artefato springboot starter web
+contem dependencias para executar spring mvc
+servidor de aplicaçao embarcada container tomcat
+dependencias do spring boot
+auto configuration para configurar xml
+spring beans.mvc
+
+springbootapplication
+metodo ponto de entrada para 
+executar uma aplicaçao springboot
+ja detecta que é um projeto springboot
+
+@RestController
+marcar que é um controller de texto
+importa .RestController
+
+@GetMapping("/")
+para rotear
+vai mapear para exibir a mesnsagem
+logo antes do metodo que retorna a mesagem
+tem que importar
+
+autoconfiguration do spring-boot
+faz as configuraçoes iniciais 
+para instalar os serviços adicionais
+ao encontrar a dependencia do spring-web dentro do projeto
+detecta a classe e instancia todas as configuraçoes
+
+
+arquivos de configuraçao
+notaçao para 
+@Configuration
+todo arquivo de configuraçao tem essa notaçao
+spring vai ler uma configuraçao
+
+@ConditionalOnClass
+se a nivel de classe estivermos no sistema
+todas as dependencias configuradas aqui
+entao teremos a autoconfiguraçao dos recursos
+do spring mvc
+vai detectar as dependencias a nivel de compilaçao
+vai fazer autoconfiguraçao e o springboot vai subir 
+automaticamente
+sem configurar manualmente web.xml
+configurar o dispatcherservlet
+e as dependencias dos beans dos springs
+
+pom.xml
+arquivo que contem as dependencias
+o spring-boot-starter contem o projeto do autoconfigure
+a partir da dependencia do spring-boot-starter-web
+
+aplicaçao simples container
+robusta suporte transacional servidor de aplicaçoes
+
+containers
+jet
+undertown
+
+mvn spring-boot:run
+mvn spring-boot:run -Dserver.port=8085
+executar o projeto
+na pasta raiz com o pom.xml
+
+mvn clean package
+para limpar o projeto e empacotar so o que deve
+vair criar a pasta target
+acessar ela e executar 
+java -jar springboot.jar
+
+jar tf springboot.jar | less
+para visualizar o empacotamento
+
+<packaging>jar</packaging>
+<packaging>war</packaging>
+no pom.xml depois do description 
+
+depois de gerar o springboot.war
+mover para pasta
+apache-tomcat-9.0.26/webapps
+que esta na raiz do projeto
+
+executar da pasta apache
+apache/bin/startup.sh
+
+o projeto estara localhost:8080/springboot
+
+@Notacao("parafa cilitar o mapeamento")
+
+o mapeamento pode ser a nivel de metodo
+ou nivel de classe
+
+@Profile("dev")
+set para modo desenvolvedor
+
+@Configuration.Properties
+mapeia as propriedades para o arquivo
+pega todo o prefixo da aplicaçao e mapear
+
+@Value
+inserir uma propriedade de forma simplificada
+variavel de ambiente pode ser injetada atraves de @Value
+
+criar o arquivo de profile
+application-dev.properties
+em src..main..resources
+
+@ConfigurationProperties("spring.datasource");
+pega tudo que é spring.datasource
+e mapeia todo o grupo de propriedade
+para dentro do arquivo
+
+public String testDataBaseConnection(){
+metodos que vao fazer o mapeamento das propriedades 
+para dentro do sistema e subir a definir o tipo de profile
+
+@Bean
+para mostrar todo conteudo 
+sendo mapeado ao subir o sistema
+
+se nao setar as configuraçoes com os getters e setters
+o spring nao le essas propriedades
+fazendo print null
+
+lombok
+da varias anotaçoes para adicionar em tempo de compilaçao
+as propriedades dos arquivos
+@Getter
+@Setter
+adicionando essas duas anotaçoes
+ao compilar o projeto
+todas as propriedades do arquivo
+receberao seus getters e setters
+diminuindo escrita de codigo
+melhoria na manutençao do codigo
+
+app.message=""
+sempre que subir o profile de desenvolvimento 
+a mensagem sera exibida
+
+@Value("${app.message}")
+indica que vamos injetar todos os valores 
+com uma anotaçao especifica
+cujo inicio seja app.message
+
+spring.profiles.active=
+excluindo essa linha
+se nao colocar o profile
+da erro no run
+
+as configuraçoes passadas por argumentos
+tem prioridade sobre os arquivos de configuraçao
+
+spring
+framework antigo da comunidade java
+framework de inversao de controle
+usa dependency injection
+consegue injetar as dependencias do spring
+usando @Autowired
+cria uma instancia desse um repositorio e a coloca nessa classe para usar como quiser
+delega a gestao de dependencia
+simulando um banco de dados
+
+cuida do ciclo de vida dos objetos da aplicaçao
+versao do spring no curso 5.0.6
+a partir da 5
+suporte a programaçao com reactive strings
+
+
+@Bean
+um objeto gerenciado pelo container de inversao de controle do spring
+instancias dos objetos gerenciados pelo spring
+
+spring boot
+starter para construçao rapida de projetos usando spring
+convençao sob configuraçao
+perde pouco tempo configurando
+
+arquitetura mvc
+
+view
+interface que o usuario esta usando
+fica dentro de templates
+.../src/main/resource/templates
+sao as htmls do projeto
+jedi : ${allJedi}
+jedi na lista allJedi
+jedi.name
+th:object="${jedi}"
+espera um objeto jedi
+para funcionar
+tem que devolver o objeto jedi no front end
+#view
+
+controller
+stereotype do spring
+conversa com a view e faz a conversa com essas views
+recebe as requisiçoes do usuario
+dentro de .../src/java/nome_da_aplicacao/controller
+sao classes java
+para interagir com jedi
+@Controller
+stereotype
+diz pro spring que ele vai começar a 
+controlar as instancias desses controllers
+responsavel do ciclo de vida desse bean
+@GetMapping("/jedi")
+sempre que fizer uma requisiçao em /jedi
+executa o metodo sequente
+nao pode criar mapeamento para rotas iguais
+ModelAndView
+pra setar o nome da view
+setar objetos devolvidos pela view
+classe do spring
+allJedi 
+uma lista
+
+List.of(variavel)
+cria uma lista com as entradas da variavel
+#controller
+
+model
+camada posterior do controller
+pode ser dividido em mais camadas
+camada que trata dos negocios e dados
+recebe esses dados 
+devolvolve pro controller que devolve pra view
+.../src/java/nome_da_aplicacao/model
+
+
+thymeleaf
+template end
+forma de renderizar e colocar 
+informaçoes dinamicas no .html
+onde tem th:
+
+intellijidea
+alt + enter
+para criar a classe quando aparece em vermelho
+alt + insert
+direito..generate..getter e setter
+para gerar getters e setters e construtores
+
+
+@Repository
+fala pro spring que a classe é um repository
+tambem faz parte de um stereotype
+tambem sera gerenciado pelo spring quando solicitado
+
+@PostMapping("/jedi")
+recebe o post da view
+para criar um jedi
+
+@ModelAttribute
+recebendo o jedi
+converte em um objeto 
+convertendo como solicitado
+
+redirect:rota_onde_vai
+usado em return
+
+@Valid
+do javax
+valida o formulario
+especificaçao java do bean validation
+@HardValidator
+o spring usa esse
+
+@NotBlank
+nao pode ser em branco
+
+BindingResult
+resultados de erro da validaçao
+.hasErrors
+para usar em conjunto com if
+
+return "new-jedi"
+mantem na pagina new-jedi 
+se houver erro de validaçao
+
+RedirectAttributes.addFlashAttribute
+envia uma mensagem
+
+action
+redirecionamento no html
+
+$ 
+colocar informacoes que vem do java
+
+@ 
+redirecionamentos
+
+
+
+
+rest api
+
+melhorando codigo
+em vez de acoplar o repositorio no resource
+sera criado uma camada de serviço 
+com uma nova classe JediService
+em vez de injetar o repository direto no controller
+sera injetado o serviço JediService
+para implementar o findAll
+em vez de chamar o repository
+chamar o JediService
+pode retornar o jedi 
+ou fazer ele um Jedi e nao um optional
+se nao existir throw new uma exception
+@ControllerAdvice do spring
+trata exceçao de forma simples
+@ResponseStatus(HttpStatus.NOT_FOUND)
+@ExceptionHandler(JediNotFoundException.class)
+para uma exception especifica
+levamos as regras de negocio e complexidade
+desacoplando o controller 
+colocando numa classe de serviço
+essa classe de serviço
+se acopla ao repositorio
+e as exceçoes sao tratadas pelo exception handler 
+no ControllerAdvice chamado ResorceAdvice
+
+delete
+@DeleteMapping("/api/jedi/{id}")
+mesma assinatura de end point
+precisa pegar o id via @PathVariable
+nao tem delete por id
+precisa de uma entity
+caso tentar deletar um jedi inexistente
+ResponseEntity.notFound().build
+caso ter retorna 404
+ResponseEntity.noContent().build
+nao tera um jedi para retornar
+retornara 204
+@ResponseStatus(HttpStatus.NO_CONTENT)
+
+
+put
+@PutMapping("/api/jedi/{id}")
+public Jedi uptadateJedi(@PathVariable("id") Long id, @Valid @RequestBody Jedi jedi)
+return ResponseEntity.ok(repository.save(jedi))
+@ResponseStatus(HttpStatus.CREATED)
+quando der ok a chamada
+o status code da resposta sera 201 created
+a classe HttpStatus do spring
+é um enum contendo diversos status
+
+para alterar o recurso
+toda a mudança das caracteristicas do recurso
+tem que passar identificando o que alterar
+entity entidade que esta no banco de dados
+ResponseEntity<Jedi>
+para poder manipular o resultado do status code de resposta do http
+
+
+para adicionar jedi
+createJedi(@Valid @RequestBody Jedi jedi)
+return repository.save(jedi);
+com esses atribuitos o spring vai parsear o payload e json
+em modelo de jedi
+validar o campos obrigatorios
+modelattribute 
+que todos os atribuitos vao virar esse modelo
+mas nao deve usar esse
+deve ser por RequestBody
+a diferença do modelo antigo é que
+converte os atributos do formulario no modelo indicado
+
+ResponseEntity
+para nao retornar um jedi
+e devolver um ResposeEntity
+return ResponseEntity.ok(jedi.get());
+ok é o 200
+
+quando chama um cadastro pelo id
+se o id nao existir da um erro 
+NoSuchElementException
+repara com um if .isPresent
+para reparar retornar um notFound
+ResponseEntity.notFound().build();
+retorna um status code 400
+
+@GetMapping("/api/jedi/{id}")
+para redirecionar para um cadastro especifico
+@PathVariale("id")
+return repository.findById(id).get();
+
+json forma de escrever um objeto em javascript
+
+@RestController
+notaçao para dizer que é um resource
+para poder receber as requisiçoes da uri informada
+
+
+era chamado de controller rest
+agora é chamado de Resource
+
+um dado acessado tem o nome de recurso
+convençao de comunicaçao usando os metodos http
+o modelo nao sera por interface pagina web
+sera por requisicoes http
+
+para mudar a api fazer por versionamento
+a mais comum é a tecnica header
+
+resource para api rest
+
+erro ao carregar o projeto do andre gomes
+3:58	Found invalid Gradle JVM configuration: JDK 11.0.7 isn't compatible with Gradle 4.5.1. Please fix JAVA_HOME environment variable.
+
+
+
+
+rest jax-rs
+
+
+
+@RequestBody
+onde queremos informar os dados que serao alterados
+
+ResponseEntity.status(HttpStatus.OK).body(soldado)
+pode retornar response entity
+
+
+@PathVariable()
+atributos nao obrigatorio
+
+
+ResponseEntity
+para dizer que retorna alguns dos metodos
+pra poder manipular codigo ou o corpo da mensagem
+
+
+@RequestMapping("/vl/soldado")
+pra criar uma uri base
+todo metodo criado dentro da classe que contem 
+estara conectado com a pagina
+
+@RequestParam
+por filtro
+
+package controller
+
+package service
+para regra de negocio
+para ter padrao de projeto
+a service vai saber onde buscar informaçoes
+na aplicaçao externa ou interna
+vai conter algumas validaçoes e regras de negocio
+
+dto
+onde ficam as classes
+
+
+shift + f6
+para alterar todos
+
+
+hateoas
+
+"rel":"self"
+relacionado a ele mesmo
+apontando pra si
+
+objectMapper.convertValue(soldadoEntity, SoldadoListResponse.class)
+conversao automatica
+pega os dados com mesmo nome e faz o parse pra outro objeto
+SoldadoListResponse.add
+importando do mvc
+
+
+ResourceSoldado
+responsavel por criar os links
+
+@JsonProperty("id")
+quando fazer um mapping de um objeto pra outro
+se nao estiver no codigo
+nao reconhece o id
+aparecera nulo
+pega o getResourceId
+mas quando fazer os map das propriedades
+nao reconhece
+faz o map por id
+
+foi adicionado alguns outros imports
+spring-hateoas
+spring-plugin-core
+spring-boot-starter-data-jpa
+h2
+banco de dados em memoria
+SoldadoRepository
+repository em
+../main/java/...example.restfull/repository
+SoldadoEntity
+../main/java/...example.restfull/entity
+representa o item na tabela
+../main/java/...example.restfull/controller/response
+getResourceId
+diferente porque o ResourceSupport ja tem id 
+pra nao gerar conflito mudar o nome do getId
+
+
+control + shift + click
+navega para o arquivo do objeto
+
+alt
+da a dica
+enter
+aplica o comando
+
+
+
+
+filter
+
+Filter
+da biblioteca do javax.servlet
+no header
+Authorization
+tolken parao
+
+map de header
+.collect(Collectors.toMap(it-> it, req::getHeader));
+
+!= null
+para caso nao tenha authorization
+
+colocando um log
+da pra saber se entrou ou saiu na aplicaçao
+
+Logger
+importado da slf4j
+
+control + alt + L 
+auto identaçao
+control + alt + O para deletar imports nao usados
+
+FilterJava
+@Component
+precisa por que sem ele nao se acha
+
+
+
+
+jackson
+
+ObjectMapper
+
+@JsonProperty("id")
+faz mapeamento
+se tem uma propriedade meuid
+quero apenas id
+transforma id em meuid
+
+para usar o json como uniao 
+de sistemas com linguagens diferentes
+
+transforma o json em objetos java via dupla
+library
+jackson mais usada no java
+gson da google
+
+@Configuration
+sempre quando a aplicaçao inicializa
+ele passa pelas configuraçoes
+
+por padrao os objetos devem estar em conformidade 
+quanto ao numero de propriedades
+caso contrario sao objetos de diferentes tipos
+e devem ser melhor manipulados 
+para ser trabalhados
+objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+para nao fazer essa validaçao
+SerializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, false
+se nao informar o valor ele nao faz mapeamento
+DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY
+para nao se perder nos arrays
+array de 1 valor ira se perder
+registerModule(new JavaTimeModule)
+conversao que o objetct mapper nao tem por default
+faz a conversao das datas
+
+SimpleModule
+nome unico se nao se perde
+
+Serializer
+transforma o enum no json
+
+Deserializer
+transforma o json no enum
+
+versao
+a maior bastante em jogos
+a 1 dificilmente muda
+2 feature nova
+3 correçao de bug
+4 nem todos usam, é pra desenvolvedor
+alguma alteraçao que nao afeta diretamente
+
+
+
+java http client
+ja vem com o java
+2018 novas alteraçoes
+nao muito utilizado
+muito verboso
+os mais usados sao os seguintes
+hash client e
+fing client
+httpClient.send(requisiçao, retorno)
+(request, HttpResponse.BodyHandlers.ofString())
+HttpResponse
+informaçoes sobre a requisiçao
+status code 200 201 400
+body
+informaçao que interessa
+headers
+talvez utilizado
+
+para enviar requisiçao
+retorna string em formato json
+.uri(pra onde vai a chamada)
+.header()
+se necessario
+.GET ou outra requisiçao
+
+.../resource/application.properties
+telegram.api=https://api.telegram.org
+BASE_PATH
+telegram.token=bot...
+TOKEN
+
+objectMapper
+pega o json e cria um objeto do formato java
+ao fazer o parse
+tem que fazer um try catch
+caso for uma string que nao consegue parsear 
+lançara um erro
+uma vez transformado em json
+pode ser enviado em uma requisiçao
+
+pode setar um header
+ou pode criar varios headers
+.header()
+
+quando da um post envia um tipo de objeto
+quando da um get recebe um outro tipo de objeto
+
+TelegramController
+onde vai receber as requisiçoes
+
+Telegram
+service que chamara a client
+
+JavaHttpClient 
+fara a requisiçao
+
+"text": "mensagem",
+no post vai um "chat_id": 123
+pra quem enviar a mensagem
+
+em grupo o bot nao le todas as mensagens
+so pega as mensagens que tem comando
+
+body
+vem em json
+tem que converter em objeto java
+
+
+
+
+
+RestTemplate
+library da springweb
+
+? campos nao obrigatorios
+uriVariable
+pode ser usado pra fazer filtro
+
+GetForEntity
+retorna uma response entity
+com informaçoes do http
+status code
+body que sera o objeto
+headers
+informaçoes adicionais de uso opcional
+
+Exchange
+pra todos os metodos 
+metodo http
+get post put delete optional
+
+PostForLocation
+retorna uma uri
+que vem do header
+se o servidor nao retornar 
+a header a informaçao vem null 
+data
+dado em si, um soldado do exemplo, novo dado no sistema
+
+PostForEntity
+volta dentro de uma http entity 
+onde tem os status da request
+e informaçoes http
+
+Exchange
+
+restTemplate
+para funcionar tem que criar uma config 
+.../RestTemplateConfig
+pra o spring inicializar ela na inicializaçao do sistema
+
+HttpEntity
+onde tem a mensagem e o header
+
+
+
+FeingClient
+mais usada
+simples e versatil
+
+@EnableFeingClients
+para ser usada tem que ser anunciada pela anotaçao
+na classe onde esta sendo requisitada
+se nao colocar da erro
+
+quando criar uma classe é criada uma interface
+@FeingClient(url, nome)
+
+@RequestMapping(method = RequestMethod value = "/sendMessage")
+seleciona o metodo
+
+@RequestBody
+apenas pegando o corpo da requisiçao
+so o resultado
+antigamente tinha que enviar para pegar so o resultado
+agora pega apenas pelo @PostMapping
+
+@PathVariable
+como passar as variaveis para os metodos e requisiçoes
+coloca o valor no path
+
+@RequestHeader
+
+@SpringBootApplication
+
+@Header("MEU_HEADER: {meu_header}")
+pode escolher qualquer header
+ou existente ou padrao
+
+@Param
+para escolher qual header e o valor que ira receber
+
+para usar faz a injeçao de dependencia
+private FeingClient feingClient
+
+tem que importar no build.gradle
+spring-cloud-starter-openfeing
+a partir da 2
+antes era netflix alguma coisa
+
+@ResponseBody
+funcionou sem essa anotaçao
+
+
+
+
+mockmvc
+
+cria uma classe de teste
+@RunWith(SpringRunner.class)
+para iniciar a classe de testes
+@WebMvcTest(value = SoldadoController.class)
+sobe o contexto necessario pra teste
+nao precisa subir todo spring
+cenario
+tem um projeto com 100 testes
+se subir toda spring levara muito tempo
+
+mockMvc.perform(get ou post ou put("/v1/soldado/1"))
+como se viesse de outro serviço e executado pelo path
+pega todo request e devolve um response
+nao apenas do metodo mas do http tambem
+.contentType
+se for get salvar objeto pessoa contrato
+com qual tipo
+content tem que ter json 
+jsonOutString
+dado retornado de fato 
+faz a validaçao se é json
+.andExpect
+qual retorno esperado, qual validaçao feita
+
+objectMapper sera usado para fazer as conversoes
+
+header padrao
+header().string("Content-Type", "application/json;charset=UTF-8")
+
+meuvalor=Valor da classe de teste
+poderia ser um dados de banco de dados ou qualquer outra configuraçao
+
+@Autowired
+protected MockMvc;
+injetando mockmvc na classe de teste
+
+@Test
+indica que o metodo a seguir esta sendo testado
+
+para rodar os testes de uma so vez
+direito no pacote test..run all tests
+é demorada execuçao pois o sistema verifica
+quais locais precisa fazer o teste e quais nao
+
+deve ser mockado os retornos
+pois nem sempre é desejado o retorno no banco de dados
+ou sequencia no sistema
+
+@Service
+mostra que é um serviço
+
+when()
+metodo estatico do mockito
+tem que importar
+usado para mockar
+com get nem tanto mas em outros metodos interfere
+
+@MockBean
+deu erro e precisou dessa anotaçao
+
+doNothing().when(soldadoService).salvarSoldado(any());
+quando for chamado o objeto nao faz nada
+
+
+
+
+
+
+
+
+TEST
+
+junit
+para teste unitario
+testa apenas cada metodo
+
+pom.xml 
+deve ter dependencia do junity
+4.12
+
+cada classe deve ter 
+sua classe de teste correspondente
+mesmo nome
+
+para criar um projeto teste
+file..new..maven project..
+criar um projeto simples
+
+src/main/java
+novo pacote 
+com.test
+nova classe
+calculadora 
+tera um metodo de soma
+em cima da classe calculadora
+
+
+src/test/java
+com.test
+em cima da classe calculadora
+new..outros..jUnit
+novo test case
+com.teste
+configurar para testar calculadora
+em next clicar no soma
+teste criado
+
+.assert
+servem para determinar se um caso de teste
+teve sucesso ou nao
+importar de
+org.junity.junit.Assert
+junity
+sobrecarrega assert para todos 
+objetos primitivos objetos e array
+
+assertEquals(5, soma)
+deve retornar 5 no metodo soma
+se o atual ou o proximo sao iguais
+
+para executar o teste tem que 
+clicar com botao direito na classe do teste
+run as junity test
+
+ordem dos parametros assert
+valor esperado, valor atual
+
+assertArrayEquals
+compara um array recriado com o original esperando igual
+
+assertEquals("string1", "string2")
+
+assertFalse(false)
+testar objeto para ver se é falso verdadeiro
+
+assertNotNull
+se um objeto nao retorna null
+
+assertNotSame
+objetos nao sao os mesmos
+
+assertNull
+para garantir que esta null
+
+rules
+componente que intercepta uma chamada 
+para um metodo do teste e permite
+permite fazer algo antes ou apos o metodo rodar
+todas as classes jUnity4 
+implementam as interface
+org junity rules test rule
+exemplo de uso
+criar arquivos que serao deletados depois do metodo
+falhar um teste se um tal modo especifico antes de ser executado
+configurar um recurso externo como um soft 
+ou conexao com banco de dados antes do metodo ser executado
+liberando o recurso no final
+
+@Rule
+significa que essa pasta temporaria sera criada antes da execuçao do teste
+
+assertEquals(parm1, parm2)
+se o root da pasta temporaria é o mesmo do arquivo criado
+
+
+
+teste de exceçoes
+expected 
+expected rule
+try catch idiom
+
+deve ser declarado que no teste ocorrera uma exceçao
+@Test(expected = IndexOutOfBoundsException.class)
+
+@Rule
+declarando a rule e dizendo que é uma expected exception
+pode ser executado no inicio ou no final
+
+try catch idiom
+é importante que exista o fail no bloco try
+
+a exception é tratada aqui dizendo
+se essa for a mensagem for essa ok pois era esperado
+
+maven install
+para fazer o build
+os testes seram executados sempre no build
+se der erro nos teste aborta o build
+
+
+
+
+mock
+usado para simular ojetos
+se o comportamento for mal implementado
+retorna resultados falsos
+
+mockito
+pra javas
+testes legiveis
+erros de facil verificaçao
+lider de mercado
+
+easymock
+serviu como base pra criar o mokito
+
+powermockito
+extensao do mockito
+recursos para trabalhar com api de reflex do java
+melhor capacidade trabalhar com metodos 
+estaticos final private
+
+.verify(mock)
+o que realmente faz a comparaçao
+
+
+
+
+hamcrest
+framework para unit tests
+funciona com junity
+usa predicados existentes para fazer assertions
+unica declaraçao
+usa um assert that da api com os matchers adequados
+possui matcher para assertions em objetos assertion java
+to string pra ver se recebe a string esperada
+haststring
+
+MatcherTest.java
+
+object matcher
+para verificar se string é a mesma
+faz validaçao
+
+bean matcher
+permite inspencionar a propriedade no objeto
+verificando se a person possui name
+tem para numeros
+> < =
+
+permite varias verificaçoes
+permite criar mathcers personalizados
+precisa adicionar dependencia no hamcrest
+
+AssertJ
+permite escrever asserts de mais facil compreençao
+conjunto de classes e metodos para escrever facilmente assertions para classes java guava iodatime nellforj components swing
+precisa adicionar dependencia
+
+para escrever um assert
+tem que passar o objeto para assertthat 
+e depois assertions reais
+
+assertions para objetos de quase todos os tipos
+
+
+
+
+tdd
+
+test driven development
+metodologia agil xp
+metodologia de desenvolvimento baseado em teste
+ciclo curto de repetiçoes
+
+livro desenvolvimento guiado por teste
+kent back
+
+martin fouler
+orienta o desenvolvimento escrevendo teste primeiro
+
+principios
+um codigo so deve ser implementado quando um teste falhar
+escreve para passar
+repete
+
+benificios
+obtem codigo com menos defeito
+design mais limpos
+dividido em pedaços testaveis
+
+depois de finalizado é dificil desenvolver o teste
+ao menos depois de uma funcionalidade
+
+
+
+Junit 5
+framework de testes unitarios mais popular
+adicionar dependencia
+requer java 8 ou superior
+suporte direto em eclipse e itellij
+
+versao 5
+plataform 
+responsavel por lançamento de estrutura de teste na jvm
+interface poderosa como ferramenta de construçao
+define a api test engine 
+para desenvolver uma estrutura de teste executada na 
+plataforma junit
+pode conectar biblioteca de testes de terceiros
+criando uma test engine modificada
+
+jupter 
+combinaçao de novo modelo de programaçao e extensao
+para escrever testes no junit5
+fornece test engine teste baseado em jupter
+suporta anotaçoes 
+@BeforeAll
+executa uma vez antes de todos os metodos do test da classe
+@BeforeEach
+antes de cada metodo de teste em uma classe
+@DisplayName
+alterar o nome de exibiçao 
+ou desativar o metodo com comentarios 
+usando novas anotaçoes
+@Disable 
+@AfterEach
+apos cada metodo de teste
+@AfterAll
+executado apos todos os metodos de teste
+
+vintage
+baseado em junit 3 e 4
+
+doc das anotaçoes
+org..junit..jupiter..api..modulo junit..jupter..api
+
+as assertions foram movidas para
+org.junit.jupter.api.assertions
+
+possivel usar lambda em assertions
+
+avaliaçao lazy se for custosa
+
+assertAll
+agrupar assertions
+relatar problema de asserçoes com falha dentro do grupo multiply failures error
+mas seguro fazer assertions mais complexas
+localizaçao mais facil das falhas
+
+Assumption
+usado para executar teste apenas se determinadas forem atendidas
+usado para condiçoes externas necessarias para que o teste seja executado corretamente
+nao diretamente relacionados ao que esta sendo testado
+se uma assumption falhar o teste aborted exception é lançada e o teste sera automaticamente ignorado
+se a condiçao for verdadeira é testado caso contrario nao
+
+
+
+
+
+
+
+
+AVANÇADO
+
+paradigma funcional
+a partir da versao 8 do java
+
+paradigma da recursividade
+tail call optimization
+memorization
+
+linguagem c
+paradigma imperativo
+
+imperativo
+toda vez que é declarado uma linha
+é uma ordem de processamento para cpu
+quando declarado uma variavel
+esta mexendo diretamente dando uma ordem
+funçoes intantaneas
+no momento em que sao criadas sao executadas
+1930 paradigma funcional criado
+por orientador do alan turing que criou
+lisp primeira linguagem funcional
+utiliza variaveis imutaveis
+utilizam recursividade intensamente
+paradigma declarativo
+na lambda 
+vai falar o que quer que faça quando passar o parametro
+
+declarativo
+tambem esta dentro do paradigma funcional
+pode explicitar o comportamento de algo a ser executado em algum momento
+
+default
+method pode colocar uma implementaçao padrao para o metodo na interface
+permite mais um metodo na interface
+possibilitando o uso do lambda
+
+@FunctionalInterface
+nao obrigatoria
+protege na declaraçao da interface
+para saber que nao pode 
+alterar para uma interface nao funcional
+bom colocar sempre onde tiver aplicaçao de conceitos funcionais
+
+lambda
+tipo que deve ser uma interface do tipo funcional
+pode ter somente um metodo abstrato,
+nome da variavel 
+comportamento;
+so pode ter uma variavel 
+as chaves precisam fechar com ponto e virgula
+contra da lambda
+nao poder alterar o estado de outra variavel dentro dela
+conceito de programaçao funcioal
+
+
+interface Runnable
+implementada na classe thread
+
+tail call 
+é o contrario
+pega do final para o inicio
+metade do processamento
+se for muito grande o valor da uma exceçao
+StackOverflowError
+nao tem suporte pelo java
+conceito de programaçao funcional
+
+
+
+
+interfaces funcionais
+
+funcoes de alta ordem
+por parametro recebem funçao
+ou retornam uma funçao por parametro
+
+lambda e interface funcional
+tentativa de implantar o paradigma funcional no java
+
+estatico pra nao precisar estanciar
+
+@FunctionalInterface
+interface que possui um metodo abstrato
+pra respeitar as regras de implementaçao de uma lambda
+
+implementando funcoes de alta ordem
+primeiro cria uma interface com os parametros com notaçao @FunctionalInterface
+cria lambda usando a interface
+executa por baixo de outra funçao
+
+as lambdas funcionais do java necessitam de uma interface pra funcionar como as arrows functions do javascript 
+cria o corpo e passa o parametro
+
+se tiver retorno na api da java function
+nao precisa de retorno
+
+metodo de referencia
+esconde o parametro
+apenas chama a funçao
+como forma de variavel
+
+primeiro transformando depois calcular
+por isso nao reconhece o modelo de referencia
+se mudar para Integer::valueOf;
+ja intende
+pois apenas converte e retorna
+:: para apenas uma instruçao
+
+quando tem corpo nao sao abstratos
+
+se a interdace so tem
+metodo que nao tem corpo
+é uma functional interface
+
+predicate
+predicado
+recebem parametro qualquer
+retornam boolean
+
+supliers
+nao recebem parametro e retornam algo pedido em generics<>
+bom de utilizar junto com listas arrays e conjuntos
+fazem uma logica sem receber nada retornando algo
+
+toString com @Override
+se nao for implementado
+quando mandar dar um println em algum objeto
+vai retornar um string@hash_numero
+se nao encontrar o toString da classe
+vai na classe object
+que todas as classes herdam por padrao
+e busca o toString dela
+
+tem que instanciar new se nao nao funciona
+pra quando se deseja instanciar um objeto
+e nao recebe parametro nenhum
+ou se esta recebendo o mesmo parametro 
+que o pessoa esta precisando pra estanciar esse valor
+utiliza o new
+
+Stream 
+nao tem metodo construtor pra ser instanciado
+é uma classe abstrata e nao pode ser instanciada
+usar o Stream.of
+recebe um array de parametro
+processamento mais custoso que o for
+api de stream
+nao precisa chamar stream toda hora
+para lidar com uma colecao ou array
+alternativa fazer pelas coleçoes do java 
+profissoes.stream()
+coloca toda lista profissoes em um stream
+
+
+.filter
+recebe um predicate
+
+.joining
+recebe um array de string e converte em uma string so
+sem separar
+
+consumer
+recebe um parametro e nao retorna nada
+
+...
+pode indicar um array
+
+map
+recebe uma function
+recebe um parametro
+retorna um valor que pode ser do mesmo tipo do parametro
+ou outro tipo qualquer
+
+a programaçao imperativa é sempre mais rapida
+
+
+
+
+paralelismo
+
+tem que implementar a interface Runnable
+extends Thread
+implementa a interface run
+implementa o metodo run
+
+this.getName
+pega o nome da thread que esta sendo executada
+
+barraDeCarregamento2.start();
+quando chama start
+no momento que é executado
+o processo sera executado
+pega aquela thread e executa
+
+formas de instanciar
+ou pode criar uma classe extendendo thread
+e mandar executar ela
+thread1.start
+ou
+criar uma thread em si mesma classe
+e passar a implementaçao da interface Runnable
+para saber o que é pra ser executado
+e executar em si mesmo
+
+Thread.sleep(milisegundos)
+
+.isAlive
+como saber se a thread ainda esta sendo executada
+
+while(iniciarGeradorPdf.isAlive)
+errado pois
+se estiver vivo e parado
+ainda dara sinal de vida dando falso positivo
+reparado om if (!.isAlive) break
+com while a cada 500 ms
+
+
+api do java 8
+
+classe
+ExecutorService
+implementa a interface Executor
+como se fosse run
+mas deve adicionar as execuçoes
+agora é possivel adicionar ela dentro desse metdo 
+agora adiciona ele dentro de uma pilha de execuçao
+do executor service
+no executor service nao é possivel dar um new nele
+para estanciar um novo executor service
+tem varios metodos de estanciar
+escolhido newFixedThreadPool
+limitado a 3 threads (nao confirmado)
+tem outros de forma fixada sao dinamicos
+
+pra runnable tem tambem a callable
+tambem interface funcional
+permite lançar exceçao
+tem retorno
+
+Future interface
+cancel pra cancelar a execuçao de um processo
+saber se foi cancelada
+saber se ja foi pronto .isDone
+alguem tem que implementar ele
+nao é interface funcional pois tem varios metodos
+.get()
+com V pode pegar um retorno da thread
+manda executar e aguarda uma resposta
+manda o future e pode pegar a resposta do que foi pedido pra executar
+tempo maximo para aguardar executar e devolver o retorno
+se demorar mais pode ser abortado
+
+execute
+ja roda o Runnalbe
+
+usar o .submit
+toda vez que tiver que utilizar uma concorrencia
+na api executor
+ja tem o Runnable e Callable
+que contem o future
+ja sabe que pode pegar o retorno
+ja retorna uma instancia de uma FutureTask
+implementaçao padrao default da future
+90% executado pelo java
+instanceiando e retornando uma interface
+
+.shutdown
+pra desligar 
+pois o executor service é obrigado 
+o thread nao pois depois que a thread main 
+terminar de executar tudo, utilizando as classes antigas,
+ele fecha automaticamente o thread main
+mas enquanto nao chamar o shutdown 
+o executor service nao deixa a 
+thread main fechar a execuçao
+
+ConcurrentModificationException
+quando nao trabalha com a lista de threads 
+em formato thread safe
+lista construida
+new CopyOnWriteArrayList<>
+
+apareceu o null no terminou por que esta sem retorno
+
+.allMatch
+quando todos
+
+
+
+parallel streams
+.parallel
+quando usar 
+quando for tratar com grande tipo de processamento
+e quando um objeto nao depender um do outro
+objetos sem dependencia
+o numero de threads é sempre um numero menor que o numero maximo de threads do processador
+divide o processamento de substreams
+processa sem ordem
+por isso nao pode haver dependencia entre o conteudo processado
+
+
+
+
+modularizaçao
+revoluçao do java 9
+novo tipo modified
+
+para manter a compatibilidade com sistemas antigos
+usavam public
+brecha perigosa
+
+safe
+lida com a memoria da jvm
+
+JEPs
+mini versoes
+incluidas no java 8 conhecidos por Compact Profiles
+dividido em 3 compact
+java lang io
+java sql
+javax
+quando for fazer a compilaçao
+o compact necessario seria usado
+sem precisar uma parte tao extensa da jdk
+
+modularizaçao pode ser usada para restringir acessos
+
+pode quebrar jdk
+
+nas versoes mais modernas a jdk foi reescrita de forma modularizada
+tem que saber o que vem por padrao e o que deve ser importado
+
+delegate
+padrao de projeto
+existe um objeto que chama uma funçao
+que nao sabe resolver o problema
+que chama outro objeto que resolva
+chamando uma determinado objeto dentro 
+e nao deixa o acesso do objeto ser externo
+
+internal
+para nao chamar a classe diretamente
+sem chamar calculadora
+
+hoje com a modularizaçao ajuda no isolamento 
+cobrindo as classes desejadas
+
+Unsafe
+para nao conseguir instanciar essa classe
+pois pode mecher direto na memoria da jvm
+pode instanciar um objeto sem seu contrutor
+
+intellijidea recomendado
+trabalha melhor com recurso
+
+abaixo da 9 dara problema com module
+
+pra ide detectar que esta sendo feita a modularizaçao
+deve ser criado um arquivo 
+que faz parte da configuraçao dos modulos
+contendo as configuraçoes do modulo
+pede new no module-info.java src
+.../src/pacote_main/module-info.java
+nesse arquivo deve estar contido o diretorio raiz do modulo
+e quais recursos exportar
+module digital.innovation.one.utils {
+    exports digital.innovation.one.utils;
+}
+para importar usa o requires
+module digital.innovation.one.core {
+    requires digital.innovation.one.utils;
+}
+quando acontece um erro e ele nao atualiza
+tem que dar rebuild no projeto
+build..rebuild project
+contem apenas as bibliotecas mais usadas
+da java base
+sao 94 bibliotecas
+se quiser que o modulo importe outras bibliotecas
+é necessario adicionar um requires 
+no module-info.java do modulo extendido
+
+
+
+
+
+
+
+novidades no java 10
+release lançada para trabalhar junto com o docker
+
+fazendo a requisiçao é o mesmo que um get 
+no end point so pra pegar o conteudo da pagina
+.getInputStream
+pega todo fluxo de dados todos os byste 
+que esta vindo dessa pagina
+e coloca no getInputStream
+e o stream vem em caracteres
+InputStreamReader 
+para fazer uma convençao do input stream 
+pra poder trabalhar com os dois
+consegue separar em linhas .lines()
+as linhas sao quebradas e estaram como stream
+como varias strings
+stream recurso do java 8 
+com o joining faz uma string so
+embora em uma linha so
+.replaceAll(">" ">\n")
+
+inferencia
+é a capacitade de abstrair o tipo das variaveis
+
+var 
+atribuiçao por inferencia reconhece o tipo automatico
+substitui quando a instancia é reconhecida
+nao é possivel usar em todos os casos
+dando erro de compilaçao
+que pode acontecer quando 
+nao estiver local
+so pode usar var em variaveis locais inicializadas
+nao pode ser usado a nivel de classe
+nao pode ser utilizada como parametro
+nao pode ser utilizada em variaveis locais nao inicializadas
+dentro do for iterativo e enhanced é possivel
+
+perm dados para dados estaticos
+heap space para objetos
+
+tem que setar o limite do heap space maximo na jvm
+
+antigamente o docker nao conseguia configurar
+nao era reconhecido pela jvm
+
+docker container run -it -m512M --entrypoint bash openjdk:7-jdk
+tentar aumentar o maximo heap size
+
+java -XX:+PrintFlagsFinal -version | grep MaxHeapSize
+
+antes da versao do java 10 que permitia o controle do docker
+ou ele pegava o valor maximo 512
+ou pegava 1/4 da memoria da imagem docker
+agora no java 10 é possivel setar o maximo dela 
+e ele automaticamente se iguala a 1/4
+os valores ilustrados sao do docker
+
+docker ps
+
+docker ps -a
+tras o status de todas as imagens
+
+docker run -it -m512M --entrypoint bash openjdk:10-jdk
+
+o docker baixa baseado em malhas
+se tinha uma camada igual ele nao precisa baixar
+
+java -XX:+PrintFlagsFinal -version | grep MaxHeapSize
+
+pode fazer a limitaçao do uso de ciclo de cpu disponivel
+antes era ilimitado
+poderia utilizar o recurso de cpu todo da imagem
+pode ser controlado no momento de execuçao
+para testar e visualizar
+
+docker container run -it --cpus 2 openjdk:10-jdk
+no jshell
+Runtime.getRuntime().availableProcessor()
+limita e verifica a quantidade de cpus disponivel
+
+
+
+
+novidades na java 11
+nova tecnica de inferencia nas lambdas
+conexoes http era muito complexa
+usando o protocolo http
+como um post
+websockets nao funciona como http
+http faz requisiçoes e te da respostas
+o cliente vai atras do servidor
+websockets servidor consegue imputar dados no cliente
+o cliente tem que manter uma conexao ativa
+troca de informaçoes reciproca
+
+http client do jdk11
+
+builder
+chama a classe estatica que da uma instancia
+e ensina como criar o objeto
+
+http 1
+HTTP_1_1
+.version(HttpClient.Version.HTTP_1_1)
+chama uma conexao manda uma requisiçao espera resposta
+
+http 2
+HTTP_2
+.version(HttpClient.Version.HTTP_2)
+consegue trabalhar com multiplexaçao 4x mais rapida
+numa mesma conexao é possivel enviar concorrentemente varias requisiçoes
+essas requisiçoes sao transformadas em stringe frames
+cada requisiçao é colocada num frame desse 
+que tera um stream e consegue dentro 
+desse stream fazer a conexao 
+e mandar mais de uma vez varias requisiçoes
+
+.isDeamon
+sao as threads que nao impedem a jvm de finalizar
+enquanto estiver viva
+o garbage colector impede de finalizar a jvm
+
+.map
+converte um objeto em outro
+.substring
+para quebrar a string e pegar um pedaço
+
+a lambda é como se fosse uma classe fora daquele corpo
+nao tem como da throw nela 
+
+runnable nao deixa lançar exceçao
+
+na versao 11 lambda
+é possivel usar a var e fazer inferencia na lambda
+function<Integer,Double> divisaoPor2 = (var numero) -> numero / 2.0;
+se nao tiver Integer,Double
+sera considerado object
+nao funcionando o metodo lambda
+para reparar e entregar um objeto direto
+function<Integer,Double> divisaoPor2 = (var numero) -> numero.getClass();
+
+.lines().filter(s -> s.contains("<head>")).collect(Collectors.joining());
+ja retorna cada linha quebrada em forma de stream
+onde depois que achar <head>
+unir ele em uma unica string
+devolvendo so as linhas que tem head
+retorna
+<head></head>
+com .toList 
+converte em uma lista para cada <head>
+
+Arrays.asList()
+List.of() java 11
+converte em uma lista
+Set.of
+nao repete objetos na lista
+
+variavel.repeat(10);
+repete uma string concatenando nela mesma 10 vezes
+nao usa string auxiliar
+
+exibir variaveis
+System.out.println(variavel1 + "frase" + variavel2 + "frase2");
+System.out.printf("número: %d", numero1);
+float com duas casas decimais;
+System.out.printf("número: %.2f", numero1);
+
+resto da divisao operador %
+
+ler
+Scanner entrada = new Scanner(System.in);
+inteiro
+numero = entrada.nextInt();
+cadeia de caracteres sem espaco
+String cadeia = entrada.next();
+numero com virgula
+double variavel = entrada.nextDouble();
+numero 64 bits
+long variavel = entrada.nextLong();
+linha inteira com espaco etc
+String variavel = entrada.nextLine();
+
+leitura escrita dio digital innovation one 
+importar
+import java.io.BufferedReader;
+import java.util.StringTokenizer;
+import java.io.InputStreamReader;
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+StringTokenizer st = new StringTokenizer(br.readLine()); // Lê a linha de entrada
+int a = Integer.parseInt(st.nextToken()); //converte a entrada para inteiro
+System.out.println(a); // Imprime o dado
+leitura simples de um numero inteiro
+Scanner leitor = new Scanner(System.in);
+int idadeDias = leitor.nextInt();
+
+
+
+
+projeto basico java
+dentro da pasta src 
+criar uma pasta com o nome do dns da app
+criar um arquivo.java com o nome da classe
+package com.nome_da_app;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        System.out.println("hello world");
+    }
+}
+
+criar projeto
+
+groupid
+nome do site ao contrario
+
+artifactid
+nome do projeto
+
+file..project structure
+selecionar a jdk 11
+e level 11
+build.gradle
+o gradle coloca java 8 por default
+sourceCompatibility = 1.11
+
+exemplo de estrutura de diretorios
+e sua chamada na classe
+package diretorio_da_classe_main.diretorio1.diretorio2
+
+construtor
+public NomeDaClasse (final tipo variavel){
+  this.variavelDaClasse = variavel;
+}
+
+para instalar gradle
+adicionar path variable
+C:\Gradle\gradle-6.8.1\bin
+testar com 
+gradle -v
+
+dentro do mesmo pacote nao precisa importar nenhuma outra classe
+
+wrappers
+classes que representam a forma em classe dos tipos primitivos
+
+pode se atribuir a um primitivo
+um wrapper usando o metodo apropriado
+
+autoboxing
+valor puro para o objeto
+
+unboxing
+constroi um wrapper atribuindo
+a um tipo primitivo
+
+java tem tipagem estatica
+os tipos de variavel
+sao verificadas em tempo de compilacao
+
+tipagemforte
+uma vez declarado o tipo
+esse tipo permanece 
+e nao pode ser alterado posteriormente
+
+tipo inferido
+o tipo pode ser declarado indiretamente
+sem declarar explicitamente
+var variavel = conteudo
+
+concatenacao
+System.out.println(variavel1 + " texto " + variavel2);
+
+a visibilidade default so é publico para quem esta no mesmo pacote
+tipo protected
+
+
+
+classe abstrata
+nao pode ser instanciada
+metodo abstrato
+somente em classe abstrata
+
+para usar uma classe abstrata
+var ClasseAbstrata variavel = new ClasseHerdada(parametro1, parametro2);
+
+static
+modificador que faz o conteudo de uma variavel
+ser a mesma para todas as instancias da classe dele
+se for atribuido a um metodo
+ele pode ser chamado sem a necessidade de instanciar
+
+quando manda um return em string
+aplicado por um print
+tem que pular linha no fim
+
+final
+em classe
+nao pode ser herdada
+em metodo nao pode ser sobrescrito
+variavel nao muda mais o valor variavel
+
+interface
+tipo abstract
+workaround heranca multipla
+
+default
+para nao precisar ser sobrescrito
+metodo default nao quebra as implementacoes
+pode adicionar tranquilo
+
+
+foreach no java
+for(Classe temporaria : Classe.valores()){
+  System.out.println(temporaria)
+}
+pode ser usado em array simples
+for(var numero : numeros)
+  System.out.println(numero)
+
+
+
+java1
+parte2
+
+string
+java.lang
+
+if ternario
+var ternario = condicao ? "verdadeiro" : "falso";
+&& ||
+e ou
+os operadores logicos
+se tiver dois caracteres
+ele verifica so o primeiro
+caso der errado nao verifica o outro
+e ou
+& | 
+com um caractere verifica os dois
+mesmo o primeiro sendo falso em caso de um e logico
+
+++esquerda 
+primeiro incrementa
+depois avalia a expressao
+
+direita++ 
+primeiro avalia a expressao
+depois incrementa
+
+repeticao e condicional igual do c
+
+pra formatacao de print semelhante ao c
+System.out.println(String.format("imc = %.2f", imc));
+ou printf
+System.out.printf("imc = %.2f", imc);
+
+consturtor vazio é opcional
+porem se tiver construtor 
+parametrizado deve incluir o vazio
+se for utiliza-lo
+
+objeto de data
+import java.time.LocalDate;
+LocalDate data = LocalDate.of(ano, mes, dia);
+
+calculando idade automaticamente
+import java.time.Period;
+Period.between(dataNascimento, LocalDate.now()).getYears();
+
+para tirar hash de um objeto
+int hash = Objects.hash(atributo1, atributo2)
+no exemplo retorna inteiro
+
+map
+key nao repete
+valor de atribuicao
+
+linked hash map
+garante ordem
+em troca da performance
+
+comparator
+definir regra de negocio pra ordenar 
+um tipo de dados complexo
+
+comparable
+serve para implementar comparator
+dentro da classe de dominio
+
+comparator
+comparable
+para ordenar objetos nao primitivos
+objetos de classes qualquer
+desde que extendam implementando comparator ou comparable
+
+
+optionals
+objetos que podem ser nulos
+presente ou vazio
+
+expressao lambda sintaxe
+(parametro1, parametro2) -> comandos
+
+expressao lambda mais simples
+() -> System.out.println("imprimir");
+
+optionalx.ifPresentOrElse(se_presente, se_nao_presente);
+
+simplificado
+Optional.ofNullable(null);
+Optional.ofNullable("valor");
+
+resumo optional 3 formas
+of("valor"); //certeza de valor
+ofnullable(null); //pode ter nulo
+empty(); //sem valor, constroi vazio
+
+para imprimir o optional
+System.out::println();
+
+
+
+stream
+nao altera os dados
+faz uma copia para um map etc
+para enorme quantidade de dados
+foca na performance
+processamento paralelo
+
+implementar o metodo 
+@Override
+public String toString
+para retornar a info da classe
+
+pra converter vector list para stream
+se for um array list
+array.stream().combinarcom()
+
+array melhor
+Arrays.asList(item1, item2, item3);
+List<String> nomes = Arrays.asList("nome1", "nome2", "nome3");
+com paralelismo
+nomes.parallelStream().forEach(System.out::println);
+
+
+
+configurando uma data arbitrariamente
+o melhor jeito de iniciar tem que passar pelo getInstance 
+Calendar calendarAgora = Calendar.getInstance();
+calendarAgora.set(ano, mes do 0 ao 11, dia);
+calendarAgora.set(2021, 0, 20);
+
+
+
+os atributos de uma interface é public por padrao
+
+static
+em atributos, todas as instancias compartilham o mesmo dado na memoria
+em metodos, permite sua execucao sem instanciar a classe
+
+final
+em classes, bloqueia sua extensao
+em metodos, impede sobreescrita overriding
+em variaveis, impede a mudanca de valor
+
+var
+nao pode ser utilizado em nivel de classe
+nao pode ser utilizado como parametro de metodos
+nao pode ser utilizado em variaveis locais nao inicializadas
+
+outra forma de passar um vetor como parametro
+tipo... nomeDoVetor
+
+mapa
+remover por valor
+mapa.values().remove("remover esse");
+
+
+ler arquivo eof
+Scanner input = new Scanner(new File("\""+filename+"\""));
+while(input.hasNextLine())
+{
+   String data = input.nextLine();
+}

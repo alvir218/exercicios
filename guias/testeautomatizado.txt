@@ -1,0 +1,9 @@
+npm init inicia projeto
+
+npm i -g mocha
+instala global
+
+npm i --save-dev mocha
+importa biblioteca
+
+npm i --save-dev should

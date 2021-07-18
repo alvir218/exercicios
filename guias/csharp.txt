@@ -1,0 +1,173 @@
+dotnet --version
+
+dotnet --help
+dotnet -h
+
+dotnet --info
+mostra todas as versoes instaladas
+
+add
+um pacote ou referencia ao projeto
+
+build
+compila e gera o executavel ou dll
+
+new
+cria um projeto arquivo na pasta atual
+
+nuget
+informacao
+gerenciador de pacotes para .net
+comunidade ou privado
+
+publish
+gera as dll e sobe o site
+
+restore
+restaura os pacotes ao nuget
+se fosse conectar ao banco de dados
+baixa e atualiza os pacotes de acordo com .csproj
+
+run
+build e run
+
+sln 
+test 
+solution e testes
+
+tool
+instala gerencia ferramentas de extensao do .net
+
+dotnet new --help
+
+--name
+nome do novo projeto
+
+criar um novo projeto
+o nome vem pelo help no shortname
+dotnet new console --help
+dotnet new console -n nome_do_projeto
+
+explorer .
+abre o explorer na pasta atual
+
+code .
+abre o visual studio code na pasta atual
+
+software .
+o software abre na pasta atual
+
+dotnet build
+prepara os pacotes e gera os binarios
+dotnet build pasta_do_projeto
+
+.pdb
+pontos de debug
+
+static void Main(string[] args){
+  Console.WriteLine("hello world");
+}
+
+using System;
+importa as bibliotecas system
+
+dotnet run
+se estiver na pasta do projeto
+basta para build e executar o programa
+dotnet run -p diretorio_do_projeto
+
+para imprimir o conteudo de uma variavel
+stream interpolation
+Console.Writeline($"frase {variavel} escrita");
+
+para aplicacoes simples em modo texto
+dotnet new console -n nome_do_projeto
+dotnet run
+se estiver no diretorio
+dotnet run -p diretorio_do_projeto
+se for um diretorio diferente
+
+
+
+depois do carrefour
+
+instanciar objeto
+Classe objeto = new Classe(parametro1, paramentro2);
+var objeto = new Classe(parametro1, paramentro2);
+encapsulamento
+publica
+aberta ao programa todo
+privada
+somente pela clase
+protegida
+somente a clase e classe derivada
+
+const int variavel = 3
+constante em csharp
+
+vetor.Length
+nao precisa de () no final
+retorna o tamanho do vetor
+quantas posicoes tem o vetor
+
+foreach(string s in args){
+  Console.WriteLine(s)
+}
+
+vetor[n].StartWith("caractere")
+se inicia com um determinado caractere
+
+throw new Excecao();
+tratar excecao
+
+try catch finally
+
+importar um texto pra editar
+using (System.IO.TextWriter w = System.IO.File.CreateText("teste.txt"))
+w.WriteLine("conteudo");
+
+criar classe
+construtor
+visibilidade class Nome{
+  visibilidade tipo objeto1
+  visibilidade tipo objeto2
+  public Nome(parametro1, paramentro2){
+    this.objeto1 = parametro1;
+    this.objeto2 = parametro2;
+  }
+}
+
+para herdar uma classe ou virtual
+visibilidade class Nome : Heranca{}
+
+metodo em classe
+visibilidade static tipo Nome(parametros){}
+
+ref variavel
+out variavel
+passagem por referencia
+ref exige inicializacao previa
+ref tipo variavel
+
+
+
+
+depois do carrefour
+
+leitura de dados para inteiro
+int inteiro = Int32.Parse(Console.ReadLine());
+
+alocacao dinamica em vetor de inteiros
+int[] vetor = new int[posicoes];
+
+para converter um valor 
+com casas decimais 
+com separador decimal de , pra .
+exemplo em 3 casas depois da virgula
+String convertida = original.ToString("N3");
+convertida = convertida.Replace(",", ".");
+
+para separar uma string com espacos em um vetor de strings
+os vetores devem estar previamente declarados
+string[] vetorDeString = stringDeEntrada.Split(" ");
+

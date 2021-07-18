@@ -1,0 +1,246 @@
+html criada 1991 tim berners lee
+
+meta 
+charset 
+encode dos caracteres
+
+section
+secao generica de conteudo
+lista de artigos
+preferido
+
+header
+cabecalho da pagina ou parte
+pode ser usado mais de uma vez
+
+article
+conteudo relevante
+
+aside
+relacionado ao conteudo da pagina
+biografia links relacionados
+barra lateral
+
+footer
+rodape da pagina
+ou de uma outra parte
+
+h1-h6
+titulo
+so pode ter 1 h1 por pagina
+h1 titulo da pagina
+h2 titulo da secao
+h3 titulo de artigo
+
+p
+paragrafo
+para texto imagens etc
+
+a
+ancora
+link
+href
+pra onde vai
+site
+se for email
+mailto:email@server.com
+target="_blank"
+abrir em nova aba
+<a href="site" target="_blank">texto</a>
+abre o site em nova aba
+<a href="mailto:email@server.com">texto</a>
+
+tell
+liga para um numero se for dispositivo movel
+
+<img src="imagens/imagem1.jpg" alt="imagem de fundo">
+src obrigatorio caminho source
+pode ser um arquivo no servidor ou em outra pagina da internet
+alt para acessibilidade
+descricao da foto quando nao carregada
+leitor de tela mostra o significado da imagem
+
+unsplash
+site de imagens
+
+tinypng
+remove conteudo info da imagem
+para pesar menos
+
+listas
+ul
+ordem da lista nao e importante
+
+ol
+ordem importa
+numeros 
+romanos
+
+li
+item da lista
+
+
+
+dentro de um par de chaves
+declaracoes
+propriedade
+valor
+a, p, h1 {
+color: blue;
+font-size: 14px;
+}
+
+classe precedida por .
+id precedida por #
+id so pode ser usado uma vez na pagina
+
+.header {
+  padding: 10px;
+}
+
+#header {
+  padding: 15px;
+}
+
+style
+salva a formatacao em arquivo
+
+no head
+<link rel="stylesheet" href="style.css">
+para adicionar arquivo de formatacao css
+
+para mudar a cor do texto
+no arquivo style.css
+
+#title, subtitle, post_title {
+  color: blue;
+}
+
+.post_title {
+  font-size: 16px;
+  font-style: italic;
+}
+
+
+
+box model
+
+margin
+espacamento entre elementos
+
+border
+circunda a margin e o conteudo
+pode ter sua aparencia alterada
+largura cor
+
+padding
+entre a borda ou conteudo
+
+content
+conteudo em si
+
+trocar a cor de fundo por css
+body {
+  backgroud: #ccc;
+}
+
+muda a cor do fundo da caixa do post para branco
+
+.post {
+  backgroud: #fff;
+  padding: 10px;
+  border: 3px solid #000;
+  margin: 10px;
+}
+
+padding adiciona um espacamento
+
+border mostra a borda da caixa em preto
+
+em 2
+y x
+padding: superior_e_inferior esquerda_e_direita
+
+em 4
+padding: superior direita inferior esquerda
+
+0 nao precisa de unidade
+
+mais facil de entender
+padding-top 6px;
+padding-right 7px;
+padding-bottom 8px;
+padding-left 9px;
+
+background-color: green;
+background-color: #008800;
+backgroud: cor;
+backgrond-image: url("bg.png");
+background-position: top;
+
+border-radius: 10px;
+border-radius: 50%;
+permite contornos arredondados
+
+para fazer a imagem ficar redonda
+criando classe
+.photo {
+  border: 1px solid #505050;
+  border-radius: 50%;
+}
+
+na estilizacao de fontes
+quando informado 2 tipos
+o segundo serve de backup
+
+text-transform: uppercase; maiusculas
+text-transform: lowercase; minusculas
+text-transform: capitalize;
+primeira letra em maiusculo
+
+text-decoration: formato;
+underline
+sublinhado
+overline
+soblinhado
+line-through
+tachado
+
+ul {
+  list-style-type: square;
+}
+
+ol{
+  list-style-type: upper-roman;
+}
+
+ul {
+  list-style-type: "\1F44D";
+}
+
+ul {
+  list-style-image: "rocket.png";
+}
+
+formatando o simbolo das listas
+
+varias tags com formatacao css
+.contacts_list li a {
+  formatacao;
+}
+
+no body
+width: 900px;
+largura maxima da pagina em 900px
+max-width: 900;
+se for menor cabera
+se for maior ficara centralizado
+
+margin: auto;
+cria um espacamento dos lados
+responsivamente alinhado ao centro
+
+text-align: rigth|center|justify|left;
+alinha o texto
+de acordo com o espaco onde foi enserido
+

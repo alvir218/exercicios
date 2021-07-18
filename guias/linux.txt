@@ -1,0 +1,570 @@
+pwd
+mostra pasta atual
+
+ls
+dir
+lista arquivos e diretorios
+ls -l
+lista detalhes
+ls -F
+mostra a / depois dos diretorios
+ls -a
+mostra os arquivos e diretorios ocultos
+ls -lh
+exibe permissoes
+proprietario
+tamanho
+data de criacao
+ls -s
+exibe tamanho dos arquivos em bloco
+
+cd /caminho/do/destino
+change directory
+muda de diretorio
+cd ..
+um nivel acima
+
+mkdir
+make directory
+cria um novo diretorio
+
+man nome_do_comando
+manual
+
+parametro --help
+retorna o manual em portugues
+
+history
+historico de comandos dados
+history -c
+apaga o historico de comandos
+
+!!
+executa o ultimo comando
+
+control r
+busca entre comandos executados
+
+mv
+move ou renomea um diretorio arquivo
+mv velhoNome nome 
+mv nome destino
+mv -i
+confirma antes de substituir
+mv -n
+sem substituicao
+mv -b
+substitui pelo backup
+mv -u
+substitui se for antigo
+
+touch arquivo1 arquivo2 ...
+cria um novo arquivo
+troca o tempo do arquivo hora data
+touch -a arquivo
+altera a hora de acesso
+touch -m arquivo
+altera a hora da modificacao
+touch -c arquivo
+altera a hora de acesso sem criar um novo arquivo
+touch -t 202012081047.30 arquivo
+aaaammddhhmm.ss
+
+
+
+cp arquivo destino
+copy
+cria copia do arquivo
+cp -r diretorio destino
+copia o diretorio todo
+cp -i
+com confirmacao de sobrescrita
+cp -v
+verbose
+exibe o progresso 
+cp -v -r . destino
+copia todos os arquivos e diretorios da pasta atual
+cp -l 
+cria hard links em vez de copiar
+cp -s 
+cria links simbolicos em vez de copiar
+cp -u 
+copia quando o arquivo 
+de origem for mais novo que 
+o de destino
+
+clear
+limpa a tela que estava cheio textos dos comandos anteriores
+
+rmdir
+apaga diretorios inteiros
+usado em diretorios vazios
+
+rm
+apaga diretorios
+rm -r arquivo
+apaga arquivos
+rm -r comecaCom*
+apaga todos os arquivos que comecam com
+rm -f 
+sem perguntar
+
+exit
+sai do termial
+desloga
+
+nano
+editor de texto em modo texto
+nano nomeDoArquivo
+control g
+ajuda nativa do nano
+control j
+justifica o texto
+alt u 
+desfazer
+alt e
+refazer
+alt a
+marca o texto
+seleciona
+alt 6
+copia o texto
+control u
+cola o texto
+control t
+verifica ortografia
+control \
+localizar e subistituir
+control o
+salva o arquivo
+control x
+sair
+
+cat arquivo
+exibe o conteudo do arquivo de texto
+cria arquivo
+concatena arquivo
+cat arquivo1 > arquivoFinal
+
+tac arquivo
+inverte as linhas 
+exibe da ultima linha para primeira
+
+head arquivo
+10 primeiras linhas do arquivo
+
+tail arquivo
+10 ultimas linhas do arquivo
+
+>
+criar um arquivo de texto novo com o conteudo de 2 arquivos
+redireciona a saida do arquivo de texto
+apaga o conteudo de antes
+tail teste.txt > distros.txt
+
+cal >> data.txt
+redireciona a saida do arquivo de texto adicionando novo conteudo
+sem apagar o que ja estava no arquivo em questao
+
+cal
+exibe o calendario do mes atual
+cal 2020
+calendario do ano inteiro
+cal maio
+calendario de maio
+
+date
+data e horario e fuso horario atual
+
+tail arquivo.txt | grep termo
+faz uma busca pelo termo em arquivo.txt
+
+cat texto.txt | more
+cat texto.txt | less
+exibe o arquivo com navegacao por paginas
+pagina o arquivo
+enter pra ir para proxima linha
+control z sai
+
+&
+executa dois comandos em uma so linha
+um depois do outro
+cada saida um comando
+
+&&
+executa dois comandos em uma so linha
+os dois ao mesmo tempo
+uma saida so
+
+file arquivo.txt
+file /diretorio
+retorna o tipo de arquivo
+
+whatis comando
+o que faz o comando
+
+find
+busca de arquivos
+exemplo
+find /diretorio -name arquivo.txt
+busca pelo arquivo arquivo.txt
+
+<
+direciona um arquivo como entrada de um comando
+cat < teste.txt
+sai do teste entra no cat
+
+guiafoca.org
+apostilas linux gratis
+separado por iniciante intermediario e avancado
+
+cat /proc/cpuinfo
+exibe todas as informacoes sobre a cpu
+
+cat /proc/meminfo
+exibe as informacoes sobre a memoria
+
+lspci
+lista o hardware conecatado a pci
+
+lsusb
+lista o hardware conecatado a usb
+
+arch
+arquitetura do sistema
+x86_64
+
+uname
+uname -m
+mostra o kernel do sistema
+Linux
+uname -r
+versao do kernel
+5.3.0-40-generic
+
+free
+mostra o uso da memoria
+
+du -h /home/usuario
+mostra o uso de memoria dos diretoris e arquivos
+human readeble
+
+cat /etc/passwd
+mostra todos os usuarios do sistema
+seus nomes e pastas home
+
+reboot
+reinicia o sistema
+
+shutdown -h now
+now ou tempo
+desliga o computador
+shutdown -r
+reinicia
+
+lscpu | more
+todas as informacoes da cpu
+
+lswd | more
+lista todo o hardware do sistema
+lshw - short
+lista o caminho classe descricao
+
+echo
+echo -e "saida"
+a saida do comando é a string de entrada
+\n pula linha
+
+interface principal do computador local
+loopback
+127.0.0.1
+
+ifconfig
+tem que instalar
+sudo apt install net-tools
+
+inet
+endereco ip da maquina local
+
+netmask
+separa a rede publica da privada
+
+broadcast
+endereco publico da rede local
+o que enviar para ele é transmitido para toda rede
+
+ether
+mac do dispositvo
+
+hostname
+nome do computador na rede local
+hostname -I
+ip da maquina
+hostname -i
+endereco de loopback
+
+whoami
+usuario atual
+
+ping
+parte do protocolo icmp
+verifica o host esta ativo ou inativo
+ping --help
+ajuda sobre o ping
+ping -w
+quantidade de vezes que repete o ping
+
+dig www.google.com
+informacoes sobre dns
+dig www.google.com +short
+so retorna o dns
+
+traceroute
+sudo apt intall traceroute
+traceroute www.google.com
+caminho feito ate chegar ao www.google.com
+conta quantas maquinas estao no caminho
+
+whois
+sudo apt install whois
+whois www.pudim.com.br
+informacoes sobre o dominio
+dns proprietario contatos
+
+who
+quem é o usuario da maquina
+que horas logou
+
+finger
+sudo apt install finger
+todos os usuarios logados no host local
+
+w
+informacoes do usuario na rede
+tem mais informacoes
+
+alias nomeDoComando='comando em si'
+
+nl arquivo.txt
+number of lines
+exibe o numero de linhas
+
+wc -l arquivo.txt
+conta as linhas incluindo linhas em branco 
+wc -w arquivo.txt
+conta as palavras no arquivo
+wc -c arquivo.txt
+quantos bytes tem o arquivo
+wc -m arquivo.txt
+numero de caracteres
+
+cmp arquivo1 arquivo2
+compara os arquivos e mostra diferencas
+
+diff arquivo1 arquivo2
+mostra a diferenca entre os arquivos
+
+
+sort -n arquivo.txt
+organiza em ordem numerica o conteudo do arquivo
+
+last reboot
+informacoes de reinicializacao do sistema
+
+route -n
+tabelas de roteamento do ip do kernel
+
+time comando
+tempo em que o comando leva pra rodar do inicio ao fim
+
+uptime
+tempo em que o sistema esta rodando
+
+init 0
+telinit 0
+desliga o computador imediatamente
+halt
+desliga depois de autenticar o usuario
+
+seq 1 10
+imprime uma sequencia de numeros 
+de 1 a 10
+linha a linha
+
+bellard.org/jslinux
+
+vi arquivo.txt
+:wq!
+sai e salva
+
+whereis comando
+mostra onde esta o comando
+manual binario
+
+logout
+desloga do sistema
+
+adduser nomeDoUsuario
+adiciona um usuario no sistema
+
+su nomeDoUsuario
+troca de usuario no console
+
+passwd nomeDoUsuario
+troca a senha
+
+lastlog
+last
+exibe registro do login de todo sistema
+
+logname
+retorna o nome do usuario atual
+
+id
+mostra o uid gid e grupos
+do usuario atual
+
+cat /etc/passwd
+exibe todos os usuarios do sistema
+
+userdel -r nomeDoUsuario
+-r remove a pasta home do usuario em questao
+
+cat /etc/group
+exibe todos os grupos do sistema
+
+groups
+exibe os grupos que o usuario atual pertence
+
+addgroup nomeDoGrupo
+adiciona um novo grupo ao sistema
+
+adduser usuario grupo
+gpasswd -a usuario grupo
+adiciona um usuario em um grupo
+
+gpasswd -d usuario grupo
+remove o usuario de algum grupo
+
+groupdel grupo
+remove um grupo
+
+
+chmod
+muda permissao do arquivo
+chmod numeroOctal arquivo
+numero octal sao 3 digitos de 0 a 7
+1 digito pra cada
+usuario grupo outros
+
+
+gzip arquivo.txt
+alta taxa de compactacao
+compacta o arquivo
+gzip -9 arquivo
+compactacao maxima
+gunzip arquivo.gz
+descompacta o arquivo
+
+zip
+zip nomeCompactado.zip arquivo1 arquivo2 ...
+unzip arquivo.zip
+descompacta o arquivo
+
+bzip2 arquivo
+compacta o arquivo
+bzip2 -d arquivo.bz2
+descompacta o arquivo
+
+rar a arquivo.rar arquivos
+compacta arquivos
+sudo apt install rar
+rar x arquivo.rar
+descompacta
+
+tar -cf arquivos.tar arquivo arquivo2 ...
+arquivador, nao comprime
+gzip arquivos.tar
+comprimir
+tar -xvf arquivo.tar.gz
+descomprime o arquivador 
+que foi comprimido pelo gzip
+tar -xvf arquivo.tar.gz -C caminho
+para descompactar em um local especifico
+
+sudo apt install pacote
+instala o pacote
+
+sudo apt upgrade pacote
+atualiza um pacote
+
+sudo apt remove pacote
+remove o pacote desinstalando-o
+
+apt update && apt upgrade
+
+pkgs.org
+rpm.pbone.net
+
+sudo dpkg -i pacote.deb
+instalar manualmente
+
+sudo dpkg -I pacote.deb
+informacoes do pacote
+
+sudo dpkg -r nomeDoPacote
+remover o pacote
+o nome nao é o nome.deb
+tem que ser o nome do apt
+aparece como package nas iformacoes
+
+sudo rpm -ivh pacote.rpm
+instala o pacote
+rpm -ivh --nodeps pacote.rpm
+forca instalacao caso houver dependencias desencontradas
+
+sudo rpm -U pacote.rpm
+atualiza o pacote
+necessita do .rpm
+
+sudo rpm -e pacote.rpm
+desinstala o pacote
+
+yum install pacote
+instala
+
+yum update pacote
+atualiza
+
+yum remove pacote
+
+find .
+lista todos os arquivos e diretorios da pasta atual
+incluindo subdiretorios
+find ./ -type f -name "nome de busca"
+busca pelo arquivo com o nome de busca
+find ./ -type d -name "nome do diretorio"
+
+env
+PS1
+prompt da linha de comandos
+HOME
+diretorio /home/usuario
+PATH
+lista de diretorios vasculhados quando um comando é executado
+variave1=conteudo
+cria a variavel variavel1
+echo $variavel1
+exibe o conteudo da variavel variavel1
+export variavel1
+exporta a variavel1 para as variaveis de ambiente
+cd variavel1
+acessa o diretorio conteudo
+
+env
+mostra todas as variaveis de ambiente
+
+
+criar estrutura de diretorios
+mkdir -p my_first_directory/my_second_directory
+

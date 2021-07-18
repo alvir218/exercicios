@@ -1,0 +1,357 @@
+#git3
+
+software
+git
+bit keeper
+cvs
+subversion
+
+ferramenta host
+github
+gitbucket
+gitlab
+
+gui
+graphic user interface
+cli
+comand line interface
+windows
+cd
+dir
+mkdir
+del ou rmdir
+
+cd /
+vai pra c:\
+cls
+limpa
+mkdir nome_da_pasta
+echo
+imprime no terminal
+echo hello > hello.txt
+imprime hello no arquivo hello.txt
+del workspace
+deleta tudo que tiver dentro da workspace
+del 
+deleta arquivos
+rmdir /S /Q
+remove todo diretorio
+
+
+
+
+
+linux
+cd
+ls
+mkdir
+rm -rf
+
+cd /
+cd ..
+clear
+ctrl L
+limpa tela
+sudo mkdir nome_da_pasta
+cria um diretorio
+diretorio do curso workspace
+rm -rf
+recursivo diretorios e arquivos internos tambem
+forcar nao aparecer mensgens de confirmacao
+
+windows shell
+linux bash
+
+linux no windows
+windows susbsytem for linux
+ubuntu
+
+cd
+change directory
+
+sudo apt-get install git
+
+git --version
+pra testar se esta instalado
+
+para instalar git no mac tem que ter o homebrew
+
+brew install git
+
+sha1
+40 caracteres
+
+se trocar um caractere pelo mesmo
+retorna os mesmos 40 caracteres
+
+echo "ola mundo" | openssl sha1
+para mandar uma frase para o sha1
+
+git bash
+terminal nativo do git
+
+openssl sha1 arquivo.txt
+
+blobs
+echo 'conteudo' | git hash-object -- stdin
+equivalente a
+echo -e 'conteudo' | openssl sha1
+arquivos guardados no objeto blob
+contem metadados
+tipo do objeto
+tamanho
+\0
+conteudo
+'blob 9\0conteudo'
+git hash-object --dtdin
+igual ao 
+openssl sha1
+
+trees
+armazenam os blobs
+metadados
+\0
+aponta pro blob
+tem sha1
+o nome do arquivo
+
+commits
+junta tudo
+aponta pra arvore sha1 da arvore
+parente (ultimo commit) sha1 do commit
+autor
+mensagem
+timestamp
+
+se alterar qualquer coisa
+se reflete em toda a estrutura git
+
+sistema distribuido seguro
+
+git init
+iniciar repositorio
+
+git add
+adicionar arquivos ao repositorio
+
+git commit
+
+ls -a
+exibe ocultos
+
+typora
+para textos markdown
+
+git add *
+
+git commit -m "commit inicial"
+
+tracked
+arquivos que o git tem ciencia dele
+
+untracked
+arquivos que o git nao tem ciencia dele
+
+ummodified
+nao modificado
+
+modified
+alterou o conteudo
+
+staged
+se preparando para outro tipo de agrupamento
+
+git status
+qual status dos arquivos
+
+mv arquivo.ext ./receitas
+move o arquivo para o local atual (./) /receitas
+
+git rm arquivo.ext
+remove do track
+
+git restore --staged arquivo.ext
+tira do stage e volta como estava antes do commit
+acho que so funciona antes do commit
+
+git add *
+git add .
+adiciona tudo do diretorio atual
+
+git push origin master
+envia do local para o remoto
+
+git config --list
+lista de configuracoes
+user.email=email@server.com
+user.nickname=apelido
+para reescrever configuracao
+git config --global --unset user.email
+git config --global --unset user.email
+tem que adicionar o nick email na config, precisa da identificacao
+
+git config --global user.email "email@server.com"
+para adicionar email
+
+git config --global user.nickname  "apelido"
+
+mescla o git local ao remoto
+git remote add origin link_do_github
+git push -u origin master
+
+baixa o repositorio do git
+ira tentar mesclar o remoto ao local
+git pull origin master
+
+para clonar
+git clone endereco_repositorio_git
+
+git remote -v
+mostra a origem do repositorio
+
+
+
+
+
+git com charles h w fung
+
+git config --list
+listar configuracoes salvas
+
+git config --global user.name "seu_nome"
+configura o nome de usuario
+
+git config --global user.email email@server.com
+configura o email de usuario
+
+git init
+inicia repositorio
+
+git status
+estado atual do repositorio
+o que foi modificado etc
+
+git add arquivos
+adiciona os arquivos no stage
+
+git commit -m "mensagem de commit"
+guarda os arquivos no versionamento
+
+git log
+visualiza todos os commit anteriores
+
+git remote add origin endereco_do_github.git
+une o repositorio local com o repositorio do github
+copia o repositorio em outros servidores
+origin é o apelido do servidor
+
+git branch -M main
+troca a branch pra main
+a principal é master
+
+git push -u origin main
+manda os arquivos pro servidor origin na branch main
+
+git clone repositorio.github.git
+importa todo o repositorio pra maquina que executa o comando no diretorio atual
+
+git reset --hard idcommit
+volta todos os arquivos como eram no commit em questao e remove todos os registros e arquivos posteriores a esse commit
+
+git reset --soft idcommit
+restaura os arquivos como eram sem alterar fisicamente
+mesmo assim apaga os commit posteriores a esse
+pode adicionar os arquivos que quer adicionar novamente em um outro commit
+
+
+
+
+
+
+
+video basico da cristiane 1
+
+git log -p 2
+ultimos 2 commit com detalhes
+
+git log --stat
+log com estatisticas
+
+git log --pretty=oneline
+todos os logs em uma linha cada
+
+git log --since=2.days
+logs dos ultimos 2 dias
+
+git reset HEAD arquivo
+tira um arquivo do add stage
+
+git reset HEAD~1
+volta pro commit 1
+
+git checkout hashDoCommit
+volta a versao anterior mas cria um branch aleatorio, pra voltar usa o hash do ultimo commit
+
+git branch
+mostra o branch atual
+
+git checkout -b nomeDoNovoBranch
+cria novo branch
+
+git checkout master
+volta pro branch master
+
+git remote add origin endereco.git
+git push origin master
+pra sincronizar repositorio 
+git com github
+
+git checkout master
+git merge suaBranch
+junta a branch suaBranch com a master
+
+git branch -d deletarEssaBranch
+
+
+git mergetool
+opendiff
+ferramenta de dif para resolver merge do git
+
+
+git status
+git commit
+para continuar o merge
+
+
+
+
+aula engenharia de software 2
+
+sudo apt-get install git
+
+git config --global user.name "nomeDoUsuario"
+
+git config --global user.email "user@server.com"
+
+git init
+
+git flow init
+escolher as branch
+envia para branch feature
+
+git flow branchMae start branchFilha
+git flow feature start branchFilha
+
+faz os commit da branchFilha
+
+git flow feature finish branchFilha
+finaliza a funcionalidade e volta pra branch feature
+
+git flow release start 0.1
+inicia a branch de release
+e envia o funcionalidade da branch filha para release/0.1
+
+git flow release finish 0.1
+termina a funcionalidade e envia pra master
+
+

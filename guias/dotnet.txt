@@ -1,0 +1,290 @@
+dotnet tool install --global dotnet-ef --version 3.0.0
+
+evitando registro de teste no banco
+importar com os using
+em CategoriasControllerTest na classe
+  private readonly Mock<DbSet<Categoria>> _mockSet;
+  private readonly Mock<Context> _mockContext;
+  private readonly Categoria _categoria;        
+
+em CategoriasControllerTest no metodo
+
+
+
+adiciona os midlewares
+app.UseSwagger();
+app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "CursoAPI"); });
+
+injetar a dependencia swagger em startup no metodo configureservices
+services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "CursoAPI", Version = "v1"}); });
+
+using System.ComponentModel.DataAnnotations;
+[Display(Name = "Descrição")]
+
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Install-Package Microsoft.EntityFrameworkCore.Tools
+
+string de conexao
+@"Server=(localdb)\mssqllocaldb;Database=Cursomvc;Integrated Security=True"
+
+Add-Migration InitialCreate
+adiciona o migration com o nome InitialCreate 
+cria tabela
+
+Update-Database
+
+
+
+
+
+	CODIGO
+
+________________________________________________
+
+
+
+	TEORIA
+
+
+code first
+todas as classes tem um id inteiro
+chave primaria das tabelas no banco de dados
+
+@renderbody()
+onde sera incluida as paginas
+
+homecontroler.cs
+controler inicial com a action index
+
+program.cs
+inicia o projeto
+usando classe inicial startup
+
+layout
+_layout.cshtml
+pagina principal da aplicaçao
+
+startup.cs
+configure services
+adiciona as injeçoes de dependencia
+container
+manda abrir a pagina index por padrao
+
+configure
+adiciona todos os midlewares a serem utilizados
+
+entity 
+representa as classes e tabelas no banco
+association
+relaçao entre elas
+
+regular expression
+avalia se o campo equivale a por exemplo
+um email
+um cpf
+uma data
+
+para instalar novos pacote
+ferramentas > gerenciador de pacotes nuget > console do gerenciador de pacotes
+serao instalados o 
+entity framework utilizando sql server
+ferramentas do entity para utilizar o migrations
+
+quando executar o contexto
+ele ira criar
+para acessar referencia o context
+
+migration
+Add-Migration InitialCreate
+no migrations inicial create
+ele so adicionou o migrations 
+deve ser atualizado o database
+Update-Database
+up criar a tabela
+down para remover a tabela
+pasta migration
+contem o banco de dados e seu backup
+para criar tabela 
+Add-Migration nome_da_tabela
+depois de criar a tabela 
+deve-se atualizar o banco de dados
+
+
+AddControllersWithViews
+faz a injeçao de dependencias
+
+configure
+adiciona os middleware
+
+redirection
+se acessar o http faz o redirect
+
+controller inicial action index
+
+_Layout.cshtml
+pagina principal do site
+menu e footer
+
+onconfiguring
+configurar o entity framework
+
+skaffold
+tendo model e contexto
+gera a controler com tela e operaçoes crud
+
+
+view index
+dados que tem que exibir
+pega o context bate em categoria e cria uma lista 
+jogando pra tela
+pega todas as categorias e joga na tela
+
+details
+get
+recebe o id
+quando o id é nulo 
+fala que nao encontrou
+quando passa o id
+ele busca no banco de dados
+
+categorias
+no aspnet web forms
+para cada pagina deveria ter um arquivo na controler
+em vez de uma action
+vantagem do mvc
+
+depois de criar o banco de dados
+botao direito no controler
+adicionar
+novo item com o scaffold
+nomo item mvc
+classe do modelo
+ajustar a classe
+e configurar qual é a classe de contexto
+preencher o nome do arquivo
+
+o viewdata cria uma selectlist pra usar para preencher a categoria
+
+data annotation
+exibir caracteres de idiomas
+
+gerenciar banco de dados pelo visual studio
+gerenciador de servidores
+botao conectar-se ao banco de dados
+fonte de dados
+microsoft sql server (sqlclient)
+nome do servidor
+copiar a string 
+(localdb)\mssqllocaldb
+selecionar ou digitar um nome de banco de dados
+vai encontrar Cursomvc
+direito mostrar dados da tabela
+botao script pra manipular dados
+
+na solucao
+adicionar novo projeto
+.net web .core C#
+api
+
+a diferença da startup.cs do api 
+é que nao tem as default routes
+
+swagger
+ajuda a documentar as api
+para habilitar deve ser instalado 
+Swashbuckle.AspNetCore
+no projeto CursoAPI
+direito propriedades
+aba compilar
+arquivo de documentaçao xml
+aba depurar
+iniciar navegador
+trocar de weatherforecast
+para swagger
+na startup
+tem que ijetar a dependencia e o midleware
+
+para reaproveitar os controller do cursomvc
+direito cursoapi
+adicionar
+referencia de projeto
+soluçao
+cursomvc
+cria a controller
+novo iten com scaffold
+controlador api com açoes usando entity framework
+adicionar
+classe do modelo 
+controller da categoria
+categoria (cursomvc.models)
+contexto
+context (cursomvc.models)
+
+CategoriasController.cs
+pode ser definido as rotas por controller ou por metodo
+httpget
+chama os metodos da api
+
+tem que injetar a dependencia do entity framework
+
+direito definir como projeto de inicializaçao
+para rodar so 1 projeto
+
+para rodar os 2
+vai na solution direito
+projeto de inicializaçao
+vario projetos de inicializaçao
+selecionar varios projetos de inicializaçao
+açao iniciar nos desejados
+
+[Fact]
+notaçao que faz com o visual studio reconheça que é um teste
+
+antes do teste deve adicionar as referencias
+em cursotest direito . adicionar . referencia de projeto
+
+para começar os CursoTest
+direito na sulution . gerenciar pacotes da solution
+instalar Microsoft.EntityFrameworkCore.SqlServer
+instalar Microsoft.EntityFrameworkCore.Tools
+Moq
+
+poderia criar o context no CategoriasControllerTest
+porem poderia estar persistindo no banco
+gerando registro de teste no projeto
+tem que remover isso
+
+para executar o teste
+estando dentro da controller de teste
+ctrl + r, t
+exibir gerenciador de teste
+play verde
+
+[Fact]
+faz o visual studio reconhecer que se trata de um test
+
+publicar
+antes de publicar no azure instalar o dotnet-ef
+direito no projeto
+publicar
+avançado para conferir
+se estiver falhando a parte debaixo da escolha do banco 
+é sinal de que o dotnet-ef nao foi instalado
+grupo de recursos
+pode ser usado para implementar 
+projetos de recursos compartilhados
+porem depois de subir o site ele nao inclui o migration
+por isso falha o banco de dados
+link editar 
+nas configuraçoes marcar
+use essa cadeia de conexao no tempo de execeçao
+esperar encontrar o Context e marcar
+aplicar essa migraçao ao publicar
+ao publicar a api 
+manter o grupo de recursos iguais
+nao cria outro banco de dados
+mas tem que adicionar a dependencia:
+banco de dados sql do azure
+colocar no default connection
+nome do banco de dados cursomvc
+para acessar o banco de dados usar o swagger

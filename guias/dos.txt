@@ -1,0 +1,7 @@
+criar estrutura de diretorios
+mkdir my_first_directory/my_second_directory
+
+obter velocidade da memoria ram
+wmic memorychip get speed
+
+

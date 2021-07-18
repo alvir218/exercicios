@@ -1,0 +1,772 @@
+nodejs composto por
+chrome v8
+engenharia por tras do google chrome
+libuv
+node sistema operacional
+java script executado pelo lado do servidor
+
+requisiçoes
+nao espera uma acabar pra outra começar
+
+register callback
+funçao executada ao encerrar o processo
+
+libuv
+faz a comunicaçao com o banco de dados
+e responder a requisiçao
+
+requisiçao processamento resposta
+
+macro tasks funçoes maiores
+
+instalar
+apt-get install nodejs
+
+versao
+node -v
+
+console.log('exibir essa mensagem')
+
+node arquivo.js
+
+express
+framework web
+usando os metodos http cria uma api
+
+npm install express --save
+--save para informar que quer adicionar a referencia dessa dependencia no arquivo package.json
+package.json
+gerencia as dependencias do projeto
+tem as especificaçoes do projeto
+deve informar
+nome do comando
+qual arquivo binario para ser executado com o commander
+./bin/clima
+
+npm init
+inicia o projeto
+criar arquivo de configuraçao no projeto
+usar depois de instalar as dependencias
+
+na index.js
+para rodar o express na porta 3000
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.listen(port, () => console.log('api rodando na porta 3000'))
+
+para testar http get
+requisiçao responder
+quando alguem entrar na pagiana manda ola mundo na pagina
+app.get('/', (req, res) => res.send('ola mundo pelo express'))
+
+usa modularizaçao
+separar arquivos entre pastas de acordo com funcionalidade
+nao precisa usar o .js na importaçao por que sabe que é um
+arquivo .js
+const userRoute = require('./routes/userRoute')
+
+importar o fs
+o join dele
+pra lidar com a pasta de arquivo
+const fs = require('fs')
+const {join} = require('path')
+
+caminho pra um json simular um banco de dados
+const filePath = join(__dirname, 'users.json')
+
+para buscar os usuarios do arquivo e salvar 
+simulando um banco de dados
+
+pra saber se o arquivo existe
+se existe usa
+se nao retorna um vazio
+const getUsers = () => {
+  const data = fs.existsSync(filePath)
+    ? fs.readFileSync(filePath)
+    : []
+
+  try {
+    return JSON.parse(data)
+     } catch (error){
+       return []
+       }
+}
+
+
+criando usuario
+modificando o objeto json para cadastrar la
+editando arquivo
+transforma o objeto em json
+adiciona configuraçao adiciona objeto
+vai tabular os dados
+const saveUser = (users) => fs.writeFileSync(filePath, JSON.stringify(users, null, '\t'))
+
+cria o usuario e le o banco de dados
+passando o app como dependencia
+quando tiver o metodo http sera essa rota
+dentro da rota
+const userRoute = (app) => {
+  app.route('/users/:id?')
+    .get((req, res) => {
+      const users = getUsers()
+      res.send({users})
+      })
+}
+
+exporta o modulo
+module.exports = userRoute
+
+passar como dependencia o app express 
+por injeçao de dependencia
+userRoute(app)
+
+metodo de criar usuario
+funçao chamando requisiçao
+buscar usuario
+push inserindo um novo registro no objeto
+.post((req, res) =>{
+  const users = getUsers()
+
+  users.push(req.body)
+  saveUser(users)
+  
+  res.status(201).send('OK')
+})
+
+pra poder transformar os dados do head http
+como objetos para o body
+midleware
+bodyparser
+para fazer o parser do corpo da requisiçao post
+
+const bodyParse = require('body-parse')
+
+app.use(bodyParser.urlencoded({extended: false}))
+
+node index.js
+para iniciar a aplicaçao 
+
+rota pra atualizar os usuarios put
+map pra criar outro objeto pra atualizar o id
+id pra saber qual usuario 
+se o user id atual for = parametro
+retorna um usuario com o objeto atual
+fazendo uma mescla do body com ele mesmo
+
+.put((req, res) => {
+  const users = getUsers()
+  saveUser(users.map(user => {
+    if (user.id === req.params.id){
+      return {
+        ...user
+        ...req.body
+        }
+     }
+     return user
+  }))
+  res.status(200).send('OK')
+  
+})
+
+adicionando o metodo delete
+
+.delete((req, res) =>{
+  const users = getUsers()
+  saveUser(users.filter(user = user.id !== req.params.id))
+  res.status(200).send('OK')
+})
+
+campos com email e nome
+const {email, name} = req.body
+
+
+
+
+
+
+
+cli
+ferramentas
+grant
+obpack
+
+para disponibilizar globalmente
+fora do projeto node
+"preferGlobal": true
+
+bin search-files
+qual caminho que sera executado quando for executado
+
+files
+qual pasta deve estar dentro do pacote pra ser executado
+e distribuido mais tarde
+exporta as pastas necessarias para serem empacotadas
+
+pra fazer um link simbolico
+da pasta search-files-cli
+instala o cli no servidor
+npm link
+
+comando disponivel na maquina
+search-files 
+
+para publicar no npm 
+cria uma conta no npm
+e adiciona la
+adiciona um user no npm local
+npm adduser
+npm publish
+
+
+Commander.js
+
+main.js
+usara as fuçoes criadas que consultam
+a api e mostrara a informaçao para o usuario
+
+apiToken.js
+so vai salvar o token que foi passado por parametro
+e informe somente uma vez para nao precisar novamente
+salvando localmente pra ser usado
+
+requests.js
+usa o endpoint da api do climatempo
+
+cli.js
+usara o commander pra estruturar a aplicaçao cli
+importando o commander
+import program from 'commander'
+busca a informaçao sobre a cidade
+getForecast
+pra nao precisar passar o token novamente
+saveApiToken
+notaçao <>
+pra dizer que o parametro é obrigatorio
+...
+para juntar tudo como unico parametro
+.action
+o que fazer depois que os parametros forem passados
+cityName.join(' ')
+junta o array separando os itens por espaço
+
+diretorio src
+estrutura do projeto
+
+diretorio bin
+identifica o binario
+
+clima
+ambiente onde deve ser rodado
+
+require importando module us6 como import
+pega os argumentos e passa pra classe
+require = require('esm')(module)
+require('../src/cli').init(process.argv)
+
+cli.js 
+recebe os argumentos
+pra saber quais sao os parametros passados
+
+token
+-t
+--token
+
+dependencias do projeto
+commander
+smodules modulos do s6
+nodefat 
+biblioteca fat do navegador em node para fazer as requisiçoes da api para buscar as informaçoes de clima
+
+.command
+adiciona um comando no commander.js
+
+
+
+
+
+
+pug
+pra funcionar tem que ter o node
+e o npm instalado
+build em package.json
+pega todos os arquivos da pasta template com a extensao pug
+vai indentar e cria uma pasta build em formato html
+
+sobe os codigos html minificado
+
+permite declarar variaveis para usar no codigo html
+
+tags viram algo aproximado uma funçao
+tag (parametros)
+pode por virgula se estiver na mesma linha
+
+tags de estilo css
+tags_css.
+
+block head
+todos os arquivos que extendenrem de layout.pug
+pode substituir os blocos por conteudo de
+arquivos que que extendem o layout
+
+body.classe.classe2
+body(class="classe1 classe2")
+
+block content
+pagina importada
+
+include footer
+inclui templates externos
+
+npm run build
+para fazer o build com os templates do pug
+
+extends layout.pug
+paginas filhas como contato
+pode usar o layout.pug na pasta de contato
+usando o pug como template
+
+#{title}
+aplicando o conteudo de uma variavel title na pagina
+
+o express serve para passar build diretamente para o usuario
+em forma de pagina web como servidor
+
+index.js
+app.set
+'views'
+onde estao os arquivos de template
+'view engine', 'pug'
+e qual é a engine
+
+res.render('template')
+em vez de send para enviar a api
+
+app.get('/posts')
+res.render('posts')
+envia os dados do banco de dados e aplica nos posts
+
+each
+itera um objeto no pug
+
+mixins/posts
+uma funçao declaravel no pug
+pode ser reutilizada
+
+
+
+
+
+
+#gerenciar seus crushes
+
+se pegar a package.json
+e dar o comando install
+instala todas as dependencias
+de um projeto qualquer
+
+$ touch server /{app,server}.ts
+cria varios arquivos de uma vez
+
+constructor()
+em .ts
+o metodo que é chamado ao iniciar o arquivo
+
+app.route('/')
+equivale a http://localhost:porta
+ja intende que é no root
+
+$ npm install @types/mongoose -D
+instala mongoose apenas para ambiente de desenvolvimento
+
+model.ts
+tudo que for fazer na collection
+
+
+
+
+
+
+
+
+
+node.js com banco de dados
+banco de dados 2
+node-mongoose-master.zip
+query
+comandos enviados para o banco de dados
+consultas
+
+intro_node_pg_sequelize-passo3
+$ git checkout passo1
+usando o repositorio do git como referencia
+
+criar uma tabela 
+id serial (tipo progressivo id++)
+nao pode ser nula
+CREATE TABLE evento (
+id serial PRIMARY KEY,
+none VARCHAR(50) UNIQUE NOT NULL
+);
+
+comentario em linguagem sql
+-- 
+
+evento e participante tem relaçao
+gerando a table evento_participante
+
+id do evento 
+id do participante
+
+query tool no pgadmin 4
+ferramenta para enviar comandos para o banco de dados
+
+SELECT * FROM public.participante
+para exibir a tabela toda
+
+docker-compose.yml
+docker-compose up
+outra forma de fazer as query
+configuraçao pra subir uma maquina virtual com postegres
+-U user
+psql -h localhost -U postegres
+user postgres
+senha postgres
+
+\dt
+mostra as tabelas
+
+pg driver de conexao do node com postgres
+
+npm init
+npm install --save
+npm install --save pg
+
+node js/1_drop.js
+
+quando existe dependencias
+uma tabela tem um id que referencia outro
+e bloqueia a exclusao
+cascade deleta com dependencias
+
+db.query
+comando sql proprio
+
+db.end()
+encerra corretamente a conexao
+
+se executar um mesmo comando de criaçao igual 
+ele da erro pois nao pode criar uma mesma tabela
+por exemplo
+
+($1) variavel substituida
+
+['array em node']
+
+
+orm
+mapeia os objtos para posterior envio ao banco de dados
+sao biblioteca framework usado na liguagem de programaçao
+e ajuda no mapeamento do objeto no codigo 
+com a parte de relacionamento no banco de dados
+
+sequelize
+versatil
+pode migrar de um banco pro outro
+mudando no maximo a string de conexao
+permite funcionalidades avançadas no postgres
+que permite migraçao por arrays
+se forem apenas funcionalidades sql padrao 
+funciona em todas as plataformas sql
+quase tudo o que uma query faz o sequelize faz
+
+pra poder utilizar a sequelize instalar
+$ npm install --save sequelize
+
+dialect 
+pode mudar de acordo com o banco de dados
+o postgres usa a propria forma com pg
+
+$ node sequelize/_database.js
+
+models
+parte do orm
+
+through
+tabela intermediaria
+objeto de conexao
+
+
+await models.sequelize.sync({force: true})
+deleta todas as tabelas encontrada no banco de dados
+e cria devolta forçadamente
+
+$ node sequelize/1_create.js
+
+logging: true
+pra exibir o log das açoes de interaçao com o banco de dados
+
+Evento.setParticipantes([...array])
+participante recebe um S automatico
+
+o Op vem da sequelize e deve ser 
+devidamente importado
+
+
+
+./runDocker.sh
+
+index.js
+aplicaçao express js
+
+users.js
+eschema de usuarios
+
+timestamps
+salvando a data e hora sempre que criar ou atualizar
+
+$ npm i
+instala as dependencias
+
+$ npm run start
+inicia a aplicaçao
+modo debug
+node --inspect main.js 
+
+
+conteudo rotativo
+ate 200 registros
+vai excluindo 
+conforme novos dados entram
+mantendo os 200
+tipo uma pilha
+
+
+
+runDocker.sh
+vai criar uma imagem mongo pra usar em desenvolvimento
+para nao precisar instalar um banco de dados
+
+usa o babel pra transpilar o codigo
+
+handler
+faz a manipulaçao da requisiçao do metodo http
+
+UserController
+em users.js
+é uma classe que recebe como dependencia 
+o modulo de acesso ao banco de dados
+
+o hapi
+quando retorna ja retorna um objeto json para ser usado na api
+tipo response no express
+
+boom 
+usando o boom o hapi reconhece o objeto retornado
+faz o mapeamento das mensagens
+adicionadas no tratamento de erro
+ja faz a validaçao dos erros
+faz a manipulaçao do erro
+
+joi
+trabalha com hapi
+para fazer validaçao
+
+/{id?}
+opcional
+
+await
+marca uma requisiçao como assincrona
+
+
+
+
+
+jtw
+token
+informaçoes essenciais para aplicaçao identificar o usuario
+nao pode ser informaçoes sensiveis
+
+concatenados com .
+header
+hash encriptado de um objto json
+payload
+parte dos dados
+signature
+chave
+header.payload.signature
+
+dependencias
+express
+jsonwebtoken
+
+payload
+pode ser baseado no id ou username
+
+config.privateKey
+vem de um arquivo gerado de um certificado na maquina local
+pode ser gerado arbitrariamente
+melhor pelo certificado por chave publica e privada
+
+return jwt.sign(payload, config.privateKey, config.authOptions)
+
+midleware
+para usar nas rotas do express
+pra bloquear acesso a determinada rota
+verificando se o token é valido e informado
+
+no projeto foram utilizadas duas chaves
+pra gerar o token
+pra validar
+
+req.decoded
+so é criada se o token informado foi criado e é valido
+
+no authorization flag e token
+Bearer codigo_do_token
+
+
+
+
+
+
+lint e tdd
+
+$ npm i eslint
+para instalar
+
+$ ./node_modules/.bin/eslint --init
+para configurar opçoes do eslint
+
+cria o arquivo .eslintrc.json
+
+tutorial completo
+no diretorio raiz do projeto
+npm init -y
+npm i -D eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-standard
+Create .eslintrc.js: 
+module.exports = { "extends": "standard" };
+
+para configurar o numero de espacos da indentaçao
+editar essa linha no .eslintrc.js
+'rules': {
+        'indent': [
+            'error',
+            3
+
+
+tdd
+dependencias
+chai
+eslint
+mocha
+sinon
+supertest
+
+chai
+testa a seçao
+se a variavel é igual outra coisa
+
+mocha
+framework de testes
+
+sinon
+criar spys e stubs
+pega uma classe e inseri nela funçoes que sao sobrescrita
+para consultar o resultado esperado
+e ver o se a funçao tem retorno esperado
+
+supertest
+pra testar requisiçoes http simulando elas
+
+mocha.opts
+configuraçoes do mocha
+antes de rodar o teste vai certificar de ele ser carregado
+--slow muito lento se demorar mais que 5000 ms
+abortara o teste informando erro
+
+import chai from 'chai'
+global.expect = chai.expect
+importa o chai de forma global
+pra nao precisar ficar importando toda hora
+
+pasta e nomes de arquivos correspondentes 
+em versao para implementaçao e outra para teste
+uma com raiz em test .spec.js
+outra com raiz em src
+
+$ git branch -a
+mostra os ciclos de teste
+mostra as diferentes branch do repositorio
+
+$ git checkout ciclo-red
+
+desfaz as alteraçoes
+$ git checkout .
+
+$ npm run test:unit
+para rodar o teste
+
+$ git status
+para ver em qual nivel de teste esta
+
+setupApp
+configuraçao do arquivo que inicia a aplicaçao
+conecta no banco de dados
+configura a api setando as rotas
+
+supertest 
+requisiçoes http
+
+global
+antes de cada teste 
+vai criar uma instancia da aplicaçao
+e salvar o objeto de request
+usando o objeto do express
+pra ser feita requisiçao
+
+runDocker.sh
+o docker vai criar o container que contem o banco de dados
+simulando um mongodb na maquina
+
+$ npm run test:integration
+
+
+
+
+
+websocket
+ter resposta entre servidor e cliente
+
+express 
+como servidor
+
+socketio
+websocket
+
+nodemon
+so pra atualizar o servidor sem reiniciando o servidor
+
+index.js
+servidor
+
+cada cliente que se conectar tera uma sessao propria
+
+io()
+precisaria de parametro se fosse envolvido outro servidor na conexao
+mas é o mesmo servidor local e nao precisa
+
+let
+criaçao de variaveis variaveis em .js
+
+$ npm start
+inicia o servidor
+
+broadcast
+pra todos os usuarios
+
+para monitorar a transmissao
+modo desenvolvedor..network..ws
+
+

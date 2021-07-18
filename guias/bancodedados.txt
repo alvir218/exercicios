@@ -1,0 +1,384 @@
+banco de dados 2
+node-mongoose-master.zip
+query
+comandos enviados para o banco de dados
+consultas
+
+intro_node_pg_sequelize-passo3
+$ git checkout passo1
+usando o repositorio do git como referencia
+
+criar uma tabela 
+id serial (tipo progressivo id++)
+nao pode ser nula
+CREATE TABLE evento (
+id serial PRIMARY KEY,
+none VARCHAR(50) UNIQUE NOT NULL
+);
+
+comentario em linguagem sql
+-- 
+
+evento e participante tem relaçao
+gerando a table evento_participante
+
+id do evento 
+id do participante
+
+query tool no pgadmin 4
+ferramenta para enviar comandos para o banco de dados
+
+SELECT * FROM public.participante
+para exibir a tabela toda
+
+docker-compose.yml
+docker-compose up
+outra forma de fazer as query
+configuraçao pra subir uma maquina virtual com postegres
+-U user
+psql -h localhost -U postegres
+user postgres
+senha postgres
+
+\dt
+mostra as tabelas
+
+pg driver de conexao do node com postgres
+
+npm init
+npm install --save
+npm install --save pg
+
+node js/1_drop.js
+
+quando existe dependencias
+uma tabela tem um id que referencia outro
+e bloqueia a exclusao
+cascade deleta com dependencias
+
+db.query
+comando sql proprio
+
+db.end()
+encerra corretamente a conexao
+
+se executar um mesmo comando de criaçao igual 
+ele da erro pois nao pode criar uma mesma tabela
+por exemplo
+
+($1) variavel substituida
+
+['array em node']
+
+
+orm
+mapeia os objtos para posterior envio ao banco de dados
+sao biblioteca framework usado na liguagem de programaçao
+e ajuda no mapeamento do objeto no codigo 
+com a parte de relacionamento no banco de dados
+
+sequelize
+versatil
+pode migrar de um banco pro outro
+mudando no maximo a string de conexao
+permite funcionalidades avançadas no postgres
+que permite migraçao por arrays
+se forem apenas funcionalidades sql padrao 
+funciona em todas as plataformas sql
+quase tudo o que uma query faz o sequelize faz
+
+pra poder utilizar a sequelize instalar
+$ npm install --save sequelize
+
+dialect 
+pode mudar de acordo com o banco de dados
+o postgres usa a propria forma com pg
+
+$ node sequelize/_database.js
+
+models
+parte do orm
+
+through
+tabela intermediaria
+objeto de conexao
+
+
+await models.sequelize.sync({force: true})
+deleta todas as tabelas encontrada no banco de dados
+e cria devolta forçadamente
+
+$ node sequelize/1_create.js
+
+logging: true
+pra exibir o log das açoes de interaçao com o banco de dados
+
+Evento.setParticipantes([...array])
+participante recebe um S automatico
+
+o Op vem da sequelize e deve ser 
+devidamente importado
+
+
+
+./runDocker.sh
+
+index.js
+aplicaçao express js
+
+users.js
+eschema de usuarios
+
+timestamps
+salvando a data e hora sempre que criar ou atualizar
+
+$ npm i
+instala as dependencias
+
+$ npm run start
+inicia a aplicaçao
+
+conteudo rotativo
+ate 200 registros
+vai excluindo 
+conforme novos dados entram
+mantendo os 200
+tipo uma pilha
+
+
+
+runDocker.sh
+vai criar uma imagem mongo pra usar em desenvolvimento
+para nao precisar instalar um banco de dados
+
+usa o babel pra transpilar o codigo
+
+handler
+faz a manipulaçao da requisiçao do metodo http
+
+UserController
+em users.js
+é uma classe que recebe como dependencia 
+o modulo de acesso ao banco de dados
+
+o hapi
+quando retorna ja retorna um objeto json para ser usado na api
+tipo response no express
+
+boom 
+usando o boom o hapi reconhece o objeto retornado
+faz o mapeamento das mensagens
+adicionadas no tratamento de erro
+ja faz a validaçao dos erros
+faz a manipulaçao do erro
+
+joi
+trabalha com hapi
+para fazer validaçao
+
+/{id?}
+opcional
+
+await
+marca uma requisiçao como assincrona
+
+
+
+
+
+jtw
+token
+informaçoes essenciais para aplicaçao identificar o usuario
+nao pode ser informaçoes sensiveis
+
+concatenados com .
+header
+hash encriptado de um objto json
+payload
+parte dos dados
+signature
+chave
+header.payload.signature
+
+dependencias
+express
+jsonwebtoken
+
+payload
+pode ser baseado no id ou username
+
+config.privateKey
+vem de um arquivo gerado de um certificado na maquina local
+pode ser gerado arbitrariamente
+melhor pelo certificado por chave publica e privada
+
+return jwt.sign(payload, config.privateKey, config.authOptions)
+
+midleware
+para usar nas rotas do express
+pra bloquear acesso a determinada rota
+verificando se o token é valido e informado
+
+no projeto foram utilizadas duas chaves
+pra gerar o token
+pra validar
+
+req.decoded
+so é criada se o token informado foi criado e é valido
+
+no authorization flag e token
+Bearer codigo_do_token
+
+
+
+
+
+
+lint e tdd
+
+$ npm i eslint
+para instalar
+
+$ ./node_modules/.bin/eslint --init
+para configurar opçoes do eslint
+
+cria o arquivo .eslintrc.json
+
+tutorial completo
+no diretorio raiz do projeto
+npm init -y
+npm i -D eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-standard
+Create .eslintrc.js: 
+module.exports = { "extends": "standard" };
+
+para configurar o numero de espacos da indentaçao
+editar essa linha no .eslintrc.js
+'rules': {
+        'indent': [
+            'error',
+            3
+
+para instalar como dependencia
+npm-add-dependencies eslint --dev --no-overwrite
+no lugar de --dev pode vir
+--dev/--save-dev/-D for devDependencies
+--peer/--save-peer/-P for peerDependencies
+--optional/--save-optional/-O for optionalDependencies
+
+npm install -g eslint
+para instalar globalmente
+
+tdd
+dependencias
+chai
+eslint
+mocha
+sinon
+supertest
+
+chai
+testa a seçao
+se a variavel é igual outra coisa
+
+mocha
+framework de testes
+
+sinon
+criar spys e stubs
+pega uma classe e inseri nela funçoes que sao sobrescrita
+para consultar o resultado esperado
+e ver o se a funçao tem retorno esperado
+
+supertest
+pra testar requisiçoes http simulando elas
+
+mocha.opts
+configuraçoes do mocha
+antes de rodar o teste vai certificar de ele ser carregado
+--slow muito lento se demorar mais que 5000 ms
+abortara o teste informando erro
+
+import chai from 'chai'
+global.expect = chai.expect
+importa o chai de forma global
+pra nao precisar ficar importando toda hora
+
+pasta e nomes de arquivos correspondentes 
+em versao para implementaçao e outra para teste
+uma com raiz em test .spec.js
+outra com raiz em src
+
+$ git branch -a
+mostra os ciclos de teste
+mostra as diferentes branch do repositorio
+
+$ git checkout ciclo-red
+
+desfaz as alteraçoes
+$ git checkout .
+
+$ npm run test:unit
+para rodar o teste
+
+$ git status
+para ver em qual nivel de teste esta
+
+setupApp
+configuraçao do arquivo que inicia a aplicaçao
+conecta no banco de dados
+configura a api setando as rotas
+
+supertest 
+requisiçoes http
+
+global
+antes de cada teste 
+vai criar uma instancia da aplicaçao
+e salvar o objeto de request
+usando o objeto do express
+pra ser feita requisiçao
+
+runDocker.sh
+o docker vai criar o container que contem o banco de dados
+simulando um mongodb na maquina
+
+$ npm run test:integration
+
+
+
+
+
+websocket
+ter resposta entre servidor e cliente
+
+express 
+como servidor
+
+socketio
+websocket
+
+nodemon
+so pra atualizar o servidor sem reiniciando o servidor
+
+index.js
+servidor
+
+cada cliente que se conectar tera uma sessao propria
+
+io()
+precisaria de parametro se fosse envolvido outro servidor na conexao
+mas é o mesmo servidor local e nao precisa
+
+let
+criaçao de variaveis variaveis em .js
+
+$ npm start
+inicia o servidor
+
+broadcast
+pra todos os usuarios
+
+para monitorar a transmissao
+modo desenvolvedor..network..ws
+
+

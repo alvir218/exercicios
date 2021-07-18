@@ -1,0 +1,683 @@
+aula de comandos
+
+CREATE DATABASE sistema;
+
+USE sistema;
+
+create table cad_cidade
+(
+codigo tinyint(2),
+nome varchar(30),
+uf varchar(2)
+);
+
+show databases;
+
+create table cad_aluno(
+cod_aluno varchar(5),
+nome varchar(30)
+);
+
+show tables;
+
+describe cad_aluno;
+
+create table cad_aluno(
+cod_aluno varchar(5) not null,
+nome varchar(30) not null
+);
+
+create table materia(
+cod_materia int not null,
+data_inicio date not null,
+nome varchar(40) not null,
+primary key(cod_materia)
+);
+
+create table turno(
+Cod_turno int not null auto_increment,
+nome_turno varchar(20) not null,
+primary key (cod_turno)
+);
+
+alter table cad_aluno rename alunos;
+
+alter table alunos modify nome varchar(70);
+
+alter table alunos add column email varchar(30);
+
+alter table alunos drop column email;
+
+alter table alunos auto_increment = 15;
+
+drop table cad_cidade;
+
+alter table alunos modify cod_aluno varchar(5) not null;
+
+alter table alunos modify nome varchar(30) not null;
+
+describe alunos;
+
+
+
+
+
+
+
+
+
+use sistema;
+
+unique (nome),
+//configura para unico
+//em uma virgula separado
+
+create table Pessoa2(
+Id int not null,
+primary key(Id),
+nome varchar(255) null default "desconhecido",
+genero enum('feminino', 'masculino')
+unique (nome),
+data_cadastro datetime default now()
+
+);
+
+
+CREATE TABLE Pessoa_Adulta8 ( 
+ID int NOT NULL, 
+nome varchar(255) NULL DEFAULT "DESCONHECIDO", 
+idade int, 
+check(idade<=18), 
+primary key(ID) 
+); 
+
+CREATE TABLE Pessoa_Adult9 ( 
+ID int NOT NULL, 
+nome varchar(255) NULL DEFAULT "DESCONHECIDO", 
+genero ENUM ('feminino', 'masculino') not null , 
+idade int, 
+CONSTRAINT val_mulher_adulta check(idade>=18 AND genero='feminino'), 
+primary key(ID) 
+);
+
+select * from Pessoa_Adult9;
+
+
+USE INFORMATION_SCHEMA; SELECT TABLE_NAME, COLUMN_NAME, CONSTRAINT_NAME, REFERENCED_TABLE_NAME, REFERENCED_COLUMN_NAME FROM KEY_COLUMN_USAGE;
+
+alter table pessoa_adult9 rename Pessoa_adulta9;
+
+
+WHERE TABLE_SCHEMA = "<your_database_name>"
+
+
+
+
+exercicios da clinica 1 e 2
+
+#EXERCICIOS_DDL.pdf
+
+#exercicio1
+
+create database CLINICA;
+
+drop table Sala;
+
+create table Sala(
+Numero_sala int not null, 
+unique(Numero_sala),  
+constraint salaValida check (Numero_sala > 1 and Numero_sala < 50),
+Andar int not null,
+unique(Andar),
+constraint andarValido check (Andar < 12),
+Id int primary key auto_increment
+);
+
+select * from Sala;
+
+alter table Sala auto_increment = 1;
+
+alter table Sala add column(
+Id int not null auto_increment,
+primary key(Id)
+);
+
+create table Medico(
+Crm varchar(15) not null,
+unique(Crm),
+Nome varchar(40) not null,
+Idade int,
+Especialidade char(20) not null default "Ortopedia",
+Cpf varchar(15) not null unique,
+Data_de_admimissao date
+);
+
+create table Paciente(
+Rg varchar(15) not null unique,
+Nome varchar(40) not null,
+Data_nascimento date,
+Cidade char(30) default "Itabuna",
+Plano_saude varchar(40) not null default "SUS"
+);
+
+create table Funcionario(
+Matricula varchar(15) unique not null,
+Nome varchar(40) not null,
+Data_nascimento date not null,
+Cargo varchar(40) not null default "Assistente Medico",
+Salario float not null default 510.00
+
+);
+
+create table Consulta(
+Codigo_consulta int unique not null,
+Data_horario datetime
+);
+
+
+
+#exercicio2
+
+alter table Sala rename Consultorio;
+
+describe Paciente;
+
+alter table Funcionario add column(
+sexo char
+);
+
+describe Medico;
+
+alter table Medico modify Nome varchar(60);
+
+alter table Medico drop Idade;
+
+drop table Consulta;
+
+drop database CLINICA;
+
+
+
+
+
+
+
+
+#modelo entidade relacionamento clinica 3
+#esquematico para sql
+
+create database CLINICA3;
+
+use CLINICA3;
+
+create table MEDICOS(
+Crm int primary key
+);
+
+create table SALA(
+Numero int primary key,
+#medico que atende
+#foreign key
+Medico_crm int,
+constraint fk_medico foreign key (Medico_crm) references MEDICOS(Crm)
+);
+
+create table PACIENTE(
+Usuario varchar(20) primary key
+);
+
+create table CONSULTA(
+protocolo varchar(32) primary key,
+Medico_crm int,
+# foreing key
+foreign key (Medico_crm) references MEDICOS(Crm),
+Paciente_usuario varchar(20),
+#foreing key
+foreign key (Paciente_usuario) references PACIENTE(Usuario)
+);
+
+drop database CLINICA3;
+
+describe sala;
+
+SELECT TABLE_NAME, COLUMN_NAME, CONSTRAINT_NAME, REFERENCED_TABLE_NAME, REFERENCED_COLUMN_NAME FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where Table_name = 'sala';
+
+select * from INFORMATION_SCHEMA.KEY_COLUMN_USAGE;
+
+-- create table Atende(
+-- Medico_crm int not null,
+-- Sala_atendimento int not null
+-- );
+-- tabela apenas para relacionamento n para n
+
+-- create table Realiza(
+-- Medico_crm int not null,
+-- Consulta_protocolo varchar(32) unique not null
+-- );
+-- tabela apenas para relacionamentos n para n
+
+-- create table Faz(
+-- Consulta_protocolo varchar(32) unique not null,
+-- Paciente_usuario varchar(20) not null
+-- );
+-- tabela apenas para relacionamento n para n
+
+-- exemplo chave estrangeira
+-- PersonId1
+-- FOREIGN KEY (PersonID2) REFERENCES Persons(PersonID)
+
+
+
+
+
+
+
+
+#atividade pratica em sala
+#supermercado
+
+#allan stuart virmond
+#RU: 2379525
+
+#parte 1
+#criar o banco
+
+create database BARATOMAIS;
+use BARATOMAIS;
+
+create table CLIENTES(
+Id int primary key auto_increment,
+Cpf varchar(15) unique
+);
+
+create table PRODUTO(
+Id int primary key auto_increment,
+Nome_produto varchar(50),
+Data_de_compra date,
+Validade date,
+Preco_unitario float,
+Preco_de_venda float
+);
+
+create table FORNECEDORES(
+Id int primary key auto_increment,
+Produto_id int,
+constraint fk_produto foreign key(Produto_id) references PRODUTO(Id),
+Cnpj varchar(20) unique,
+Razao_social varchar(50) unique,
+Nome_fantasia varchar(50)
+);
+
+create table Comprar(
+Id int primary key auto_increment,
+Cliente_cpf varchar(15),
+Tipo_pagamento enum('aPrazo','aVista'),
+Nota_fiscal varchar(50) unique,
+Nome_do_produto varchar(50),
+Quantidade int,
+Preco float
+);
+
+
+#parte 2
+#comandos
+
+#1. estrutura de uma das tabelas
+describe CLIENTES;
+
+#2. adicionar data de inclusao em uma das tabelas
+alter table PRODUTO add column(
+Data_inclusao date
+);
+
+#4. adicionar uma constraint
+alter table Comprar add constraint vendaNula check (Quantidade > 0);
+describe Comprar Quantidade;
+select * from Comprar;
+
+#3. excluir tipo int
+alter table Comprar drop Quantidade;
+
+
+use teste;
+
+describe alunos;
+
+select * from alunos;
+
+insert into aluno (cod_aluno, nome) 
+	values (459, "joao maria");
+    
+insert into aluno values (458, "maria jose");
+
+alter table aluno rename alunos;
+
+insert into alunos(cod_aluno, nome)
+	values
+    (459, 'joao maria'),
+    (89, 'pedro'),
+    (981, 'maria paula')
+    ;
+    
+select nome from alunos;
+
+select nome, cod_aluno from alunos;
+
+select * from alunos where cod_aluno < 400;
+
+select * from alunos where cod_aluno = 459;
+
+select * from alunos where cod_aluno > 400 and nome = "maria jose";
+
+select * from alunos where cod_aluno > 400 or nome <> "maria jose";
+
+select * from alunos order by nome asc;
+
+select * from alunos order by nome desc;
+
+select nome, cod_aluno from alunos order by cod_aluno desc;
+
+select * from alunos where cod_aluno between 459 and 982;
+
+select * from alunos where cod_aluno between 982 and 459;
+#tem que ser o menor primeiro depois o maior
+
+select nome from alunos where nome like "%o";
+#pedro
+
+select nome from alunos where nome like "ao%";
+#nada
+
+select nome from alunos where nome like "%ose";
+#maria jose
+
+select nome from alunos where nome like "%ao";
+#nada
+
+select nome from alunos where nome like "%ao%";
+#joao maria
+
+select nome from alunos where nome like "%ar%";
+#joao maria
+#maria jose
+#maria paula
+
+select nome from alunos where nome like '_a%';
+#maria jose
+#maira paula
+
+select nome from alunos 
+	where cod_aluno > 400 and nome like "_a%";
+#maria jose
+#maria paula
+    
+select nome from alunos
+	where nome not like "_a%";
+#joao maria
+#pedro
+#joao maria
+#pedro
+
+select * from alunos;
+
+update alunos set nome = 'joao' where cod_aluno = 459;
+
+update alunos set cod_aluno = 35;
+
+delete from alunos where cod_aluno = 459;
+
+delete from alunos;
+
+alter table alunos add primary key(cod_aluno);
+
+describe alunos;
+
+
+
+
+ALTER TABLE `table_name` DROP FOREIGN KEY `id_name_fk`;
+
+ALTER TABLE Payment ADD CONSTRAINT `payment_fk` FOREIGN KEY(emp_id) REFERENCES Employee (emp_id) ON UPDATE CASCADE;
+
+
+
+
+
+underline e pocentagem em like %_ _%
+
+like _
+um caractere de ocorrencia
+
+like %
+todas os caracteres de ocorrencias seguidas
+
+pode usar operadores logicos como not and or
+
+
+
+busca filtrada cpf cnpj
+SELECT CPF, CASE WHEN LENGTH(CPF)=11 THEN CONCAT(SUBSTRING(CPF,1,3),'.',SUBSTRING(CPF,4,3),'.',SUBSTRING(CPF,7,3),'-',SUBSTRING(CPF,10,2)) ELSE CONCAT(SUBSTRING(CPF,1,2),'.',SUBSTRING(CPF,3,3),'.',SUBSTRING(CPF,6,3),'/' ,SUBSTRING(CPF,9,4),'-',SUBSTRING(CPF,13,2)) END AS resultado FROM cliente where LENGTH(CPF)>11;
+
+
+
+
+
+#exercicios crud
+
+#1. Criar uma base de dados chamada sistema
+
+create database sistema;
+
+use sistema;
+
+
+#2. Criar uma tabela chamada cad_cidadecom as seguintes colunas:codigointeiro 2 AI PKnome varchar30uf varchar2
+create table cad_cidade(
+	codigo int(2) auto_increment primary key,
+    nome varchar(30),
+    uf varchar(2)
+);
+
+#3. Inserir os seguintes registros na tabela cad_cidade:Curitiba, PRRio de Janeiro, RJPonta Grossa, PRSão Paulo, SPRibeirão, SP
+
+insert into cidade(nome, uf)
+	values('curitiba', 'pr'),
+		('rio de janeiro', 'rj'),
+        ('ponta grossa', 'pr'),
+        ('sao paulo','sp'),
+        ('ribeirao','sp');
+        
+#4. Visualize a estrutura da tabela cad_cidad
+describe cad_cidade;
+
+#5. Renomeie a tabela cad_cidadepara cidad
+alter table cad_cidade rename cidade;
+
+describe cidade;
+
+#6. Visualize todos os registros da tabela cidade
+select * from cidade;
+
+#7. Visualize só as cidades do estado de São Paulo
+select * from cidade where uf = 'sp';
+
+#8. Criar uma tabela chamada funcionáriocom as seguintes colunas:codigointeiro 3 AI PKnome varchar30enderecovarchar40numero inteiro 6salario decimal 6,2codigo_cidadeinteiro 2
+create table funcionario(
+	codigo int(3) auto_increment primary key,
+    nome varchar(30),
+    endereco varchar(40),
+    numero int(6),
+    salario float(6,2),
+    codigo_cidade int(2)
+
+);
+
+
+#9. Adicione a coluna sexo(Char 1) na tabela funcionário
+alter table funcionario add column sexo char(1);
+
+describe funcionario;
+
+#10. Inserir os seguintes registros na tabela funcionário:Pedro, Rua Flores, 30, 1500.00, 2, MMaria, AvBrasil, 400, 1960.70, 1, FJose, Rua do João, 759, 3800.00, 4, FMarco, AvSanta Rita, 2, 3450.50, 2, M
+insert into funcionario(nome, endereco, numero, salario, codigo_cidade, sexo) values 
+('pedro', 'rua flores', 30, 1500.00, 2, 'M'),
+('maria', 'av brasil', 400, 1960.70, 1, 'F'),
+('jose', 'rua do joao', 759, 3800.00, 4, 'F'),
+('marco', 'av santa rita', 2, 3450.50, 2, 'M');
+
+select * from funcionario;
+
+#11. Mostre somente a coluna nomee sexodos funcionários
+select nome, sexo from funcionario;
+
+#12. Mostre somente os funcionários que possuem o salário maior que 2.000
+
+#13. Mostre somente os funcionários do sexo masculino que ganham menos de 1.500
+select nome, salario from funcionario 
+	where salario < 1500 and sexo = 'M';
+
+#14. Mostre uma lista dos funcionários ordenados pelo salário (primeiro quem ganha menos)    
+select nome, salario from funcionario 
+	order by salario asc;
+
+#15. Mostre todos os funcionários que recebem entre 2.000 e 3.000    
+select nome, salario from funcionario 
+	where salario between 3000 and 4000;
+    
+#16. Listar os funcionários cujo nome começa com a letra M
+select * from funcionario 
+	where nome like "m%";
+
+#17. Listar os funcionários cujo nome contenha a letra A    
+select * from funcionario 
+	where nome like "%a%";
+
+#18. Listar os funcionários cujo nome NÃO começa com a letra M    
+select * from funcionario 
+	where nome not like "m%";
+
+#19. Criar uma nova coluna na tabela funcionário:setor varchar10    
+alter table funcionario add column setor varchar(10);
+
+describe funcionario;
+
+#20. Atualizar a coluna setorcom a palavra produção
+alter table funcionario rename column setor to producao;
+
+#21. Atualizar a coluna setordo registro 3 para gerente
+
+#22. Apagar os registros da tabela funcionárioque possuem o código maior que 3
+delete from funcionario where codigo > 3;
+
+#23. Apagar os registros da tabela cidadeque são do estado do MS
+delete from cidade where uf = 'ms';
+
+
+#24. Listar somente o nome dos funcionários e, ao lado, o nome da cidade
+#alias
+
+#select f.nome funcionario, c.nome cidade from funcionario f, cidade c;
+#errado
+#select nome funcionario, nome cidade from funcionario f, cidade c;
+#errado
+
+select * from funcionario;
+
+#24. Listar somente o nome dos funcionários e, ao lado, o nome da cidade
+select f.nome funcionario, c.nome cidade from funcionario f, cidade c where f.codigo_cidade = c.codigo;
+
+
+#25. Mostrar a média dos salários
+
+
+#26. Mostrar a média dos salários agrupados por sexo
+
+
+#27. Mostrar a soma dos salários
+
+
+#28. Mostrar a quantidade de registros na tabela cidade
+
+
+
+
+
+#exercicios ddl dml
+
+use uni;
+
+#1) LISTE TODOS OS NOMES E CPFS DE PROFESSORES QUE CONTENHAM NO CPF, EM QUALQUER POSIÇÃO, O NÚMERO 3 SEGUIDO PELO NÚMERO 2.
+select NomeProfessor, CpfProfessor from professor where CpfProfessor like "%32%";
+
+#2)LISTE  TODOS  OS  NOMES  E  MODALIDADES  DE  CURSOS ORDENADOS,  PRIMEIRO,  POR  MODALIDADE ASCENDENTE E DEPOIS POR NOME DESCENDENTE.
+select NomeCurso, Modalidade from curso order by Modalidade asc, NomeCurso desc;
+
+#3)LISTE TODOS OS ALUNOS QUE TENHAM A ANTE-PENULTIMA LETRA DO SEU NOME SENDO “y” E TENHA O NOME DA SUA CIDADE COM A SEGUNDA LETRA SENDO “a”.
+select NomeAluno, Cidade from aluno where NomeAluno like "%y__" and Cidade like "_a%";
+
+#4) UTILIZANDO   A   FUNÇÃO   CONCAT() LISTE OCPF   E   NOME   DOSALUNOS NO   SEGUINTE   FORMATO:1621102018899 -Halee Hansen
+select concat(CpfAluno, ' - ', NomeAluno) as nomeCpf from aluno;
+
+#5)LISTE TODOS OS PROFESSORES ORDENADOS POR NOME ONDE O MÊS DE NASCIMENTO É MAIO OU O DIA DO MÊS É 05.
+select NascimentoProfessor from professor;
+select NomeProfessor, NascimentoProfessor from professor where NascimentoProfessor like '____-05%' or NascimentoProfessor like '%-05' order by NomeProfessor asc;
+
+#6)LISTE TODOS OS NOMES DOS CURSOS UMA ÚNICA VEZ, PORÉM LISTE SOMENTE OS QUE TEM MAIS QUE 5 CARACTERES NO NOME
+select NomeCurso from curso where length(NomeCurso) > 5;
+
+#7)LISTE TODOS OS PROFESSORES ONDE A PRIMEIRA LETRA DE SEU NOME ESTEJA ENTRE “V” E “Z” (INCLUSIVE “V” E “Z”) ORDENADO EM ORDEM DECRESCENTE.
+select NomeProfessor from professor where NomeProfessor regexp '^[V-Z]' order by NomeProfessor desc;
+select NomeProfessor from professor where ((substring(NomeProfessor, 1, 1) >= "V" AND substring(NomeProfessor, 1, 1) <="Z")) order by NomeProfessor desc;
+
+
+#8)LISTE O NOME DOS PROFESSORES, SEU NASCIMENTO E A QUANTIDADE DE ANOS EXISTENTES ENTRE A DATA 11/11/2011 E A DATA DE NASCIMENTO. CHAME ESTA NOVA COLUNA DE “DataTeste”
+
+#referencia1
+-- SELECT NomeCliente AS Cliente,
+--     ->  DATE_FORMAT(DataNascimentoCliente,'%d de %M de %Y') AS "Data nasc.",
+--     ->  YEAR(CURDATE()) - YEAR(DataNascimentoCliente) AS Idade
+--     ->  FROM CadastroClientes
+--     ->  WHERE YEAR(DataNascimentoCliente) > 1983;
+
+#testes
+-- select NomeProfessor, NascimentoProfessor, year(2011-11-11) - year(NascimentoProfessor) as DataTeste from professor;
+
+#quase
+select NomeProfessor, NascimentoProfessor, (date('2011-11-11') - date(NascimentoProfessor)) as DataTeste from professor;
+select NomeProfessor, NascimentoProfessor, ((date('2011-11-11') - date(NascimentoProfessor)) / 365) as DataTeste from professor;
+
+
+#testando funcoes
+
+#teste de query ok
+#'Cameron Atkinson' 22
+select year('2011-11-11') - year('1989-07-28') as DataTeste;
+
+#ok mas so conta o ano, precisa de precisao em dias
+select NomeProfessor, NascimentoProfessor, year('2011-11-11') - year(NascimentoProfessor) as DataTeste from professor;
+
+#idade com precisao em meses dias
+SELECT TIMESTAMPDIFF (MONTH,'1977-10-07',CURDATE()) AS "Idade da Pitty";
+SELECT TIMESTAMPDIFF (DAY,'1977-10-07',CURDATE()) AS "Idade da Pitty";
+
+#8)LISTE O NOME DOS PROFESSORES, SEU NASCIMENTO E A QUANTIDADE DE ANOS EXISTENTES ENTRE A DATA 11/11/2011 E A DATA DE NASCIMENTO. CHAME ESTA NOVA COLUNA DE “DataTeste”
+select NomeProfessor, NascimentoProfessor, timestampdiff(year, NascimentoProfessor, '2011-11-11') as DataTeste from professor;
+
+#9)LISTE O NOME DOS PROFESSORES, SEU NASCIMENTO E SEU NASCIMENTO ACRESCIDO DE 2 DIAS. CHAME ESTA NOVA COLUNA DE “NovaTeste”
+select NomeProfessor, NascimentoProfessor, NascimentoProfessor + interval 2 day as NovaTeste from professor;
+
+#10)LISTE TODOS OS NOMES DE PROFESSORES E AS RESPECTIVAS DISCIPLINAS QUE ELES LECIONAM
+
+#referencia1
+#select f.nome funcionario, c.nome cidade from funcionario f, cidade c where f.codigo_cidade = c.codigo;
+
+select NomeProfessor, NomeDisciplina from professor, disciplina;
+
+
+
+
+tratando data
+Select Day(now()); 
+Select Month(data) From datas;  
+Select Year(data) From datas;  
+

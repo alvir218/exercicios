@@ -1,0 +1,607 @@
+CODIGO
+
+class
+full-width main-div
+centraliza no meio da pagina
+
+do json server
+url/?_page=2&_limit=4
+com HttpParams
+so recebe uma instancia
+nao pode fazer um set e alterando valor
+httpParams.set('_page', pagina.toString()).set('_limit', qtdPagina.toString());
+&_sort=id&order=desc
+para ordenar do maior id para o menor id
+/posts?q=internet
+busca generica por internet
+faz uma busca em todos os campos do banco de dados
+/posts?title=json-server&author=tipecode
+
+
+npm install ngx-infinite-scroll --save
+
+[mat-dialog-close]="false"
+[mat-dialog-close]="true"
+metodos responsaveis por avisar o component o que aconteceu
+retorna se caso o botao for clicado 
+se as informaçoes devem ser processadas com sucesso ou nao
+
+ng g c shared/components/alerta --nospec --module app.module.ts
+cria e adiciona um novo component 
+adicionando o module no arquivo de carregamento de module
+
+ng g i shared/models/filme
+cria interface
+
+ng g s core/filmes --nospec
+
+ng g m shared/components/campos --nospec
+
+ng g c shared/components/campos/input-text --nospec
+criar component generate
+se necessario --module caminho_do_modulo
+deve ser criado depois do modulo
+
+npm install @schematics/angular@7.0.7 --save-dev
+
+ng g s shared/components/campos/validarCampos --nospec
+para criar serviço sem arquivos de teste
+deve incluir a classe Promise
+
+--nospec
+nao cria arquivo de teste
+
+<mat-error>descriçao do erro</mat-error>
+
+json-server --watch db.json
+
+npm start
+para iniciar servidor angular
+
+npm install -g json-server
+
+npm init
+inicia projeto
+
+/** comentario.ts */
+
+ng new nomedoprojeto
+com rota e css
+acessar mat
+npm install
+ng add @angular/material
+
+
+exemplo de contatenaçao de strings
+`${this.coursesUrl}/${course.id}`
+
+verifica se o campo esta valido ou invalido
+usado em validaçao
+{{ courseName.invalid}}
+{{ courseName.valid}}
+
+canal de redirecionamento inteligente
+em app-module.ts
+RouterModule.forRoot([
+      {
+        path: '', redirectTo: 'courses', pathMatch: 'full'
+      },
+      {
+        path: 'courses', component: CourseListComponent
+      },
+      {
+        path: '**', component: Error404Component
+      }
+    ])
+
+path em branco
+path: ''
+indica a raiz
+
+path: '**'
+redireciona pra ca 
+quando nao encontrar a rota
+
+decorator
+@Pipe
+torna classe elegivel para se tornar um pipe
+
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe ({
+    name: 'replace'
+})
+export class ReplacePipe implements PipeTransform {
+
+    transform(value: string, char: string, valueToReplace: string) {
+        return value.replace(char, valueToReplace);
+    }
+    
+}
+
+quando cria deve ser inicializado em app.module.ts
+
+uso do pipe personalizado
+pipe de lowercase com troca de caractere personalizada
+troca - por espaço
+<td> {{course.code | lowercase | replace: '-' : ' '}} </td>
+
+pipe de data
+ <td> {{course.releaseDate | date: 'dd/MM/yyyy'}} </td>
+
+torna a classe elegivel para injeçao de dependencia
+sendo carregado na root da aplicaçao
+quando carregar o modulo raiz app.module 
+carregara esta outra classe de serviço
+implementada pelo construtor
+
+import { Injectable } from '@angular/core';
+
+@Injectable({
+    providedIn: 'root'
+})
+
+
+
+torna a variavel elegivel de se receber uma informaçao
+de um componente externo
+@Input()
+
+criar uma tag app-star
+import { Component } from '@angular/core';
+
+@Component({
+    selector: 'app-star'
+})
+export class StarComponent {
+
+
+}
+
+
+<img [src]="course.imageUrL">
+com colchetes indica que é uma funçao do angular
+
+name: string = 'conteudo.da.variavel'
+cria uma variavel name do tipo string que escreve o seu conteudo
+exemplo de interpolacao
+para usar no html o comando é
+{{ name }}
+
+interpolacao exemplo com modulo importado one way data bind
+<input (ngModel)="name" name="name">
+
+two way data bind
+quando mudar os valores desse formulario
+toda interpolacao name recebera o novo valor
+tem que importar o ngModel de FormsModule
+one way data bind
+<input [ngModel]="name" name="name">
+two way data bind
+<input [(ngModel)]="name" name="name">
+
+
+em app.modules.ts
+declaracao de import
+import { FormsModule } from '@angular/forms'
+
+
+importacao propriamente dita
+o ultimo nao recebe ,
+imports: [
+FormsModule, BrowserModule
+],
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-course-list',
+aqui pode ser enviado para o conteudo de um proprio arquivo.html recomendado
+//  template: '<h2> Course List </h2>'
+templateUrl: './course-list.component.html'
+})
+
+export class nome.da.classe {
+
+}
+
+para importar o bootstrap como modulo de no styles.css
+~ indica que vai ficar na raiz do projeto
+~ indica que é da pasta node_modules
+@import '~bootstrap/dist/css/bootstrap.min.css'
+
+<div class='container'> por padrao do bootstrap essa classe centraliza</div>
+
+export class nome.da.classe{
+objeto: tipo.de.dados;
+//string number
+}
+
+
+
+  CODIGO
+
+
+COMANDO
+
+instalar e iniciar servidor
+npm install
+node serve.js
+
+npm install font-awesome
+
+node -v
+versao do node.js
+
+npm -v
+versao do gerenciador de pacotes do node.js
+
+configurar git
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
+ng serve 
+abrir o course-manager no terminal bd openinterminal e digitar o comando
+vai carregar a aplicacao e seus componentes como servidor
+para abrir abrir a aplicacao localhost:4200
+
+npm install bootstrap
+
+  COMANDO
+
+
+
+
+
+
+TEORIA
+
+o angular nao permite que um modulo seja declarado duas vezes
+
+observable
+padrao de retorno do http client
+envelopa a resposta
+quando faz requisiçao trabalha com contratos
+publish definindo contrato
+pessoa que vai atender o contrato
+quando chamado em componente de lista
+na classe de serviço contrato
+no componente sobrescreve contrato
+so e realizada quando faz um subscribe no observable
+observable2
+mesmo se aplicado enquanto nao for cobrado nao retorna nada
+
+
+injeçao de dependencia
+sao objetos de servico responsavel por executar sua funçao, cuja sua instancia é compartilhada para quem o chama
+
+pipes
+quando deseja-se alterar a forma de exebiçao de uma propriedade de um template
+
+para iniciar outro projeto a partir de um dos esquemas padrao
+ng new course-manager
+
+
+package.json
+contem todas as dependencias da aplicacao
+conforme sao instaladas serao adicionadas nele
+é separado por 2
+dependencias em produçao
+dependencias em desenvolvimento devDependencies
+
+pode ser adicionado dependencias apenas de desenvolvedor
+util durante o desenvolvimento
+depois de pronto nao vai pro usuario final
+
+pode ser configurado scripts de inicializacao
+
+
+
+
+angular.json
+informacoes globais da aplicacao
+define qual arquivo inicializa a aplicacao
+tambem responsavel para definir funcoes de inicializacao
+define quais sao os estilos globais
+define a pasta dos arquivos estaticos globais
+scripts globais
+arquivo da funcao main
+pagina principal
+
+
+/assets
+arquivo estatico da aplicacao
+definido no angular.json
+
+
+styles
+define os estilos globais propagados para todos os componentes
+
+scripts
+define os scripts globais propagados para todos os componentes
+
+index 
+pagina base da aplicacao
+
+main.ts
+main
+boot da aplicacao
+recebe modulo raiz
+bootstrap
+inicia appmodule que carrega app pai appcomponent
+
+/node_modules
+contem as dependencias da aplicacao em si
+
+/source
+pasta raiz
+
+style.css
+uma vez definido aqui
+sera aplicado para todos os componentes
+
+/app
+modulo
+lido em main.ts
+abre componente pai que sera carregado no index.html
+ao aparecer novas .html deve ser adicionado dentro do index.html
+
+appcomponent
+onde serao acoplados os componentes a serem criados
+
+approot
+menciona o app pai appcomponent que é lido no appmodule
+
+porta padrao
+4200
+
+localhost:4200
+para testar a aplicacao
+
+
+appmodule
+app.module.ts
+modulo raiz
+arquivo que contem os modulos e seus componentes
+onde deve ser importado os module do projeto
+
+
+modulo
+limitador de contexto
+onde todos os recursos e componentes nesse contido correspondem ao contexto
+
+componentes
+sera visual no modulo
+o que da vida ao modulo
+
+
+appcomponent
+app.component.ts
+propriedades que complementam as funcionalidades dos componentes
+indica onde estam as configuracoes
+por padrao app.component.css é referenciado
+templateurl
+html que representa a parte grafica do componente
+selector
+criar tag representando uma diretiva
+como uma funcao em html com tags costumizadas
+export class AppComponent
+title
+atributo do componente
+se o modulo for importado aqui todos os componentes receberao esse modulo
+
+one way data bind
+ele exibe mas nao atualiza seus dados
+
+two way data bind
+tanto le como altera as propriedades do componentes
+
+toda vez que criar um componente deve ser declarado em seu modulo correspondente
+
+na classe de serviços o interessante é ter metodos 
+qua façam ou chamem outra operaçao 
+tendo no máximo variáveis estáticas que não será alterado
+
+angular material
+biblioteca de recursos graficos desenvolvido pela google
+
+json server
+faz o backend se comportando como banco de dados
+
+ngx-infinite-scroll
+scroll infinito da tela
+
+rxjs
+prove recursos de programaçao reativa
+ja vem incluido por padrao no angular
+sao os recursos em javascript
+
+copiado o material-module.ts do site do stackblitz
+direcionado pelo site do material
+
+para adicionar os formularios de exemplo
+foi necessario criar um arquivo material.module.ts
+que exportou a classe
+que foi chamada em app.module
+e adicionada por codigo html em app.componnent.html
+
+app.component.html
+pagina inicial do projeto 
+é instalado automaticamente
+dio-topo
+fica dentro da pasta shared.components.topo
+
+
+map 
+aplica alguma conversao nas variaveis ou vetores antes de usalas
+pode ser usado para converter o formato de datas
+exemplificado com soma variavel + 10
+
+assets 
+styles
+sao globais para toda aplicaçao
+
+@component
+selector
+nome da tag html custom
+templateUrl
+qual arquivo que corresponde a tag salva .html
+styleurls
+arquivo css do component
+
+app.routing.module.ts
+arquivo das rotas
+path 
+caminho
+redirectTo 
+sempre que acessar o path 
+sera redirecionado para redirectto
+pathMatch
+
+shared.material
+responsavel por carregar 
+todos os component angula material
+
+src..tslint.js
+responsavel pra dizer que todos os seletores 
+deve utilizar o component iniciando por com a tag dio
+identifica quais os seletores sao criaçao 
+separando-os do default
+
+filmes.module.ts
+importa tudo o que os componentes do filmes precisa
+
+formGroup
+form builder
+group()
+retorna formGroup
+cria formulario onde o angular pode manipular os dados
+é configurado atraves dele o funcionamento dos formularios
+
+ngOnInit
+quando inicializa o component
+executa
+
+formularios
+.minLength
+.maxLength
+.required
+
+
+type number
+min
+max
+step
+
+por padrao no angular o metodo é publico
+
+no .ts
+tambem aceita o \n
+concatenaçao por + 
+
+ngSubmit
+funçao de submit do angular
+
+get
+para nao ter que ficar passando toda vez que é metodo
+
+pic
+(click) picker
+pra quando clicar no formulario de data abrir um calendario
+bloqueia o formulario para entradas manuais
+
+?
+o ? depois do metodo indica que se houver retorna falso
+e permite a execuçao do metodo dependente seguinte
+elvis operator
+na criaçao de uma interface cria uma propriedade opcional
+
+
+antes de criar o component
+deve ser criado o modulo
+onde serao importados os components
+
+quando cria os modulos 
+devem ter suas dependencias importadas
+e devem ser exportados para uso externo
+
+novalidate
+desativa a validaçao do html
+e predomina a validaçao do angular
+
+core
+app..core
+responsavel por armazenar todos os serviços
+que farao algum tipo de consulta no backend
+responsavel todas as comunicaçoes
+fara os crud
+
+ordem de import importante
+primeiro os imports do angular
+depois os imports de terceiros
+por ultimo os nossos imports
+
+.subscribe
+executa um metodo e quando colocado depois 
+retorna o que aconteceu
+util pra fazer uma mensagem de sucesso ou erro
+depois de uma açao
+sem o .subscribe()
+ele nao executa o que é proposto no metodo
+se é for um post ele nao salvara sem o subscribe
+
+as
+"as" sem aspas
+quando passado depois de uma classe interface 
+garante que seja do mesmo tipo
+
+sem @input
+em component de modal 
+funciona diferente dos modais do sistema
+
+ordenar os metodos
+public primeiro
+private depois
+
+entryComponents
+nao precisam ser instanciados para que existam
+quando sobe a aplicaçao ele automaticamente 
+fica disponivel em qualquer local do sistema
+
+scrool infinito
+o material possui scrool infinito
+dificil de usar
+falha ao implementar
+ngx-infinite-scroll sera usado
+mais popular
+nao sera utilizado em todos os componentes
+importar apenas dentro de filmes
+(scrolled)="onSroll()"
+quando chegar no fim da pagina (20% do final, por padrao)
+sera carregado mais registro
+
+valueChanges
+quando tiver alguma alteraçao de texto no formulario informara
+
+innerHTML
+[innerHTML]
+dentro da tag p
+converte uma descriçao no banco de dados
+para o formato html
+se tiver uma descrito com \n
+ira substituir por <br>
+no css para quebrar linha ao encontrar espaço vazio
+classe .quebrar-linha
+white-space: pre-line
+
+filmes.length
+retornara 0 se o array estiver vazio
+pode ser usado no if
+
+debounceTime(tempo_ms)
+quando usado em formulario de consulta
+evita que seja consultado a cada caractere
+nova consulta a cada tempo_ms depois do ultimo caractere
+
+  TEORIA

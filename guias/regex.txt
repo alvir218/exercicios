@@ -1,0 +1,654 @@
+www.regex101.com
+
+regular expression é o termo de busca
+é case sensitive
+
+flag insensitive
+o compilador nao difere minuscula de minuscula
+
+caracteres de controle
+()[]{}\^$.|?*+
+
+\s 
+representa o caracteres espaco
+
+\t
+representa o tab
+
+\\
+é a propria \
+o que vem depois de \ 
+geralmente representa um comando
+quando esse é um caractere de controle 
+é convertido no proprio caractere de busca
+$
+sozinho é um caractere de controle
+\$
+é o termo de busca $
+
+[0-9]
+todos os digitos numericos de 0 a 9
+
+[0-9][0-9]
+combinacao de pelo menos dois caracteres juntos
+
+[0-9][0-9][0-9]
+combinacao de pelo menos 3 caracteres juntos
+
+[123]
+os seguintes caracteres
+encontra todos 1 2 3
+
+[A-Z]
+letras de A a Z
+case sensitive
+
+[A-Z][A-Z][A-Z]
+encontra um grupo de 3 letras maiusculas de A a Z
+
+[A-Z][A-Z][A-Z][0-9][0-9][0-9]
+encontra a combinacao de trincas de tres letras e tres numeros
+
+multiplicador
+[A-Z]{3}[0-9]{3}
+mesmo exemplo de cima
+{numero}
+representa a multiplicacao do termo de busca
+
+R\$\s[0-9]{3},[0-9]{2}
+busca por valores monetarios na seguinte forma
+R$ 123,12
+exemplo anterior com ponto
+.
+caractere de controle
+escape
+tirar a habilitacao de caractere de controle
+e usa-lo como proprio caractere
+R\$\s[0-9]{3}.[0-9]{2} errado
+R\$\s[0-9]{3}\.[0-9]{2} correto
+
+^
+negacao
+[^0-9]
+todos os caracteres que 
+nao sao digitos de 0 a 9
+
+ancora
+^
+no comeco da espressao 
+significa comeco da linha
+porem so encontra a primeira ocorrencia
+
+flag multiline
+para encontrar varias ocorrencias
+varias linhas
+
+ancora
+$
+\.$
+linha que termina em ponto
+
+encontrando o cep
+formato 
+12345-123
+[0-9]{5}-[0-9]{3}
+
+encontrando cep do rio de janeiro
+exemplo
+21640-470
+21[0-9]{3}-[0-9]{3}
+
+41.890-120
+encontrar desse tipo
+[0-9]{2}\.[0-9]{3}
+
+21.175-078
+21\.[0-9]{3}-[0-9]{3}
+
+?
+pode ou nao ter
+\.?
+pode ou nao ter o ponto
+-?
+pode ou nao ter hifen
+
+{0,1}caractere
+equivalente ao ?
+pode ou nao ter o caractere a seguir
+
+{1,5}
+de 1 ate 5 combinacoes a seguir
+
++
+caractere+
+todos os grupos do caractere
+uma ocorrencia ou um numero infinito de combinacao
+
+[9-0]
+esta fora de ordem
+nao funciona
+o correto é [0-9]
+
+\hexdecimal ascii
+\00E1
+confere ao a acentuado á
+
+*
+operador kleening
+seleciona 0 ocorrecia 
+ou qualquer numero de repeticao
+[0-9]*
+toda e qualquer sequencia de digitos numericos
+de 0 ao infinito
+o vazio tambem faz parte da operacao *
+
+[123]{3}
+um dos caracteres 1 2 3 
+em combinacao 3 a 3
+123213321
+
+()
+grupo
+com ou sem www
+www.site.com
+ou
+site.com
+(www\.)?site.com
+
+.
+o que vier 
+em combinacao com multiplicador
+[123]{3}.{3}
+213 32
+123asd
+
+para encontrar os ceps
+[0-9]{5}-[0-9]{3}
+21560-890
+41895-863
+56789-423
+
+|
+operador ou |
+para encontrar os ceps 
+que comecao com 41 ou 21
+(21|41)[0-9]{3}-[0-9]{3}
+
+
+#todo
+tabela completa de caracteres de controle
+na propria aula
+
+
+{\rtf1}
+
+
+
+
+
+conteudo da resenha daqui para baixo
+
+nessa tecnica a verificacao nao se move na string
+mesmo se encadear mais lookaheads em seguida
+mesmo assim o primeiro nao se movera
+
+(?=foo)
+pra frente
+o elemento a seguir é foo
+
+(?!foo)
+pra frente negativa
+o elemento seguinte nao é foo
+
+(?<=foo)
+pra tras
+o elemento precedente é foo
+
+(?<!foo)
+pra tras negativo
+o elemento precedente nao é foo
+
+\A
+posicao atual no inicio da string
+
+\w{6,10}
+de 6 a 10 caracters
+
+\z
+fim da string
+
+\A(?=\w{6,10}\z)
+\A
+no comeco da string
+(?=\w{6,10}
+o que vem depois é uma cadeia de 6 a 10 caracteres
+\z)
+fim da string
+
+(?=[^a-z]*[a-z])
+tudo a seguir ?=
+que nao for letra minuscula [^a-z]
+em qualquer quantidade incluido 0 *
+numero opcional de letras nao maiusculas
+e uma letra minuscula a seguir [a-z]
+
+\A(?=\w{6,10}\z)(?=[^a-z]*[a-z])
+
+(?=(?:[^A-Z]*[A-Z]){3})
+repetir a logica anterior, porem 3 vezes com letras maiusculas
+pelo menos 3 letras maiusculas a seguir
+
+\A(?=\w{6,10}\z)(?=[^a-z]*[a-z])(?=(?:[^A-Z]*[A-Z]){3})
+
+(?=\D*\d)
+verificar se contem pelo menos um digito
+no inicio da string
+\D*
+combinacao de 0 ou mais caracteres que nao sejam digitos
+\d
+combinando com 1 digito
+
+\A(?=\w{6,10}\z)(?=[^a-z]*[a-z])(?=(?:[^A-Z]*[A-Z]){3})(?=\D*\d)
+
+.*
+daqui pra frente qualquer atende o criterio
+
+\A(?=\w{6,10}\z)(?=[^a-z]*[a-z])(?=(?:[^A-Z]*[A-Z]){3})(?=\D*\d).*
+
+movendo \w{6,10}\z em troca do .* para otimizar
+\A(?=[^a-z]*[a-z])(?=(?:[^A-Z]*[A-Z]){3})(?=\D*\d)\w{6,10}\z
+vai examinar todos os caracteres da string da mesma forma
+simplifica a expressao removendo um lookahead
+\w{6,10}\z
+possui um duplo proposito
+combinar toda string 
+e garantir que a string seja composta de seis a dez caracteres
+
+outra forma de finalizar
+\A(?=\w{6,10}\z)(?=[^a-z]*[a-z])(?=(?:[^A-Z]*[A-Z]){3})\D*\d.*\z
+
+(?=\D*\d)
+presenca de um digito
+.*\z
+para ir ate o fim da linha e da string
+
+porém
+(?=\w{6,10}\z)
+ja garante que não pode haver nenhuma quebra de linha na string
+fazendo o \z nao ser estritamente necessario
+
+continuei daqui
+A ordem dos olhares à frente não importa ... Quase
+
+a ordem dos sistemas de comparacao importa
+quanto maior a probabilidade de um determinado criterio falhar
+mais adequado o mesmo ser colocado no inicio da expressao
+de modo a concentrar a energia no que realmente importa
+pois poupa o trabalho extra verificando condicoes mais faceis de serem atendidas
+
+por esse motivo é colocado \A no inicio por ser uma afirmacao que nao consome caracteres,
+é possivel tambem coloca-lo em outra posicao, embora nao seja uma boa pratica
+
+\A no inicio equivale a (?<!.) que representa a ausencia de qualquer caractere anterior
+em outras palavras inicio da string
+isso no modo dotall
+sem o modo dotall
+a expressao é (?<![\D\d])
+[\D\d] é outra forma de escrever 
+qualquer caractere que seja um digito ou nao
+resumido por: que nao tenha qualquer caractere anteriormente
+
+suponhanmos a string AB25
+A(?=5) 
+essa expressao nao serve para localizar o 5 dessa string
+pois o que vem seguido de a é B25 e nao 5
+se a intencao é localizar qualquer 5 depois de A a expressao correta é
+(?=[^5]*5)
+
+outro exemplo na string A5B
+A(?=5)(?=[A-Z])
+quando localiza o A o motor para por ali
+portanto a o range de letras de A a Z nao inclui 5
+fazendo com que a expressao nao seja reconhecida
+para verificar se o 5 é seguido de uma letra maiuscula o correto é
+(?=5[A-Z])
+
+para encontrar expressoes secudarias depois de uma determinada ocorrencia
+o mais adequado é o .* sendo recomendado expressoes mais especificas
+
+ignorar um certo criterio pode ser diferente de acordo com o regex engine
+a maneira alternativa de por exemplo ignorar um caractere
+ou melhor, uma expressao qualquer contanto que nao tenha a letra Q
+(?!Q\w)
+versao com lookbehind negativo
+\w(?<!Q)
+
+para excluir mais letras pode se usar [] colocando as letras que serao excluidas da busca
+nesse exemplo excluindo Q e K
+(?![QK]\w)
+
+criterio para corresponder a qualquer caractere contanto que nao seja seguido por {END}
+usando um lookahead negativo
+(?:(?!{END}).)*
+
+para combinar os caracteres apos a primeira instancia de um determinado termo, nesse exemplo #START#
+(?<=#START#).*
+onde .* indica todas as entradas a partir de #START#
+
+para combinar todos os caracteres em uma string até, porem nao incluindo o termo #END#
+.*?(?=#END#)
+
+sendo possível inclusive combina-los
+(?<=#START#).*?(?=#END#)
+
+no caso em que seja necessario por exemplo separar textos em CamelCase
+a expressao para esse cenario é
+(?<=[a-z])(?=[A-Z])
+essa expressao localiza um caractere minusculo seguido de um caractere maiusculo e posiciona o cursor exatamente ali
+ela pode ser utilizada em conjunto com a funcao de busca e substituicao de um editor de textos
+ou gerar uma lista
+em outro cenario caso seja necessario posicionar o texto no inicio da linha
+para por exemplo adicionar um prefixo a cada linha do arquivo
+a expressao adequada seria algo similar a
+(?m)^
+sendo possivel com a substituicao da correspondencia por //
+
+para encontrar correspondencias sobrepostas por exemplo a string
+ABCD
+seria possivel encontrar
+ABCD
+BCD
+CD
+D
+a expressao recomendada seria
+(?=(\w+))
+
+porem se precisa fazer o contrario
+A
+AB
+ABC
+ABCD
+em uma engine que nao possui lookbehind infinito
+a expressao seria
+(?=(\w+))
+em resumo essa expressao localiza correspondencias sobrepostas
+
+as correspondências de largura zero
+correspondem a uma tecnica que utiliza a propriedade
+de a expressao regular encontrar padrao correspondente 
+porém este nao contendo caracteres
+como no exemplo de validacao de senha com criterios bem especificos
+a intencao é que caso a senha nao atenda os criterios pre estabelecidos
+o mesmo gere uma correspondencia de largura zero
+
+o posicionamento do lookaround pode ser feito de duas maneiras
+antes da ocorrencia correspondida ou depois dessa
+podendo uma ser mais eficiente que outra ao comparar com o trabalho feito pela engine
+
+resumindo as operacoes de olhar pra frente (lookahead), olhar pra frente negativo (negative lookahead), olhar para tras (lookbehind) e olhar pra tras negativo (negative lookbehind)
+com expressoes correspondentes sendo a primeira mais eficiente por so precisar associar o digito numerico apenas uma vez
+exemplificando uma busca pelo valor monetário correto
+
+para encontrar todos os valores que forem dolar com lookahead por exemplo encontrando por exemplo 100 em "100 dolares"
+\d+(?= dolares)
+(?=\d+ dolares)\d+
+
+para encontrar todos os valores que nao forem dolares com negative lookahead encontrando por exemplo 100 em "100 pesos"
+\?+(?! dolares)
+(?!\d+ dolares)\d+
+
+encontrar todos os valores que forem dolar com lookbehind para encontrar por exemplo 100 em "USD100"
+(?<=USD)\d{3}
+\d{3}(?<=USD\d{3})
+
+para encontrar todos os valores que nao forem dolar com negative lookbehind para encontrar por exemplo 100 em "100JPY"
+(?<!USD)\d{3}
+\d{3}(?<!USD\d{3})
+
+
+solucoes que olham para os dois lados
+cenario: encontrar numeros entre sublinhados por exemplo _12_
+
+pode ser feito combinando tudo e capturando os digitos
+_(\d{2})_
+
+usando um lookbehind e um lookahead
+(?<=_)\d{2}{?=_}
+
+ou usando \K para remover o primeiro sublinhado da correspondencia
+_\K\d{2}(?=_)
+
+outra tecnica chamada de "back to the future lookbehind", que não faz sentido usar solo, porem em um padrao intrincado sua utilidade é uma otima ferramenta.
+pode ser arranjada a posicionar antes ou depois dos digitos
+(?<=_(?=\d{2}_))\d+
+
+funciona da seguinte maneira, entende-se que o que precede os digitos é um sublinhado _ entao nas posicoes seguintes busca por dois digitos e outro sublinhado _
+(?=\d{2}_)
+
+esse cenario é composto por um lookahead dentro de um lookbehind de largura fixa (o caractere sublinhado _) e em vez de olhar pra traz, o lookahead salta para posicao atual que corresponde aos dois digitos e o sublinhado a direita.
+note que nessa situacao posicao atual na string sao diferentes para o lookbehind e para lookahead
+em contexto com a string "10 _16_ 20" o mecanismo para entre o sublinhado e o 1 de 16 
+olhando pra tras é feita uma afirmacao sobre o que pode ser correspondido nessa posicao 
+quando o mecanismo sai do lookbehind ele ainda esta parado no mesmo lugar e a expressao \d{2} faz seu trabalho encontrando a ocorrencia 16
+
+outro exemplo de back to the future lookbehind
+\d+(?<=_\d{2}(?=_))
+
+o lookbehind esta afirmando que o que esta precedendo a posicao na string é um sublinhado e dois digitos entao na posicao do lookahead seguinte (?=_) afima que o conteudo seguinte é um sublinhado
+
+esses ultimos dois exemplos podem ser chamados de lookarounds aninhados, que siginifica que possuem um lookaround dentro do outro
+
+em seguida mais exemlos sobre esse conceito
+
+string seguido por um caractere e nada mais
+\d+(?=_(?!_))
+o que seguira na posicao atual dessa string é um sublinhado,
+em seguida tem um lookahead negativo(?!_) que afirma que o que segue nao é um sublinhado
+a mesma funcionalidade pode ser obtida atraves da expressao
+\d+(?=(?!__)_)
+
+no caso da string ser precedida de um caractere e nada mais
+(?<=(?<!_)_)\d+
+ou 
+(?<=_(?<!__))\d+
+essas expressoes certificam-se que o que antecede a posicao atual na string é uma posição onde o lookbehind negativo (?<!_) afirmando que o que precede logo atras é um sublinhado
+
+_rabbit _dog _mouse DIC:cat:dog:mouse
+a secao DIC contem uma lista de animais permitidos
+a ideia é encontrar a correspondencia _dog e _mouse
+o seguinte lookaround ajuda nessa tarefas
+_(\w+)\b(?=.*:\1\b)
+
+depois do sublinhado é capturada a palavra para o grupo 1, 
+depois a expressao continua com (?=.*:\1\b) afirmando que a posicao atual na string é zero ou mais caracteres
+depois disso dois pontos e a palavra capturada para o grupo 1
+isso corresponde a _dog e _mouse
+
+porem o efeito reverso pode ser obtido com a expressao
+_(?=.*:(\w+)\b)\1\b
+
+nesse caso corresponderia apenas _mouse
+explicando: depois da correspondencia sublinhado o lookahead 
+(?=.*:(\w+)\b)
+afirma que o que continua a string pode ser qualquer numeros de caracteres, seguido de dois pontos e uma palavra que seria capturada para o grupo 1
+depois disso a referencia anterior \1 remete ao que foi capturado pro grupo 1
+
+primeiro apos o sublinhado é encontrado habbit que falha por nao estar contido na referencia DIC
+na proxima correspondencia _ é encontrado dog disparando o lookaread 
+(?=.*:(\w+)\b)
+o .* percorre ate o fim da string, depois volta ate encontrar os dois pontos correspondendo a palavra mouse sendo esta capturada para o grupo 1 sendo um lookahead bem sucedido
+a proxima expressao \1 tenta combinar mouse, porem como a proxima ocorrencia é falida por encontrar d de dog
+o .* faz com que seja retrocedido mais dentro do lookahead, ate os dois pontos anteriores, fazendo com que (\w+) capture a palavra mouse
+e o \1 completa com a correspondencia bem sucedida de mouse
+porem o funcionamento nao é bem assim
+pois uma vez deixado o lookaround esse nao continua voltando atras para falhar devolta, logicamente acontece que o lookaround retorna verdadeiro ou falso
+e uma vez verdadeiro ele fica sempre verdadeiro
+e pro mecanismo, nao tem porque recuar
+o fato do motor nao retroceder em um lookaround significa que ele é um bloco atomico, porem essa propriedade acaba nao importando.
+
+lookbehind de largura fixa, largura restrita e largura infinita
+considerando as strings
+123456_ORANGE abc12_APPLE
+e supondo que seja necessario combinar as palavras maiusculas, desde que sejam precedidas de digitos e um sublinhado
+nesse caso ORANGE sim e APPLE não
+com excecao do regex .NET, a maioria dos motores reconhecem o padrao a seguir
+(?<=\b\d+_)[A-Z]+
+pois o tamanho do texto correspondente a \d+ pode ser qualquer coisa,
+portanto esse tamanho deve ser conhecido antecipadamente, podendo ser resolvido com
+(? <= \ d {3})
+
+alguns motores permitem que o tamanho do resultado tenha varios valores predefinidos nos dois lados de uma alternancia
+(?<=0|128|\d{6})
+
+outros com uma faixa predeterminada:
+(?<=d{2,6})
+
+
+grupo de captura dentro da variavel lookbehind: diferença entre java e .NET
+padrao permitido em java e .NET
+(?<=(\d{1,5}))Z
+
+o .NET permite pois suporta lookbehind de largura infinita
+o java permite pois suporta lookbehind com um intervalo predefinido
+porem se comportam de maneira diferente
+
+exemplo com string
+123Z
+
+no java:
+o intervalo predefinido é reconhecido entre um e cinco
+e vai reconhecendo os padroes do mais curto para o mais longo ate encotrar a correspondencia
+sendo o mais curto (?<=(\d{1}))
+o mecanismo percorre a string indo pra tras e tenta combinar \d{1} conseguindo encontrar 123
+
+no .NET:
+processa de maneira mais eficiente, pois em vez de tentar varios padroes de largura fixa, do comeco pro final, 
+ele inverte a string de mesma maneira que o padrao dentro do lookbehind, tentando combinar esse mesmo padrao de forma invertida.
+invertendo no ponto antes do Z a string 123 para 321.
+o lookahead tambem é verdadeiro
+(?=(\d{1,5}))
+testa a string de modo a corresponder 321
+
+solucoes alternativas
+ao inves de usar 
+(?<=\b\d+_)[A-Z]+
+pode ser usado
+\b\d+_([A-Z]+)
+correspondendo aos digitos sublinhados que nao se deseja ver
+
+o \K (deixar fora) serve para descartar tudo o que foi combinado ate o momento de partida para ser devolvido podendo substituir 
+(?<=\b\d+_)[A-Z]+
+por
+\b\d+_\K[A-Z]+
+
+porem os ultimos dois exemplos tem suas limitacoes
+
+quando é procurado varias correspondencias de uma uma string, na posição de inicio de cada tentativa de correspondencia, um lookbehind inspencionaria os caracteres anteriores a posicao atual da string 
+portanto contra a string 123 a expressao
+(?<=\d)\d
+(um digito precedido de outro), corresponderia a 2 e 3,
+em contrapartida \d\K so corresponderia a 2, porque a posicao correspondente depois da primeira correspondencia seria logo antes do 3 e nao teria mais digitos para corresponder em sequencia
+isso acontece tambem para a expressao a seguir
+\d(\d)
+
+usando a mesma tecnica de validacao de senha é possivel conferir se algum digito é precedido de uma letra grega minuscula
+(?<=\p{Ll})(?<=\p{Greek})\d
+
+(?<=\p{L1})
+o caractere anterior deve ser uma letra minuscula
+
+(?<=\p{Greek})
+o caractere seguinte deve ser uma letra grega minuscula
+
+podendo ser usado tambem
+\p{Greek}\K\d
+digito precedido de letra grega
+ou
+\p{Greek}(\d)
+para captura-lo
+
+porem nao é possivel impor uma segunda condicao
+sendo necessario o uso de uma expressao a seguir para certificar que a letra é minuscula
+
+
+
+lookarounds (normalmente) querem estar ancorados
+supondo que seja necessario combinar uma string de uma palavra, 
+desde que essa palavra tenha pelo menos um digito, e que essa solucao seja a expressao
+\A(?=\D*\d)\w+\z
+
+\A
+serve para certificar que a posicao atual seja o inicio de uma 
+(?=\D*\d)
+depois da posicao atual (que continua sendo o inicio da string)
+pode ser combinado zero ou mais caracteres e em seguida outro digito
+\w
+diz que deve ser uma palavra
+\z
+denota o fim da string
+
+caso seja omitido uma ancora \A e a expressao torna-se:
+(?=\D*\d)\w+\z
+
+na situacao atual considerar que a string seja sempre uma sequencia ininterrupta de caracteres em palavra
+supondo que o texto em que esta sendo empregado o uso dessa expressao
+seja uma sequencia de cem personagens V
+se essa string nao tem pelo menos um digito ela deve falhar
+porem como o motor chega a essa conclusao utilizando a expressao 
+(?=\D*\d)\w+\z
+
+na primeira combinacao de caracteres 
+(?=\D*\d)
+ele confirma que na posicao atual, nesse caso o inicio da string, pode corresponder a zero ou mais caracteres e depois a um digito
+na subspressao
+\D*
+correspondendo a todos os caracteres V
+o mecanismo tenta combinar um digito, porem como é o fim da string, ocorre a falha
+se fosse usado o motor PCRE, ele falharia de primeira,
+pois é percebido previamente que \D e \d sao mutuamente exclusivos,
+transformando o quantificador * em um quantificador possessivo *+
+fenomeno conhecido como auto-possessao
+
+se esse motor fosse menos inteligente, este retrocederia, desistindo de todas \D caracteres combinados uma a um,
+tentando, toda vez, combinar um \d depois da desistencia de um \D
+ficando sem personagens para retroceder falhando esse lookahead
+
+se o motor entende de alguma forma que essa antecipacao deve falhar, o mesmo desistiria de primeira
+continuando seu trabalho movendo para proxima posicao da string, 
+iniciando uma nova tentativa de correspondencia, novamente o \D* encontra todos os caracteres V, nessa vez sendo 99 deles, falhando novamente na antecipacao,
+rapidamente ou depois de voltar a posicao inicial
+depois de falhar pela segunda vez o motor vai pro segundo V, falhando em mais uma tentativa
+seguindo esse proceso ate o fim da string
+
+se o padrao nao estiver ancorado como inicio de string \A, em cada tentativa de correspondencia sera verificado se a antecipacao é a posicao atual,
+de modo, a na melhor das hipoteses, corresponder 100 caracteres de V, depois 99 na segunda vez e assim por diante, sendo necessarios, nesse caso, cerca de 5000 passos ate descobrir que o padrao nao tera correspondencia alguma
+no caso mais comum é necessario voltar atras e tentar \d cada posicao adicionada de dois passos em cada direcao de cada posicao V sendo necessarios por volta de 15000 passos antes de ver que o padrao nunca correspondera
+
+se comparado ao padrao ancorado:
+\A(?=\D*\d)\w+\z
+logo ao falhar na primeira tentativa, as posicoes a seguir falharam tambem, pois o \A falha antes que o motor alcance a antevisao
+levando na melhor das hipoteses 200 etapas de falha (100 na correspondencia de todos os caracteres V e uma etapa adicional em cada tentativa de correspondencia)
+sendo mais comum levar cerca de 400 etapas antes de falhar completamente
+(300 etapas na primeira tentativa, seguido de uma etapa em cada tentativa de correspondencia)
+
+resumidamente é uma boa pratica utilizar a ancora \A ou combinar caracteres literais antes de um lookahead
+
+uma excecao: correspondencias sobrepostas
+em outra situacao que seja necessario que o mecanismo tente a verificacao a frente em cada posicao da string com a intencao de combinar varias strings sobrepostas
+por exemplo a string WORD, 
+se a expressao:
+(?=(\w+))
+corresponde repetidamente, tera 4 ocorrencias para o grupo 1
+localizando ORD, RD, D
+
+ajuste atomico
+as expressoes a seguir possuem a mesma funcao
+variacao atomica:
+(?>[^a-z]*)[a-z]
+versao possessiva:
+[^a-z]*+[a-z]
+sao ajustes que certificam-se de que se a busca falhar ao encontrar uma letra minuscula, nao retornara desistindo das letras maiusculas uma a uma para checando se uma letra minuscula faz parte dessa busca
+note que antes de corresponder, alguns mecanismos reparam o proposito mutuamente exclusivo de [a-z] com sua contraclasse tornando o quantificador * possessivo
+essa otimizacao por conta do PCRE chama-se auto-possessao
+podendo ser desativado como na seguinte expressao:
+(* NO_AUTO_POSSES)

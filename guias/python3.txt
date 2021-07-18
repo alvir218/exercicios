@@ -1,0 +1,2013 @@
+CPython
+projeto que desenvolve a linguagem de programacao python escrita em c puro
+
+cython
+parece ser um transpilador de python para c puro
+
+jython
+python escrito em java
+
+pypy rpython
+python traduzido para e executado em tempo de execucao
+
+
+python -m pip install --upgrade pip
+
+python -m pip install pylint
+
+python -m pip install flake8
+remover
+
+python -m pip install mypy
+remover
+
+import pdb
+pdb.set_trace()
+breakpoint() #python 3.7 ou superior
+
+python -m pdb programa.py
+
+python -m pip install numpy
+python -m pip install h5py
+python -m pip install matplotlib
+instalar pil (disponivel ate python 2.7)
+python -m pip install scipy
+
+variaveis de ambiente python
+...\python_versao\
+...\python_versao\Scripts
+
+
+disable path length limit
+bypass 260 character "MAX_PATH" limitation
+nao foi ativado na instalacao
+
+
+para concatenar uma variavel em um print
+print("frase qualquer com valor: ", valor)
+
+type(variavel)
+mostra o tipo de dados da variavel
+se for imprimir no .py tem que usar print(type(variavel))
+
+operador
+// divisao inteira
+% resto da divisao
+
+int(variavel)
+converte variavel em um tipo int
+
+len(variavel)
+tamanho da string
+se for um numero nao tem len
+
+str(variavel)
+converte para string
+as aspas simples indicam
+'cadeia de caracteres'
+
+leitura
+variavel = input("frase qualquer")
+se for string funciona
+necessario converter para outros tipos
+float(variavel)
+
+o comando print concatena os trechos 
+com espaco entre cada elemento automaticamente
+
+operadores booleanos
+not
+and
+or
+
+syntaxe do if
+if condicao :
+	comando indentado
+else:
+	endentado
+segue por aqui nao endentado
+
+raiz quadrada
+import math
+math.sqrt()
+
+
+
+
+duvidas
+7
+Qual(is) dos seguintes comandos é(são) equivalente(s) a x != y?
+1 ponto
+
+x >= y or x <= y
+
+x > y or x < y
+
+not (x == y)
+
+x > y and x < y
+
+
+laco de repeticao
+while condicao:
+  comandos
+
+"Dica: Para separar os dígitos, lembre-se: o operador "//" faz uma divisão inteira jogando fora o resto, ou seja, aquilo que é menor que o divisor; O operador "%" devolve apenas o resto da divisão inteira jogando fora o resultado, ou seja, tudo que é maior ou igual ao divisor."
+
+deixar apenas ultimo digito
+numero % 10
+
+remover o ultimo digito
+numero // 10
+
+funcao
+def nome_da_funcao(parametro1, parametro2):
+  comandos
+  return retorno
+
+
+pytest
+testa arquivos salvos em
+test_*.py
+
+para instalar
+pip install -U pytest
+easy_install -U pytest
+py.test --version
+
+como usar pytest
+arquivo test_sample.py
+cria uma funcao no arquivo origem
+def funcao(variavel):
+  return x + 1
+testa alguma funcao no arquivo teste
+def test_answer():
+  assert func(3) == 4
+
+comando para testar
+py.test test_sample.py
+
+
+lint para python referenciado no code
+bandit
+flake8
+mypy
+prospector
+pycodestyle
+pydocstyle
+pylama
+pylint (padrao)
+
+para identificar um numero primo
+basta fazer testes de 2 ate (numero/2)
+
+len(vetor)
+tamanho do vetor 1 a n
+
+vetor = [elemento1, elemento2]
+vetor[de 0 a n - 1]
+
+os vetores podem guardar tipos diferentes em python
+
+para adicionar elemento no vetor vetor
+vetor.append("elemento")
+vetor.append(2)
+
+for iteracao in lista:
+	comandos
+
+range(numero)
+cria um intervalo de 0 a numero
+
+for iteracao in range(len(lista))
+
+for iteracao in range(inicio, fim)
+
+for iteracao in range(inicio, fim, passo)
+
+pares = range(0,40,2)
+for i in pares: print(i)
+imprime todos os pares de 0 a 39
+
+lista do n ao m-1
+lista do 1 ao 2-1
+2-1=1
+m-n
+2-1=1
+lista[1:2]
+se tiver 3 elementos na lista e tentar o comando
+lista[1:5] vai retornar de 1 ao final da lista
+
+nao altera a lista original
+e cria uma nova lista
+
+lista[:12]
+do 0 ao 12
+
+quando clona uma lista 
+o python pega por referencia
+se mudar a clone, muda a original
+
+lista1.append("elemento")
+adiciona um elemento no final da lista lista1
+
+pra copiar e criar 2 listas diferentes
+na memoria é necessario fazer manualmente
+copiando com append
+ou
+lista2 = lista1[:]
+
+pertinencia
+verifica se 
+esta na lista
+ja tem
+esta incluso
+
+"elemento" in lista1
+retorna True ou False
+
+para concatenar listas
+o python reconhece que é uma lista
+e faz a concatenacao automatica
+lista1 + lista2
+a ordem importa
+pode repetir tambem
+lista2 + lista1 + lista2
+cria uma lista nova
+
+b = a + [5]
+concatena na lista b a lista a mais a lista [5]
+
+b = a * 3
+adiciona na lista b a lista a 3 vezes
+
+
+
+remover em lista
+del lista[1]
+remove o item do indice 1 da lista lista
+
+del lista1[1:5]
+apaga os itens do 1 ao 4
+apaga 5 - 1 elementos 4
+
+ordenar vetor
+lista.sort() ou sorted(lista)
+
+duas variaveis com dados imutaveis string numeros
+com o mesmo conteudo mesmo sendo 
+duas variaveis com nomes diferentes
+o python manipula como a mesma referencia
+
+a is b
+se a e b apontam para o mesmo objeto
+
+== se comparar listas retornara True em 
+caso tenham o mesmo conteudo
+
+[lista] * 3
+retorna uma lista de listas
+
+
+para concatenar uma lista na outra
+lista2 = lista2 + lista1
+
+lista.pop()
+remove o ultimo elemento da lista
+retorna o elemento removido
+recebe como parametro o indice a ser removido
+se for passado um indice como parametro esse sera removido
+
+
+converter string em tudo minusculo maiusculo
+texto.lower()
+texto.upper()
+
+para detectar se a string toda é maiusculo ou minusculo
+texto.islower()
+texto.isupper()
+
+
+matriz
+um quadrado preenchido de 1 a 9
+matriz = [
+[1,2,3],
+[4,5,6],
+[7,8,9]
+]
+
+
+coloca a primeira letra em maiusculo
+se estiver tudo em maiusculo 
+a primeira fica maiusculo as demais 
+ficam em minusculo
+texto.capitalize()
+
+texto.strip()
+tira os espacos vazios
+
+texto.count("letra")
+quantas vezes aparece letra
+
+texto.replace("esse", "por esse")
+troca um pedaço do string
+
+texto.capitalize().center(80)
+centraliza o texto contando 80 caracteres
+
+texto.find("termo")
+o termo pode ser uma letra silaba ou palavra
+localiza algum item dentro do string
+retorna o indice
+retorna -1 quando ausente
+
+len(texto)
+tamanho do texto
+
+cortar strings
+slice como vetores
+texto[inicio : fim]
+
+ord("letra")
+numero ordinal no codigo de caracteres unicode
+
+a, b, c = 1, 2, 3
+a = 1
+b = 2
+c = 3
+
+a, b, c = funcao()
+
+de a para b
+a, b = b, a
+a = 2
+b = 1
+
+vale para todos os peradores
+x = x + 10
+x += 10
+
+funcao(parametro1, parametro2 = 2)
+parametro2 opcional
+paremetros opcionais depois
+caso o parametro 2 nao for informado
+sera considerado 2
+
+detector de inconcistencia
+detector de erros
+para o codigo quando encontra uma logica falsa
+assert expressao_logica
+
+import modulo_sem_.py
+
+funcao = modulo.funcao
+funcao.nome_da_funcao()
+
+atribui uma certa funcao de um modulo
+em uma variavel
+
+__name__
+nome do modulo
+variavel especial
+contem __main__ quando este é um modulo raiz
+caso contrario aparecera o nome do modulo
+
+import sys
+funcoes do sistema operacional
+sys.argv[1]
+primeiro argumento da funcao 
+chamada pelo console
+
+transformar lista em string
+pode ser util usar concatenacao
+
+
+
+classe em python
+class Nome_da_classe:
+
+pass
+passa o codigo pulando quando esta vazio
+
+pra criar uma instancia de uma classe
+um objeto
+nome_do_objeto = Nome_da_classe()
+
+objeto.atributo = dado
+
+objeto1 = objeto2
+por referencia em memoria
+objeto2 aponta para objeto1
+o que mudar em objeto2
+muda em objeto1
+
+construtor
+class Classe:
+  def __init__(self, atributo1f, atributo2f):
+    self.atributo1 = atributo1f
+    self.atributo2 = atributo2f
+
+sempre usar o parametro self nos metodos da classe
+representando o que esta salvo naquela instancia
+ela mesma passada por referencia
+
+ls -ls *teste*
+listar os que contem a cadeia teste no meio do arquivo
+
+import time
+modulo time
+time.time()
+devolve o tempo decorrido em segundos desde 01011970
+
+
+criar uma lista zerada
+lista = [0 for x in range(n)]
+
+gerar numeros aleatorios
+import random
+random.randrange(intervalo)
+onde intervalo representa o numero de numeros
+de 0 a intervalo - 1
+
+intervalo = 1000
+aleatorios de 0 a 999
+
+.extend()
+so funciona com lista maior que 1
+adiciona os elementos de uma lista um a um
+se for uma string devolve uma lista 
+com letra a letra da string
+
+print("string1", "string2", sep="string")
+separador entre varios parametros de string
+string1-string2
+por padrao espaco
+0b1100
+binario 1100
+decimal 12
+
+0o123
+octal 123
+decimal 83
+
+0x123
+hexadecimal 123
+decimal 291
+
+printar aspas em uma string
+I like "Monty Python"
+print("I like \"Monty Python\"")
+print('I like "Monty Python"')
+
+round(float, casasDecimaisDepoisDaVirgula)
+
+min(numero1, numero2, numeron)
+max(numero1, numero2, numeron)
+retorna o maior ou menor dos parametros
+se é uma lista retorna o menor da lista
+se for uma string, retorna a letra de menor code point unicode
+
+pip install pyinstaller
+pyinstaller --onefile .\source.py
+pyinstaller --onefile --noconsole .\source.py
+cria um executavel com base no programa source.py
+
+while e for
+podem ter 
+continue
+break
+else
+porem o else so ira conhecer a variavel 
+por exemplo em um for
+se ela estiver declarada antes do loop
+
+operadores bit a bit (bitwise operators)
+& and
+| or
+~ not
+^ xor se 1 exclusivo true
+
+conta do zero
+para saber qual bit se trata
+terceiro (x)
+3 2 1 0
+x 0 0 0 
+
+x ^ 1 = ~x
+x ^ 0 = x
+
+lista.insert(localizacao, valor)
+insert pode adicionar um item na lista
+em algum lugar especifico
+
+troca de valores entre 2 variaveis sem variavel auxiliar
+variable_1 = 1
+variable_2 = 2
+variable_1, variable_2 = variable_2, variable_1
+
+cenario inverter a ordem de uma lista
+my_list = [10, 1, 8, 3, 5]
+length = len(my_list)
+
+for i in range(length // 2):
+    my_list[i], my_list[length - i - 1] = my_list[length - i - 1], my_list[i]
+
+print(my_list)
+
+
+inverter a lista
+lista.reverse()
+
+bubble sort
+while swapped:
+    swapped = False
+    for i in range(len(my_list) - 1):
+        if my_list[i] > my_list[i + 1]:
+            swapped = True
+            my_list[i], my_list[i + 1] = my_list[i + 1], my_list[i]
+
+slice
+lista[inicio:fim]
+fim - inicio = len(lista)
+a lista contera o inicio 
+e todos os elementos 
+com indice menores que o fim
+porem nao o fim
+
+inicio é primeiro incluido
+fim é o primeiro nao incluido
+
+slice no for
+para revitar comparar
+indice 0 com 0
+for i in my_list[1:]:
+
+
+squares = [x ** 2 for x in range(10)]
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+impares = [x for x in squares if x % 2 != 0 ]
+[1, 9, 25, 49, 81]
+
+criando um tabuleiro de chadrez
+list comprehension
+board = [[EMPTY for i in range(8)] for j in range(8)]
+
+rooms = [[[False for r in range(20)] for f in range(15)] for t in range(3)]
+hotel com 
+3 predios
+15 andares
+20 quartos por andar
+hotel[predios][andares][quartos]
+
+acessar um item do dicionario
+dicionario[chave]
+dicionario.get(chave)
+
+verificar se contem por chave
+if chave in dicionario
+
+verificar se contem por valor
+if valor in dicionario.values()
+
+navegar pelo dicionario por keys
+dictionary = {"cat": "chat", "dog": "chien", "horse": "cheval"}
+
+for key in dictionary.keys():
+    print(key, "->", dictionary[key]
+
+navegar ordenadamente por chaves
+for key in sorted(dictionary.keys()):
+
+navegar por valor values
+for french in dictionary.values():
+    print(french)
+
+navegar por keys values
+for english, french in dictionary.items():
+    print(english, "->", french)
+
+adicionar dados do dicionario
+dictionary['swan'] = 'cygne'
+dictionary.update({"duck": "canard"})
+
+deletar itens do dicionario
+del dictionary['dog']
+dictionary.popitem()
+remove o ultimo adicionado
+
+caso key estiver presente atualizar com tuple
+se estiver ausente iniciar com tupla
+if name in school_class:
+        school_class[name] += (score,)
+    else:
+        school_class[name] = (score,)
+
+converter lista em tupla
+tupla = tuple(lista)
+
+converter tupla em lista
+lista = list(tupla)
+
+limpar dicionario
+dicionario.clear()
+
+remover dicionario da memoria
+del dicionario
+
+copiar dicionario
+copia_do_dicionario = dicionario.copy()
+
+separar tupla em variaveis
+tup = 1, 2, 3
+a, b, c = tup
+print(a * b * c)
+#6
+
+contar quantas ocorrencias de um item da tupla
+tupla.count(valor)
+
+concatenar dicionarios
+for item in (dicionario1, dicionario2):
+    dicionario3.update(item)
+
+converter tupla em dicionario
+colors = (("green", "#008000"), ("blue", "#0000FF"))
+colors_dictionary = dict(colors)
+
+from random import randrange
+randrange(inicio, fim-1, passo)
+se fim é 3 o final é 2
+inicio conta inicio tambem
+randint(left, right)
+seed(numero)
+semente arbitraria, 
+por padrao ja vem com uma com base no tempo
+pode ser alterada no meio do programa
+
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+choice(my_list))
+escolhe um numero da lista
+print(sample(my_list, 5))
+escolhe 5 numeros da lista
+print(sample(my_list, 10))
+escolhe 10 numeros da lista
+
+
+importar modulos
+import modulo
+from modulo import entidade1
+from modulo import entidade1 as nome1
+from modulo import entidade1 as nome1, entidade2 as nome2
+
+dir(module)
+dir(alias)
+retorna todas as entidades do modulo
+
+from platform import platform
+platform(aliased = False, terse = False)
+aliased
+nome alternativo
+terse
+resumido
+
+from platform import machine
+machine()
+tipo de arquitetura do processador
+x86
+x86_64
+armv71
+
+from platform import processor
+processor()
+retorna o processador
+ou pelo menos a arquitetura
+
+from platform import system
+system()
+retorna se é linux ou windows
+
+from platform import version
+version()
+versao do sistema operacional
+
+from platform import python_implementation, python_version_tuple
+python_implementation()
+CPython por padrao
+python_version_tuple()
+(3,9,1)
+
+import modulo
+importa o modulo modulo.py
+no import nao se coloca a extensao
+
+from sys import path
+path.append('..\\root\\modules')
+para o python mapear o local de execucao
+adicionar os caminhos
+dos outros modulos
+o caminho pode ser um arquivo .zip
+
+modules.modulo.funcao()
+chama a funcao empacotada
+
+import modules.modulo.funcao()
+funcao()
+
+pip help comando
+pip list
+pip show pacote
+pip search chaveBusca
+
+pip install --user pacote
+instalacao para usuario nao administrador
+
+pip install -U package_name
+atualiza um pacote
+-U de update
+
+pip install pacote==versao
+pip install pygame==1.9.2
+instalar versao especifica
+
+pip uninstall pacote
+remove algum pacote
+
+__name__
+contem o nome do modulo
+
+ord("caractere")
+retorna o numero do caractere
+retorna o code point do caractere
+retorna o numero da tabela ascii do caractere
+
+chr(numero)
+retorna o caractere do numero da tabela unicode
+
+.index("caractere")
+encontra o indice de primeira ocorrencia do caractere "caractere"
+tem que ter se nao da erro
+
+.find("string")
+mais seguro
+se nao tiver retorna -1
+se tiver retorna o indice do primeiro caractere
+so serve pra string
+.find("string", 2)
+a partir do indice 2
+
+fnd = the_text.find('the')
+while fnd != -1:
+    print(fnd)
+    fnd = the_text.find('the', fnd + 1)
+procura por "the" ate nao ter mais
+
+.find("string", 2, 4)
+a partir do indice 2
+ate o indice 4 - 1
+
+list(elemento)
+transforma o elemento em uma lista
+
+.count("caractere")
+se tiver retorna quantos tem
+se nao tiver nao tem problema
+
+.capitalize()
+"aBcD eFgH".capitalize()
+a primeira letra da string fica maiuscula
+Abcd efgh
+
+.center(n)
+.center(n, "caractere")
+centraliza totalizando n carecteres
+
+.endswith("final")
+retorna se termina com "final"
+
+
+.isalnum()
+retorna True quando so tem letras e numeros, mesmo de outro alfabeto,
+sem caracteres especiais mesmo se for _
+
+.isalpha()
+true se tem so letras
+
+.isdigit()
+true se tem so digitos
+
+.islower()
+true se tiver so letras minusculas
+
+.isspace()
+true se tiver apenas espacos em branco, caracteres de quebra de linha
+e tabulacao
+talvez seja pra todos os caracteres nao imprimiveis (nao testado)
+
+.isupper()
+true se tiver apenas letras maiusculas
+
+.join()
+print(",".join(["omicron", "pi", "rho"]))
+retorna
+omicron,pi,rho
+o objeto vira separador
+apenas entre as ocorrencias da lista
+
+
+.lower()
+passa a string toda pra minusculo
+
+.lstrip()
+so remeve espacos a esquerda
+.lstrip("w.")
+remove o que comecar com w e .
+a parte direita nao é afetada
+
+.replace("isso", "por isso")
+sempre que encontrar "isso"
+trocara por "por isso"
+
+.rfind("termo", inicio)
+.rfind("termo", inicio, fim)
+procura da direita pra esquerda
+porem ainda conta do indice da esquerda pra direita
+
+.rstrip()
+remove espacos
+.rstrip("ocorrencias")
+remove ocorrencia de cada elemento da string
+do lado direito
+
+
+.split()
+recebe uma string e retorna uma lista por cada item que esta separado por espaco ou qualquer whitespace
+pode se escolher outro delimitador por parametro
+
+
+.startswith("comeco")
+verifica se a string comeca com "comeco"
+
+.swapcase()
+muda minusculas pra maiusculas
+e maiusculas para minusculas
+
+.title()
+muda todas as palavras pra primeira letra maiuscula
+
+.upper()
+muda todas as letras para maiusculas
+
+
+
+sorted()
+ordena a lista por ordem de code point
+nao altera a lista de entrada
+
+.sort()
+ordena a lista por ordem de code point
+altera a lista de entrada
+
+
+str(numero)
+converte um numero pra string
+
+int(string)
+converte string em numero inteiro
+
+float(string)
+converte string em numero flutuante
+
+
+try:
+    codigo
+
+except exception1:
+    caso falhar executa esse depois
+
+except exception2:
+    caso falhar executa esse depois
+
+except:
+    ultima excecao
+
+else:
+    caso o codigo nao cair na excecao tratada
+
+finally:
+    sempre sera executado
+
+
+outra forma menos verbosa
+try:
+    :
+except (exc1, exc2):
+    :
+
+
+
+raise ZeroDivisionError
+chamar a excecao para simular tratamento sem forcar isso no codigo
+
+pode ser usado solo se estiver dentro do except
+try:
+        return n / 0
+except:
+        print("erro")
+        raise
+
+as ordens importam e deve usar a excecao mais a folha primeiro as mais perto da raiz
+
+assert expressao logica
+se der false retorna excecao
+AssertionError
+
+
+
+
+criar classe
+class Classe:
+    pass
+
+class Classe:
+    def __init__(self):
+        self.atributo = 1
+        __privado = 2
+
+instancia = Classe()
+print(instancia.atributo)
+
+
+
+heranca
+class Herdada(Classe):
+    def __init__(self):
+        Classe.__init__(self)
+        self.__sum = 0
+
+class Herdada(ClasseA, ClasseB):
+a ordem dos parametros importa
+em override ClasseA tem preferencia sob ClasseB
+
+imprimir todos os atributos de uma instancia
+print(instancia.__dict__)
+
+
+
+class ExampleClass:
+    def __init__(self, val = 1):
+        self.__first = val
+
+    def set_second(self, val = 2):
+        self.__second = val
+
+
+example_object_1 = ExampleClass()
+example_object_2 = ExampleClass(2)
+
+example_object_2.set_second(3)
+
+example_object_3 = ExampleClass(4)
+example_object_3.__third = 5
+
+
+print(example_object_1.__dict__)
+print(example_object_2.__dict__)
+print(example_object_3.__dict__)
+print(example_object_3.__third)
+
+
+quando inseri uma variavel privada fora do construtor a variavel fica publica
+
+objeto._Classe__atributoPrivado
+transpoe o atributo privado
+e pode obter o seu valor
+
+quando uma variavel é definida fora do construtor ou de um metodo ela funciona compartilhadamente entre todas as instancias
+exemplo de contador de instancias
+
+class ExampleClass:
+    __counter = 0
+    def __init__(self, val = 1):
+        self.__first = val
+        ExampleClass.__counter += 1
+
+para acessar atributos privados
+objeto._ExampleClass.__counter
+
+ExampleClass.__dict__
+para acessar ate as class variables
+as class variables nao aparecem em objecto.__dict__
+
+AttributeError
+quando nao tem o atributo em um objeto
+
+
+hasattr(objeto, "nomeDoAtributo")
+hasattr(Classe, "nomeDoAtributo")
+true se tiver o atributo
+class variable tambem faz parte do objeto
+atributos do construtor nao fazem parte da classe enquanto nao for instanciada
+
+para acessar atributos privados
+objeto._Classe__privado
+
+
+o parametro self é obrigatorio em metodos python
+é o proprio objeto sendo passado como parametro
+ao invocar o metodo, nao é necessario argumenta-lo, porem na sua construcao sim
+
+trabalhando com name
+exibe o nome da classe
+Classe.__name__
+com type(objeto).__name__
+retorna o nome da classe do objeto
+print(obj.__name__)
+causa erro
+
+
+print(Classy.__module__)
+obj = Classy()
+print(obj.__module__)
+para saber o modulo onde a classe esta
+o objeto tambem pode consultar
+
+
+Classe.__bases__()
+retorna uma tupla contendo as classes de heranca
+para usar o nome dessas classes tem que mandar um for
+for x in classes.__bases__:
+        print(x.__name__) 
+
+introspection
+examinar propriedades em tempo de execucao
+
+reflection
+manipular esses dados em tempo de execucao
+
+getattr(objeto, nomeDoAtributo)
+retorna o valor do atributo
+
+setattr(objeto, nomeDoAtributo, novoValor)
+
+if isinstance(val, int):
+se for inteiro
+nao entendi
+
+
+metodo padrao para imprimir 
+o objeto
+__str__(self):
+deve ser editado a gosto
+caso contrario retornara algo como 
+<__main__.Classe object at 0x7f1074cc7c50>
+ao print(Classe)
+
+
+
+issubclass(ClassOne, ClassTwo)
+retorna true se é uma subclasse de ClassTwo
+toda classe é considerada subclasse de si mesma
+
+isinstance(objectName, ClassName)
+retorna true se é o objeto é construido a partir da classe
+tambem conta se for uma classe herdada
+
+
+is
+mesmo espaco de memoria
+
+==
+mesmo conteudo armazenado
+
+super().
+acessa funcoes da classe superior
+dispensa o self
+
+
+capturando exception para uso posterior keyword "as"
+try:
+    i = int("Hello!")
+except Exception as e:
+    print(e)
+    print(e.__str__())
+
+invalid literal for int() with base 10: 'Hello!'
+
+__subclasses__()
+imprime as subclasses do objeto
+
+e.args
+tupla que contem os argumentos utilizados para o construtor instanciar a classe, sem contar o self
+contem dois para cada
+
+
+
+criando as proprias excecoes
+class MyZeroDivisionError(ZeroDivisionError):	
+    pass
+
+
+
+
+
+modelo de iterator com fibonacci
+
+class Fib:
+    def __init__(self, nn):
+        print("__init__")
+        self.__n = nn
+        self.__i = 0
+        self.__p1 = self.__p2 = 1
+
+    def __iter__(self):
+        print("__iter__")
+        return self
+
+    def __next__(self):
+        print("__next__")				
+        self.__i += 1
+        if self.__i > self.__n:
+            raise StopIteration
+        if self.__i in [1, 2]:
+            return 1
+        ret = self.__p1 + self.__p2
+        self.__p1, self.__p2 = self.__p2, ret
+        return ret
+
+
+for i in Fib(10):
+    print(i)
+
+
+
+
+exemplo com yield
+funcoes yield nao podem ser invocadas por si so, sao ferramentas usadas como generators
+
+retorna as potencias de 2
+def powers_of_2(n):
+    power = 1
+    for i in range(n):
+        yield power
+        power *= 2
+
+
+for v in powers_of_2(8):
+    print(v)
+1
+2
+4
+8
+
+converter um genarator em lista
+t = list(powers_of_2(3))
+print(t)
+
+exemplo com in
+for i in range(20):
+    if i in powers_of_2(4):
+        print(i)
+
+list comprehension
+6 primeiras potencias de 10
+list_2 = [10 ** ex for ex in range(6)]
+
+
+ternario
+expression_one if condition else expression_two
+
+par ou impar com ternario
+for x in range(10):
+    the_list.append(1 if x % 2 == 0 else 0)
+
+
+list comprehension vs generators
+the_list = [1 if x % 2 == 0 else 0 for x in range(10)]
+the_generator = (1 if x % 2 == 0 else 0 for x in range(10))
+se der len(the_generator)
+retornara um erro type error
+pois é um generator nao lista pra poder retornar len()
+
+
+funcao lambda
+funcao anonima
+nome = lambda parametros: retorno
+pode ser invocado por
+nome(parametros)
+
+invocar uma funcao em list comprehension e usar lambda
+print_function([x for x in range(-2, 3)], poly)
+equivale a poly(x)
+
+def poly(x):
+    return 2 * x**2 - 4 * x + 2
+
+
+print_function([x for x in range(-2, 3)], lambda x: 2 * x**2 - 4 * x + 2)
+
+
+map(function, list)
+
+map recebe uma funcao trabalhada por uma lista
+
+list(map(lambda x: 2 ** x, lista))
+
+cada item da lista sera o x da funcao lambda que retornara a potencia de x elevado ao quadrado
+
+map é um iterator e pra ser usado como lista, deve ser usado dentro da funcao list()
+
+
+filter(funcao, lista)
+para filtrar pares maior que zero
+exemplo de filter com lambda
+filtered = list(filter(lambda x: x > 0 and x % 2 == 0, data))
+retorna iterable
+
+
+
+
+closure 1
+def outer(par):
+    loc = par
+
+    def inner():
+        return loc
+    return inner
+
+
+var = 1
+fun = outer(var)
+print(fun())
+
+
+closure 2
+def make_closure(par):
+    loc = par
+
+    def power(p):
+        return p ** loc
+    return power
+
+
+fsqr = make_closure(2)
+fcub = make_closure(3)
+
+for i in range(5):
+    print(i, fsqr(i), fcub(i))
+
+
+ValueError.. OSError.. UnsupportedOperation
+excecao ao tentar escrever em um arquivo aberto somente leitura
+
+excecao do open
+FileNotFoundError
+
+stream = open(file, mode = 'r', encoding = None)
+
+o padrao do open é leitura em text mode e o encoding varia de acordo com a plataforma
+
+mode
+r w a r+ w+ t b
+
+
+protocolo para lidar com arquivo
+
+try:
+    stream = open("C:\Users\User\Desktop\file.txt", "rt")
+    # Processing goes here.
+    stream.close()
+except Exception as exc:
+    print("Cannot open the file:", exc)
+
+stream.close()
+
+retorna nada 
+ou exception IOError 
+
+deve ser conferido
+
+
+sugestao de close
+try:
+    # Some stream operations.
+except IOError as exc:
+    print(exc.errno)
+
+
+errno.EACCES → Permission denied
+errno.EBADF → Bad file number
+errno.EEXIST → File exists
+errno.EFBIG → File too large
+errno.EISDIR → Is a directory
+errno.EMFILE → Too many open files
+errno.ENOENT → No such file or directory
+errno.ENOSPC → No space left on device
+
+
+
+from os import strerror
+traduzindo os erros IOError
+
+try:
+    s = open("c:/users/user/Desktop/file.txt", "rt")
+    # Actual processing goes here.
+    s.close()
+except Exception as exc:
+    print("The file could not be opened:", strerror(exc.errno))
+
+
+
+print(stream.read())
+retorna o arquivo todo
+
+print(stream.read(1))
+le apenas um caractere do arquivo
+
+
+ler arquivo texto caractere a caractere1
+
+from os import strerror
+
+try:
+    cnt = 0
+    s = open('text.txt', "rt")
+    ch = s.read(1)
+    while ch != '':
+        print(ch, end='')
+        cnt += 1
+        ch = s.read(1)
+    s.close()
+    print("\n\nCharacters in file:", cnt)
+except IOError as e:
+    print("I/O error occurred: ", strerror(e.errno))
+
+pode ser atribuido o arquivo todo em uma variavel e fazer um for
+
+from os import strerror
+
+try:
+    cnt = 0
+    s = open('text.txt', "rt")
+    content = s.read()
+    for ch in content:
+        print(ch, end='')
+        cnt += 1
+    s.close()
+    print("\n\nCharacters in file:", cnt)
+except IOError as e:
+    print("I/O error occurred: ", strerr(e.errno))
+
+
+pode ser lido uma linha inteira
+stream.readline()
+
+stream.readlines(20)
+le varias linhas e retorna uma lista com numero maximo de buffer em bytes como parametro
+
+fim do arquivo é uma string vazia
+EOF = ''
+
+
+
+stream como iterable
+uma linha por vez
+for line in open('text.txt', 'rt'):
+
+
+
+escrever um erro no stderr
+import sys
+sys.stderr.write("Error message")
+
+
+data = bytearray(10)
+10 bytes
+
+TypeError 
+se nao for inteiro
+
+ValueError 
+se nao estiver entre 255-0
+
+
+
+exemplo de edicao por bytearray
+from os import strerror
+
+data = bytearray(10)
+
+for i in range(len(data)):
+    data[i] = 10 + i
+
+try:
+    bf = open('file.bin', 'wb')
+    bf.write(data)
+    bf.close()
+except IOError as e:
+    print("I/O error occurred:", strerror(e.errno))
+
+# Your code that reads bytes from the stream should go here.
+
+
+
+
+
+
+
+rotina de leitura e escrita em modo binary
+
+from os import strerror
+
+data = bytearray(10)
+
+for i in range(len(data)):
+    data[i] = 10 + i
+
+try:
+    bf = open('file.bin', 'wb')
+    bf.write(data)
+    bf.close()
+except IOError as e:
+    print("I/O error occurred:", strerror(e.errno))
+
+# Your code that reads bytes from the stream should go here.
+try:
+    bf = open('file.bin', 'rb')
+    bf.readinto(data)
+    bf.close()
+
+    for b in data:
+        print(hex(b), end=' ')
+except IOError as e:
+    print("I/O error occurred:", strerror(e.errno))
+
+
+
+
+
+
+
+rotina para leitura em arquivo binary com .read()
+tem que caber na memoria, pois leu todo arquivo
+
+from os import strerror
+
+try:
+    bf = open('file.bin', 'rb')
+    data = bytearray(bf.read())
+    bf.close()
+
+    for b in data:
+        print(hex(b), end=' ')
+
+except IOError as e:
+    print("I/O error occurred:", strerror(e.errno))
+
+
+.write()
+retorna o numero de bytes escritos
+
+.readinto()
+retorna o numero de bytes lidos
+
+.read('numero de bytes pra ler')
+o len do objeto retornado 
+pode determinar a quantidade de bytes lido
+
+bytearray()
+se assemelha a lista
+mutavel
+
+a classe de leitura binary é imutavel
+
+
+
+
+
+
+codigo de copia completa de arquivos binary
+
+from os import strerror
+
+srcname = input("Enter the source file name: ")
+try:
+    src = open(srcname, 'rb')
+except IOError as e:
+    print("Cannot open the source file: ", strerror(e.errno))
+    exit(e.errno)	
+
+dstname = input("Enter the destination file name: ")
+try:
+    dst = open(dstname, 'wb')
+except Exception as e:
+    print("Cannot create the destination file: ", strerror(e.errno))
+    src.close()
+    exit(e.errno)	
+
+buffer = bytearray(65536)
+total  = 0
+try:
+    readin = src.readinto(buffer)
+    while readin > 0:
+        written = dst.write(buffer[:readin])
+        total += written
+        readin = src.readinto(buffer)
+except IOError as e:
+    print("Cannot create the destination file: ", strerror(e.errno))
+    exit(e.errno)	
+    
+print(total,'byte(s) succesfully written')
+src.close()
+dst.close()
+
+
+
+
+o iterador no for fecha o arquivo sozinho
+
+
+ler imagem
+
+try:
+    stream = open("image.png", "rb")
+    # Insert a line here.
+    image = bytearray(stream.read())
+
+    stream.close()
+except IOError:
+    print("failed")
+else:
+    print("success")
+
+
+
+
+obtendo informacoes sobre o so linux
+no windows usa o platform
+uname contem:
+
+systemname — stores the name of the operating system;
+nodename — stores the machine name on the network;
+release — stores the operating system release;
+version — stores the operating system version;
+machine — stores the hardware identifier, e.g., x86_64.
+
+import os
+print(os.uname())
+
+
+import os
+print(os.name)
+retorno:
+posix
+unix like
+nt 
+windows
+java
+escrito em jython
+
+diretorio
+./diretorio
+
+../diretorio
+um nivel acima
+
+/home/diretorio
+absoluto
+
+
+FileExistsError
+se criar diretorios de mesmo nome
+
+import os
+
+os.mkdir("my_first_directory")
+cria um diretorio
+
+print(os.listdir())
+lista os diretorios no diretorio de execucao
+quando nao tem nada retorna lista vazia
+nao tem . e .. nos nomes
+
+os.chdir("diretorio1/diretorio2")
+troca de diretorio
+
+criar uma estrutura de diretorios
+os.makedirs("my_first_directory/my_second_directory")
+
+print(os.getcwd())
+exibir em qual diretorio esta
+
+para remover diretorios
+os.rmdir('diretorio')
+os.removedirs('diretorio1/diretorio2')
+
+os.system(comando)
+manda o so executar um comando
+returned_value = os.system("mkdir hello")
+retorna o que o so retornar
+retorno exit status no linux
+retorno do shell no windows
+
+
+
+
+
+
+
+trabalhando com datas
+
+from datetime import date
+today = date.today()
+print("Today:", today)
+print("Year:", today.year)
+print("Month:", today.month)
+print("Day:", today.day)
+my_date = date(2019, 11, 4)
+print(my_date)
+
+.year
+9999-1
+
+.month
+12-1
+
+.day
+ultimo dia do mes em questao - 1
+
+
+from datetime import date
+import time
+
+timestamp = time.time()
+print("Timestamp:", timestamp)
+retorna um epoch em float
+
+d = date.fromtimestamp(timestamp)
+print("Date:", d)
+
+timestamp é o tempo em float contando do instante  January 1, 1970, 00:00:00 (UTC)
+
+
+d = date.fromisoformat('2019-11-04')
+print(d)
+o formato iso é yyyy-mm-dd
+mes e dia menor que 10 tem que ter zero na frente
+tem que ter o - pra dividir
+
+
+objetos de data sao read only
+para alterar deve ser utilizado o .replace(ano, mes, dia)
+tem que usar o retorno em uma nova data
+
+d = date(1991, 2, 5)
+print(d)
+
+d = d.replace(year=1992, month=1, day=16)
+print(d)
+
+print(d.weekday())
+dia da semana
+segunda = 0
+domingo = 6
+
+print(d.isoweekday())
+segunda = 1
+domingo = 7
+
+
+from datetime import time
+time(hour, minute, second, microsecond, tzinfo, fold)
+
+todos os parametros sao opcionais
+e o padrao é 0 para todos
+
+tzinfo = time zone
+fold = wall times
+
+time.sleep(seconds)
+os segundos podem ser inteiro ou float
+
+timestamp = 1572879180
+time.ctime(timestamp)
+Mon Nov  4 14:53:00 2019
+
+onde timestamp é o inteiro do epoch
+o formato de saida é uma string
+
+time.ctime()
+retorna a string da data atual
+
+
+1572879180
+retornam objeto 
+time.struct_time:
+
+print(time.gmtime(epoch)) #utc
+print(time.localtime(epoch)) #local
+
+time.struct_time(tm_year=2019, tm_mon=11, tm_mday=4, tm_hour=14, tm_min=53, tm_sec=0, tm_wday=0, tm_yday=308, tm_isdst=0)
+t
+
+    tm_year   # specifies the year
+    tm_mon    # specifies the month (value from 1 to 12)
+    tm_mday   # specifies the day of the month (value from 1 to 31)
+    tm_hour   # specifies the hour (value from 0 to 23)
+    tm_min    # specifies the minute (value from 0 to 59)
+    tm_sec    # specifies the second (value from 0 to 61 )
+    tm_wday   # specifies the weekday (value from 0 to 6)
+    tm_yday   # specifies the year day (value from 1 to 366)
+    tm_isdst  # specifies whether daylight saving time applies (1 – yes, 0 – no, -1 – it isn't known)
+    tm_zone   # specifies the timezone name (value in an abbreviated form)
+    tm_gmtoff # specifies the offset east of UTC (value in seconds)
+
+
+
+timestamp = 1572879180
+st = time.gmtime(timestamp)
+
+print(time.asctime(st))
+recebe objeto time.struct_time ou tupla retorna string
+sem parametro retorna localtime
+
+print(time.mktime((2019, 11, 4, 14, 53, 0, 0, 308, 0)))
+recebe objeto time.struct_time ou tupla retorna epoch
+
+from datetime import datetime
+dt = datetime(year, month, day, hour, minute, second, microsecond, tzinfo, fold)
+
+dt
+2019-11-04 14:53:00
+
+dt.date()
+2019-11-04
+
+dt.time()
+14:53:00
+
+
+from datetime import datetime
+
+print("today:", datetime.today())
+tzinfo = None
+
+print("now:", datetime.now())
+tzinfo com tz objetc
+
+print("utcnow:", datetime.utcnow())
+tzinfo = None
+
+
+
+dt = datetime(2020, 10, 4, 14, 55)
+print("Timestamp:", dt.timestamp())
+obtem epoch em segundos float
+Timestamp: 1601823300.0
+
+
+data formatada personalizada
+directives
+d = date(2020, 1, 14)
+print(d.strftime('%Y/%m/%d'))
+2020/01/14
+
+
+dt = datetime(2021, 5, 20, 1, 20)
+print(dt.strftime("%y/%B/%d %H:%M:%S"))
+print(dt.strftime("%d de %B de %Y as %H:%M:%S"))
+
+
+import time
+
+timestamp = 1572879180
+st = time.gmtime(timestamp)
+
+print(time.strftime("%Y/%m/%d %H:%M:%S", st))
+print(time.strftime("%Y/%m/%d %H:%M:%S"))
+
+tem que passar o objeto
+se nao usa o tempo atual
+
+
+
+converter uma string de data em um objeto struct_time
+funcoes parecidas com datetime e time
+
+from datetime import datetime
+print(datetime.strptime("2019/11/04 14:53:00", "%Y/%m/%d %H:%M:%S"))
+
+ou
+
+import time
+print(time.strptime("2019/11/04 14:53:00", "%Y/%m/%d %H:%M:%S"))
+
+
+se errar a string de entrada gera
+excecao ValueError
+
+
+
+operacoes matematicas com datas sao obtidas pelo objeto time delta 
+o date retornara as horas tambem
+porem tudo em zero
+o datetime incluira a hora tambem
+
+d1 = date(2020, 11, 4)
+d2 = date(2019, 11, 4)
+
+print(d1 - d2)
+#366 days, 0:00:00
+
+dt1 = datetime(2020, 11, 4, 0, 0, 0)
+dt2 = datetime(2019, 11, 4, 14, 53, 0)
+
+print(dt1 - dt2)
+#365 days, 9:07:00
+
+
+criando objeto timedelta
+from datetime import timedelta
+
+delta = timedelta(weeks=2, days=2, hours=3)
+print(delta)
+#16 days, 3:00:00
+
+obtem-se quanto tempo tem seus argumentos que sao days, seconds, microseconds, milliseconds, minutes, hours, and weeks
+
+porem so armazena days, seconds e microseconds
+
+from datetime import timedelta
+
+delta = timedelta(weeks=2, days=2, hours=3)
+print("Days:", delta.days)
+print("Seconds:", delta.seconds)
+print("Microseconds:", delta.microseconds)
+
+Days: 16
+Seconds: 10800
+Microseconds: 0
+
+
+
+
+operacoes com timedelta, date, datetime
+
+from datetime import timedelta
+from datetime import date
+from datetime import datetime
+
+delta = timedelta(weeks=2, days=2, hours=2)
+print(delta)
+
+delta2 = delta * 2
+print(delta2)
+
+d = date(2019, 10, 4) + delta2
+print(d)
+
+dt = datetime(2019, 10, 4, 14, 53) + delta2
+print(dt)
+
+
+
+
+no calendar
+.MONDAY == 0
+.SUNDAY == 6
+
+parametros
+w – date column width (default 2)
+l – number of lines per week (default 1)
+c – number of spaces between month columns (default 6)
+m – number of columns (default 3)
+
+exibindo calendario de 2020
+import calendar
+print(calendar.calendar(2020))
+
+.prcal(2020)
+equivalente
+
+print(calendar.month(2020, 11))
+calendar.prmonth(2020,11)
+
+calendar.setfirstweekday(calendar.SUNDAY)
+0 is Sunday and 6 is Saturday.
+
+print(calendar.weekday(2020, 12, 24))
+
+print(calendar.weekheader(3))
+dias da semana em n letras
+
+dias de ano bissexto
+print(calendar.isleap(2020))
+print(calendar.leapdays(2010, 2021))  
+nao inclui 2021
+
+
+classe calendario
+parametro indica o dia que comeca a semana
+segunda = 0
+domingo = 6
+
+c = calendar.Calendar(calendar.SUNDAY)
+o parametro define o primeiro dia da semana
+
+for weekday in c.iterweekdays():
+    print(weekday, end=" ")
+iterador que retorna a sequencia dos dias da semana em inteiro
+
+
+c = calendar.Calendar()
+
+for date in c.itermonthdates(2019, 11):
+    print(date, end=" ")
+iterador que retorna objetos datetime.date que contem os dias de um determinado ano mes
+estao incluidos os dias para completar a linha da primeira e ultima semana
+
+
+c = calendar.Calendar()
+
+for iter in c.itermonthdays(2019, 11):
+    print(iter, end=" ")
+
+os dias que nao pertencem ao mes sao incluidos como 0
+
+
+c.itermonthdays2(2019, 11)
+iterador que contem tuplas
+(dia do mes, dia da semana)
+0 na esquerda significa que nao faz parte do mes e apenas sinaliza os dias do mes anterior ou proximo
+na direita é o dia da semana
+
+c.itermonthdays3(2019, 11)
+iterador que contem tuplas
+(ano, mes, dia)
+
+c.itermonthdays4(2019, 11)
+iterador que contem tuplas
+(ano, mes, dia, dia da semana)
+
+c.monthdays2calendar(2020, 12)
+iterador que contem listas de tuplas
+(dia do mes, dia da semana)
+0 em dia do mes sao os meses que nao pertencem ao mes do parametro e so servem pra completar o calendario
+
+
+
+
+list comprehension matricial
+lista = [[c for c in range(r)] for r in range(3)]
+
+
+
+pip limpar cache
+pip cache dir
+linux
+~/.cache/pip
+osx
+~/Library/Caches/pip
+windows
+%LocalAppData%\pip\Cache
+c:\users\user3\appdata\local\pip\cache
+
+pip reinstalar pacote
+pip install --upgrade --force-reinstall <package>
+pip install -I <package>
+pip install --ignore-installed <package>
+
+
+
+
+movido para um local onde tenha 
+relatorio do aprendizado das 
+linguagens de programacao
+Z:\OneDrive - UNINTER - Aluno\backuponedrive\algoritmo\linguagens
+
+python -m pip install pylint
+
+python -m pip install --upgrade pip
+
+import pdb
+pdb.set_trace()
+breakpoint() #python 3.7 ou superior
+
+python -m pdb programa.py
+
+python -m pip install numpy
+python -m pip install h5py
+python -m pip install matplotlib
+instalar pil (disponivel ate python 2.7)
+python -m pip install scipy
+
+variaveis de ambiente python
+...\python_versao\
+...\python_versao\Scripts
+
+
+
+pip install pyserial
+pip install matplotlib
+pip install numpy
+pip install pysimplegui
+pip install pylive

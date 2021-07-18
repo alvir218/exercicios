@@ -1,0 +1,1012 @@
+codigo do webnar do lucas
+
+CODIGO
+
+pm i --save-dev sinon
+para instalar a biblioteca sinon
+
+pm i --save-dev chai
+para instalar a biblioteca chai
+
+npm init -y
+cria inicia o projeto
+
+npm i --save-dev mocha
+instala como dependencia de desenvolvimento o mocha
+
+"test": "mocha"
+
+importar uma funçao exclusiva do node
+const EventEmitter = require('events');
+const emitter = new EventEmitter();
+
+while (true){
+  let value = it.next
+  if (value.done){
+    break;
+  }
+}
+
+ou
+
+
+
+[Symbol.iterator](){}
+adiciona propriedades
+
+para obter as propriedades de um symbol
+Object.getOwnPropertySymbols(objeto)
+
+.sort((atual, proximo) => atual.variavel - proximo.variavel)
+do menor pro maior
+crescente
+
+.sort((atual, proximo) => proximo.variavel - atual.variavel)
+do maior pro menor
+decrescente
+
+mais facil
+.sort
+.reverse
+
+map
+retorna um novo array derivado
+
+concat 
+concatenar
+slice
+fatiar
+retorna um novo array
+nao altera os arrays de origem
+
+push 
+adiciona um novo item no array
+retorna o tamanho
+
+.pop 
+variavel.pop()
+remove o ultimo item do array
+retorna o item removido
+se usar variavel = variavel.pop()
+variavel vai receber o ultimo item do array
+
+const divArray = Array.from(divs)
+transforma um node list em array
+
+array.of 
+cria uma instancia de um array
+a partir do numero de parametros informado
+
+array.from
+espera por um parametro 
+array like
+iterable object
+
+spread
+concatenar arrays
+ou passar varios parametros com array
+...
+inclui o array todo
+var partes = ['ombro', 'joelhos'];
+var musica = ['cabeca', ...partes, 'e', 'pes'];
+equivale a 
+var musica ['cabeca', 'ombro', joelhos, 'e', 'pes'];
+
+
+.reduce(novo_tipo_valor__funcao_rangler, item_que_sera_iterado__valor_inicial_da_propriedade)
+permite transformar um array para outro tipo
+
+.map
+.filter
+.reduce
+nao alteram a referencia
+retornam um novo objeto array
+
+.isArray
+retorna se é ou nao uma array
+
+const nomedosimbolo = Symbol('nome');
+const nomedosimbolo2 = Symbol('nome');
+embora tenha o mesmo nome sao objetos diferentes
+criado com ideia de servir como atributos privados ou classes
+tambem usado para criar enum
+criam propriedades que nao sao enumerables
+com Reflect. consegue exibir todas as propriedades
+
+.seal
+nao permite criar ou deletar
+porem permite alterar
+
+.freeze
+congela para nao poder trocar o valor
+nao permite mais adicionar alterar remover propriedades
+
+tamanho da string
+quantos itens tem um array
+o indice 0 conta como 1
+const textoTamanho = 'texto'.length;
+Entrada.length
+
+
+.split('caractere separador', numero_limite_da_lista);
+separa pelo delimitador expresso em caractere
+pode ser adicionado os \n \t
+
+.replace('substituir_esse', 'por esse');
+
+.slice(-1);
+retorna ultima letra de uma string
+
+.slice(0, -1);
+string da primeira ate a penultima
+corta a ultima
+
+.slice(1);
+string da segunda ate a ultima letra
+
+.substr
+.substr(0, 2);
+duas letras depois da primeira
+comeco, quantidade de letras
+
+com numeros
+.toString();
+converte numero em string
+.join
+para converter em uma unica string
+
+.toFixed(2);
+com duas casas depois da virgula
+deve ser criada em uma nova variavel
+
+parseFloat('13.22');
+converte string para float
+
+parseInt('13.20')
+converte string para inteiro
+
+concatenaçao2
+return{
+  ...user,
+  fullName: user.name + ' ' + user.lastName
+}
+' ' so pra criar um espço entre o nome e sobrenome
+
+function soma(a, b){
+	return a + b;
+}
+
+soma(2,3);
+soma(2,4);
+soma(2,5);
+
+com currying
+quando tem uma funcao com um parametro em comum 
+pode se aplicar a tecnica para aproveitar o parametro repetido 
+para as outras funçoes
+
+function soma(a){
+  return function(b){
+    return a + b;
+  }
+}
+
+const soma2 = soma(2);
+
+soma2(3);
+soma2(4);
+soma2(5);
+
+node "caminho.js"
+para executar
+
+exemplificando funçoes
+function getName() {
+return 'uma string'
+}
+
+function logFn(fn) {
+	console.log(fn());
+}
+
+const logFnResult = logFn;
+
+const obj = {
+	logFn: logFn
+}
+
+const arr = [logFn]
+
+logFnResult(getName);
+
+
+
+tipagem fraca e dinamica
+fraca nao importa o tipo
+dinamica nao precisa explicitar o tipo na criaçao
+inferencia de tipo
+pode usar atribuiçoes de diversos tipos ao decorrer do programa
+
+var meuNumero = 20;
+var meuTexto = 'Exemplo';
+
+console.log(meuNumero + meuTexto)
+
+	CODIGO
+
+TEORIA
+
+tratamento de erro
+com o estouro de um erro
+o javascript interrompe toda a execuçao do codigo
+por blocos de try catch
+throw
+dispara o proprio erro
+pode ser inserido metainformaçao para acompanhar o erro
+source map
+mostra as posiçoes do arquivo minificado para o convertido
+debugger
+onde houver debugger no codigo
+o chrome para e abre o console destacando essa linha
+console.trace
+mostra de onde esta sendo executado
+
+const
+nao possuem propriedade de hoisting
+
+sinon
+.spy
+monitora se uma funçao foi chamada
+invocada da maneira correta
+quantas vezes
+maneira como foram chamadas
+.stub
+usar em substituiçao
+para substituir metodo e colocar um return customizado
+restore
+retornaria o metodo normal
+
+chai
+mesmo se um objeto tiver os mesmos caracteres
+sua referencia é outra
+.deep.equal
+com esse recurso os objetos serao comparados por conteudo
+nao importando a referencia
+
+
+assert 
+limitado
+comparar objetos e propriedades
+nao é tao descritivo quanto deveria ser
+perde legibilidade 
+melhor usar a biblioteca chai
+
+hooks
+formas de executar codigo e evitar repetiçao
+before
+executara antes de tudo
+a variavel vai ter o valor de declaraçao apenas uma vez
+na proxima vez o valor sera 0
+
+parametro done
+aguarda o done ser invocado
+garante que o teste aguardara 
+quando chamar uma promisse await chamar callback
+
+
+equal
+valida se dois numeros sao iguais
+caso nao sejam ele dispara um erro
+pode capturar esse erro com catch
+
+emacs-26
+modo texto
+editor de textos com debug para javascript
+
+mocha
+por padrao tem formas de descrever os testes
+describe(o_que_esta_testando)
+it(comportamento_esperado)
+usar apenas function para ter o controle de escopo
+se nao tiver completo o codigo do teste 
+o resultado resultado retornara um pending
+com o .only executa apenas um teste
+.skip
+usar em vez de comentar
+pula o teste
+equivale a comentar o teste
+
+
+test runner
+mocha
+ferramenta para executar os teste
+tanto environment node ou browser
+jast
+javascript
+roda em cima do jsdom
+karma teste em browser
+
+
+tdd
+test driven development
+desenvolvimento orientado a testes
+primario
+cria um teste antes de escrever o codigo
+escreve o codigo com base do teste 
+com a intençao de passar no teste
+repete o ciclo
+
+bdd
+behavior driven development
+desenvolvimento orientado a comportamento
+regras de negocio orientado a programaçao
+pilares teste documentaçao exemplos
+
+teste unitario
+base
+mais rapidos
+a menor unidade do codigo
+comportamento de uma funçao componente classe
+
+teste integrado
+meio
+integraçao entre pequenas partes
+uma funçao com funçao componente com componente classe com classe
+
+teste funcional
+topo 
+mais custosos
+integraçao do sistema com outro sistema
+funcionalidade de ponta a ponta
+teste black box
+teste como usuario faria percorrendo o site 
+
+
+.once
+permite executar apenas uma vez
+
+EventEmitter
+esclusivo do node
+do modulo events do node
+alternativa mais comum
+EventTarget
+trabalha com a api do browser event listener
+
+await
+so usa dentro do async
+para aguardar a resoluçao de uma promise
+
+
+catch
+captura o erro
+em fetch so captura o erro se for de rede
+
+pra obeter dados da stream é necessario processalo
+para obter o valor de fato
+um metodo diferente para cada tipo de dado
+
+fecth
+antigamente se fazia requisiçoes 
+com api xml http requests
+faz o que a api xml http requests faz
+mas usando promises
+bom de lidar com requests
+simplicidade
+retorno ser uma promise
+o catch so captura o erro se for de rede
+
+
+race
+quando as promisses forem executadas juntas
+a funçao que resolver primeiro sera executada
+e tera um unico retorno
+
+
+promisses
+tipo funçao
+resolve o callback hell
+quando cria ela é automaticamente executada
+pode ser
+pendign
+pendente em execuçao
+fulfilled
+quando terminou de executar
+rejected
+caso aconteça um erro
+trata-se com catch
+quando coloca async transforma funçao em promise
+torna resolvida
+
+generators
+funçao com pausa e retorno por yield
+pode retornar algo que vem de fora
+so continua a execuçao danto it.next
+colocando o asterisco na frente torna um metodo genarator
+alem de funçao com pausa
+pode criar metapropriedades em objetos iteraveis
+
+
+iterator
+interface para consumir passo a passo uma estrutura de dados
+enquanto tiver percorrendo a lista retorna false
+quando acabar a lista retorna true
+
+symbol
+nao pode ser invocado usando new
+identificador unico
+nao pode ser advinhado
+
+
+destructuring assignment
+atribuir a uma variavel uma parte de objeto mais elaborado
+
+shellow clone
+clone raso
+se o objeto tiver propriedades que sejam outros objetos
+
+objetos literais
+nao sao objetos iteraveis
+nao podem ser acrescentados por spread
+
+rest operator
+...
+em arrow functions deve ser usado (...rest)
+rest vira um array com os parametros
+
+spread operator tem a mesma escrita do rest operator(...spread)
+nao se limita a listas
+pode ser utilizado em 
+strings array abjetos iteraveis
+construir objetos literais
+construir objetos iteraveis
+pode ser usado para quebrar uma string em formato de array letra a letra
+pode ser usado para construir novos objetos
+nao pode ser utilizado para construir um array
+pode ser usado para construir objetos literais se forem objetos novos
+
+arguments
+contem todos os argumentos da funcao
+quando invocado dentro de uma funcao
+
+lazy evaluation
+caracteristica que permite podermos utilizar funçoes para definir valores de um argumento e a mesma so sera invocada quando o argumento for indefinido
+
+podemos omitir os parenteses da funcao
+quando tiver apenas um argumento
+
+contexto de invocaçao
+sao executadas no contexto de onde sao invocadas
+
+arrow functions
+sao funçoes anonimas
+uso ao atribuir a uma variavel
+uso como parametro para outra funçao
+nao podem ser usadas com construtor new
+nao tem a caracteristica de hoisting
+devem ser previamente declaradas antes do uso
+tem o mesmo contexto do codigo que as envolve
+nao podemos criar funcoes construtoras usando arrow functions
+
+set 
+toda vez que chama
+controla se vai ser alterado ou nao
+sempre que um evento de deletar ou atualiza
+envia uma notificaçao pra quem tiver escutando
+
+singleton
+retorna sem alterar
+
+prototype
+armazena as definiçoes do objeto
+
+arrow function
+tem retorno implicito
+nao precisa especificar o return se nao houver muito codigo envolvido
+
+null
+embora seja seu proprio tipo
+é considerado um object
+
+array
+vetores
+tambem sao objetos
+
+function
+tambem é um objeto que permite ser chamado
+
+symbol
+valores unicos
+
+typescript
+superset do javascript
+alem de adicionar tipos em tempo de desenvolvimento pro javascript
+adiciona funcionalidades que o javascript nao tem por padrao
+
+stage 0 strawman
+submete-se um formulario com ideia
+documento revisado
+adicionado nas paginas de proposta
+
+stage 1 proposal
+descrito objetivo com exemplos
+pode haver alteraçao nessa proposta
+
+stage 2 draft
+proposta de sintaxe e semantica
+uma implementaçao com babel
+incrementaçao
+
+stage 3 candidate
+assinatura do editor do editor da especificaçao do acmascript
+duas implementaçoes compativeis com a especificaçao
+pode haver alteraçao com base no feedback
+
+stage 4 finished
+pronta para ser incluida na especificaçao
+passar na suite de teste
+duas implementaçoes compativeis com a especificaçao que passam no teste
+experiencia pratica significativa
+assinatura do editor do editor da especificaçao do acmascript
+
+es.next
+teste de futuras implementaçoes
+
+acmascript
+especificaçao da linguagem de programaçao
+padronizada por ecma da ecma international
+jscript actionscript
+
+tc39
+organizaçao que promove encontros 
+para promover os projetos reportados para acma
+
+javascript lançado em setembro de 1995
+com o lançamento do netscape
+livescript para javascript 
+para ser familiarizada com o lançamento do java na mesma epoca
+equipe liderada por james gozlin
+por aplet para netscape suportou java
+
+javascript criada por brendan eich
+
+const
+em string ou outro tipo primitivo nao permite mudar de valor
+se criar objeto permite alterar suas propriedades
+possivel de manipular por array
+
+abrir e fechar chaves
+escopo de bloco
+
+escopo global
+em cima sem chaves
+
+escopo de funçao
+dentro de uma funçao
+
+var
+primeira inventada
+nao intende escopo de bloco
+aceita apenas escopo de funçao ou global
+
+escopo de bloco
+let
+const
+
+imutabilidade
+os dados nao mudam
+as variaveis so mudam se ser criada novamente
+
+hoisting
+levantar suspender
+declaraçoes de variaveis e funçoes sao levadas em seu escopo
+variavel so eleva a criaçao da variavel sem atribuiçao
+funçao elevada ao topo como todo, ate sua assinatura
+usar uma variavel ou funcao mesmo antes dela ser declarada
+
+em apenas uma funçao que recebe um paramentro
+para cada parametro retorna uma funçao
+
+funçoes de primeira classe e ordem maior
+pode ser chamada por
+variavel
+estrutura de dados object array
+pode ser passada por argumento
+pode ser retornada por outras funçoes
+
+closure (escopo lexico)
+global
+de funçao
+de bloco
+lembrança do ambiente onde foi criada
+
+
+	TEORIA
+
+
+
+daqui pra baixo bootcamp
+Desenvolvimento Node.js
+
+
+desmitificando filter map reduce
+
+.filter para remover repetidos
+let EntradaSemRepetir = Entrada[0].filter(function(element, index, self) {
+    return index === self.indexOf(element);
+});
+
+.filter
+cria um novo array com todos os elementos que passarem no teste da funçao fornecida
+nao modifica o array de origem
+
+const pets = [
+    {name: 'rex',
+    type: 'dog',
+    age: '10'},
+
+    {name: 'gulp',
+    type: 'fish'
+    age: 1}
+       
+}
+]
+usando um .filter pra pegar 
+apenas os animais com idade inferior a 5
+
+const newPets = pets.filter((pet) => {
+    return pet.age < 5
+})
+console.log(newPets)
+
+.map
+.map(Number)
+converte uma array string para uma array de numeros
+nao modifica o array de origem
+retorna outro array com uma modificaçao 
+previamente configurada
+aplica uma modificaçao em cada elemento do array original
+
+const petNames = pets.map((pet) => {
+    return pet.age
+})
+retorna um array somente da propriedade age
+
+comentario na liguagem java script
+// apenas uma linha
+/** 
+mais
+de uma
+linha
+*/
+
+tecnica menos recomendada porem funcional
+
+const forEachPetNames = []
+pets.forEach((pet) => {
+    forEachPetNames.push(pet.name)
+})
+console.log(forEachPetNames)
+
+.reduce(total, pet)
+.reduce(inicial, array_de_origem)
+pode por exemplo somar o peso de todos os itens do array
+
+const totalWeitght = pets.reduce((total, pet)=> {
+    return total + pet.weight
+}, 0)
+concatenaçao de string com variavel
+console.log(`descriçao: ${variavel}`)
+
+const totalWeight = pets.reduce((total, pet)=>{
+    return{
+        totalAge: total.totalAge + pet.age,
+        totalWeight: total.totalWeight + pet.weight}
+}, {totalAge: 0, totalWeight: 0})
+
+cont totalWeight = pets.reduce((total, pet)=>{
+    if (pet.type !== 'dog') return total
+    return total + pet.weight
+}, 0)
+console.log(totalWeight)
+
+
+encadeando .filter e .reduce
+const totalWeigthDogs = pets.filter((pet) => {
+    return pet.type === 'dog'
+    }).reduce((total, pet) => {
+    return total + pet.weight}, 0)
+console.log(totalWeightDogs)
+
+
+
+})
+
+
+entendendo promises de uma vez por todas
+const array = [1,2,3]
+
+.../s[1-4].txt
+equivale a
+s1.txt
+s2.txt
+s3.txt
+s4.txt
+
+callback
+funçao que voce vai passar para funçao original
+que sera executado no final da execuçao da funçao
+
+promise
+pending em processo
+setout resolvida ou rejeitada é finalizara
+
+promise.then()
+quando a promise for encerrada com sucesso
+executara uma funçao
+
+.resolve()
+resolve a promise de uma vez
+
+.reject()
+pula a promise sem resolver
+
+.catch(console.error)
+tratamento de erro padrao
+
+.finally
+executa mesmo tratando o erro
+executa sempre
+
+async
+toda vez que uma function suporta 
+ser executada de forma assincrona
+informa para o interpretador
+que sera executada de forma assincrona
+torna o retorno da funçao uma promise
+quando usado a async o interpretador 
+subentende que deve dar um resolve
+
+quando inicia uma promise
+tem que chamar o resolve 
+antes de usar seu processamento posteriormente
+
+.then
+primeiro argumento funçao callback de sucesso 
+segundo parametro de callback de erro 
+
+uma funçao assincrona
+nao deve ter subrotinas sincronas
+
+await
+transforma uma promise em codigo sincrono
+
+tipos de for resumido
+for (let i = 0; i < arr.length; ++i)
+arr.forEach((v, i) => { /* ... */ })
+for (let i in arr)
+for (const v of arr)
+
+for(let value of arr){}
+percorre um iterator ate o fim ou
+
+forEach
+apenas exibe e itera
+
+for in
+para todas as propriedades do array
+
+for of
+apenas para seus valores previamente adicionados em cada indice
+
+for of
+for (const iterator of object)
+
+criar array
+var arr = Array(42);
+var arr = new Array(comprimentoDoArray);
+var arr = [];
+arr.length = 42;
+
+converter array em object
+var array = [
+  [1, 'a'],
+  [2, 'b'],
+  [3, 'c']
+];
+var object = Object.fromEntries(array);
+console.log(object);
+
+converter array em object 
+a partir de uma tabela 
+em dois arrays diferentes
+var columns = ["Date", "Number", "Size", "Location", "Age"];
+var rows = ["2001", "5", "Big", "Sydney", "25"];
+var result =  rows.reduce(function(result, field, index) {
+  result[columns[index]] = field;
+  return result;
+}, {})
+console.log(result);
+
+converter array em object
+a partir de varios arrays
+exemplo que cria um objeto indexado
+quase imutavel
+for (let iteracao = 0; iteracao < QuantidadeDeEntradas; iteracao = iteracao + 1) {
+    Objeto[iteracao] = {
+        nome: Nomes[iteracao],
+        cor: Cores[iteracao],
+        tamanho: Tamanhos[iteracao]
+    };
+}
+
+exemplo que cria um array de objetos
+a partir de varios arrays
+altamente recomendavel pois é gerenciavel
+for (let iteracao = 0; iteracao < QuantidadeDeEntradas; iteracao = iteracao + 1) {
+    ObjetoAuxiliar = {
+        "cor": Cores[iteracao],
+        "tamanho": Tamanhos[iteracao],
+        "nome": Nomes[iteracao]               
+    }
+
+    ArrayDeObjetos.push(ObjetoAuxiliar)
+}
+
+melhor solucao
+NomeFicha.push({'nome' : Auxiliar[0], 'ficha' : parseInt(Auxiliar[1])})
+
+
+dar um print em objeto por indice
+o numero deve ser uma string, nao tenho certeza
+console.log(Objeto['indice'])
+ou em um unico item do objeto
+console.log(Objeto['3'].nome)
+
+outra tecnica
+nao consegue se comporta bem como array de objetos
+NomeFicha.push({'nome' : Auxiliar[0], 'ficha' : parseInt(Auxiliar[1])})
+
+
+manipular objetos
+let objectA = {a: 1, b: 2};
+Object.assign(objectA, {b: 3, c: 4});
+console.log(objectA);
+// → {a: 1, b: 3, c: 4}
+
+let anObject = {left: 1, right: 2};
+console.log(anObject.left);
+// → 1
+delete anObject.left;
+console.log(anObject.left);
+// → undefined
+console.log("left" in anObject);
+// → false
+console.log("right" in anObject);
+// → true
+
+adiciona um objeto no array de objetos
+cars é o array de objetos
+car é um objeto
+
+na primeira posicao
+cars.unshift(car);
+na ultima posiçao
+cars.push(car);
+
+adiciona na posicao desejada
+.splice(inicia_aqui, remover_quantos, inserir_esse)
+mexe no array de origem
+cortando
+retorna os itens removidos
+
+Array.splice(
+  {index where to start},
+  {how many items to remove},
+  {items to add}
+);
+novo_item.splice(4, 0, Objeto);
+
+remover um item especifico de um array
+const index = array.indexOf(nome ou numero do item);
+if (index > -1) {
+  array.splice(index, 1);
+}
+
+filtrar objeto
+let car = cars.find(car => car.color === "red");
+
+let car = cars.find(car => car.color === "red" && car.type === "cabrio");
+
+let redCars = cars.filter(car => car.color === "red");
+console.log(redCars);
+
+map
+let sizes = cars.map(car => {
+  if (car.capacity <= 3){
+    return "small";
+  }
+  if (car.capacity <= 5){
+    return "medium";
+  }
+  return "large";
+});
+console.log(sizes);
+
+let carsProperties = cars.map(car => {
+ let properties = {
+   "capacity": car.capacity,
+   "size": "large"
+ };
+ if (car.capacity <= 5){
+   properties['size'] = "medium";
+ }
+ if (car.capacity <= 3){
+   properties['size'] = "small";
+ }
+ return properties;
+});
+console.log(carsProperties);
+
+cars.forEach(car => {
+ car['size'] = "large";
+ if (car.capacity <= 5){
+   car['size'] = "medium";
+ }
+ if (car.capacity <= 3){
+   car['size'] = "small";
+ }
+});
+
+let sortedCars = cars.sort((c1, c2) => (c1.capacity < c2.capacity) ? 1 : (c1.capacity > c2.capacity) ? -1 : 0);
+
+cars.some(car => car.color === "red" && car.type === "cabrio");
+
+cars.every(car => car.capacity >= 4);
+
+cars.sort(function(a, b){return a.year - b.year}); 
+
+cars.sort(function(a, b){
+  var x = a.type.toLowerCase();
+  var y = b.type.toLowerCase();
+  if (x < y) {return -1;}
+  if (x > y) {return 1;}
+  return 0;
+}); 
+
+quando copia um array atribuindo um ao outro
+os dois tomam a mesma memoria 
+e funcionam como um array por referencia
+pra criar um objeto independente
+usar .from
+ArrayOrdenado = Array.from(ArrayAuxiliar)
+
+converter array de string em array de numeros
+mas cada numero vira um objeto
+Auxiliar = Auxiliar.map(Number)
+
+funcional
+var a = ['1','2','3']
+var result = a.map(function (x) { 
+  return parseInt(x, 10); 
+});
+console.log(result);
+
+funcional
+Auxiliar.map((x) => parseInt(x, 10))
+
+
+
+
+
+indexOf objeto
+percorre toda string
+pos = myArray.map(function(e) { return e.hello; }).indexOf('stevie');
+
+melhor escrito
+myArray.map(x => x.hello).indexOf('stevie')
+
+para ao encontrar o primeiro caso
+var indexOfStevie = myArray.findIndex(i => i.hello === "stevie");
+
+melhor escrito
+myArray.findIndex(x => x.hello === 'stevie')
