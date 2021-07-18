@@ -1,3 +1,30 @@
+.
+qualquer caractere (newline nao incluido)
+
+^
+comeco de linha
+
+$
+fim da linha
+
+[]
+range de caracteres
+
+*
+zero ou mais vezes
+
++
+uma ou mais vezes
+
+\
+inclusao do caractere (scape)
+
+?
+uma vez ou nenhuma vez
+
+{N}
+repetir N vezes
+
 www.regex101.com
 
 regular expression é o termo de busca
