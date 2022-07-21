@@ -1,0 +1,295 @@
+engenharia da computacao redes de computadores cisco packet tracer
+
+rc 16 0610
+
+o modo usuario padrao tem seus comandos precedidos de >
+
+mostra as configuracoes que estao rodando
+>show run
+
+>ping endereco_ip
+
+modo previlegiado
+>en
+
+sair do modo atual
+#exit
+
+listar comandos
+#?
+
+
+modo configuracao do switch e roteador
+#enable
+#configure terminal
+
+nome do roteador switch
+config #hostname novo_nome
+
+sai do modo selecionado
+#exit
+
+
+pra configurar o nome é mais facil usar o painel
+display é o nome que aparece na tela
+hostname é o mesmo da configuracao cli
+
+#ping endereco_ip
+
+nao escolher configuracao padrao
+roteador#
+
+mostra as configuracoes das interfaces de rede
+#show ip interface brief
+
+configurando a interface serial0/1/0 rs232 v24
+outro exemplo de nome de interface GigabitEthernet0/0
+daqui pra frente é o modo de configuracao da interface, modo config-if
+config #int Serial0/1/0
+config #?
+
+mudar a descricao da conexao
+config-if #description conexao pro r1
+
+trocando ip para publico
+ip mascara
+ajuda com o comando
+config-if #ip address ?
+config-if #ip address 201.1.2.2 255.255.255.252
+
+subir interface
+config-if #no shutdown
+
+para saber os estados das conexoes e interfaces
+
+normal #sh ip int brief
+down é ativado e nao funcionando
+protocol camada 2
+status camada fisica
+
+
+configurar rotas
+#conf t
+endereco ip mascara origem
+endereco ip de quem sabe o caminho
+config#ip route 192.168.100.0 255.255.255.120 201.1.2.1
+
+
+
+rc 19 2010
+
+para ajuda e escolher um encapsulamento
+config-if #encapsulation ?
+config-if #encapsulation hdlc
+
+para exibir as informacoes de interfaces
+config-if #do sh ip int br
+
+
+
+para entrar em modo de configuracao de interface
+
+entra no modo privilegiado
+>en
+
+entra no modo de configuracao
+#configure terminal
+
+entra no modo de configuracao de interface
+#int nome_da_interface
+
+
+
+rc 24 1011
+
+obter ajuda com a configuracao de encapsulamento frame-relay
+config-if #encapsulation frame-relay ?
+
+configurar encapsulamento frame-relay com ietf
+config-if #encapsulation frame-relay ietf
+
+configurar com interface dlci
+#exit
+
+
+
+para criar varios pvc
+criando sub-interface
+
+se precisar zerar o encapsulamento
+config-if #no enc
+
+config #int Serial0/0/0
+
+config-if #enc frame-relay
+
+pvc 16, dlci 16
+config #int Serial0/0/0.16 point-to-point
+
+outra subinterface  
+config-subif #int Serial0/0/0.17 point-to-point
+
+config-subif #frame-relay interface-dlci 17 
+
+config-subif #int Serial0/0/0.17 point-to-point
+
+completando configuracao do dlci 16
+config-subif #int Serial0/0/0.16
+config-subif #frame-relay interface-dlci 16
+
+mostre a configuracao que estou rodando
+do usado pra nao precisar voltar no modo usuario
+config#do sh run
+
+subindo interface
+config#no shut
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+passos pra cofigurar o frame-relay
+
+entra no modo de configuracao
+>en
+#conf term
+
+entra na interface
+config#int serial 0/1/0
+
+ativa o encapsulamento frame-relay
+escolhe o padrao do frame-relay ietf
+config-if#encapsulation frame-relay ietf
+
+trocar o lmi-type
+usado o q933a
+tem que voltar para configuracao da interface, sem subif
+config-if#frame-relay lmi-type q933a
+
+encapsula a subinterface
+1007-16
+config #int Serial0/0/0.16 point-to-point
+
+escolhe o dlci 
+config-subif #frame-relay interface-dlci 17 
+
+sobe as interfaces individualmente no modo config-if
+acessa novamente a interface
+config-if#no shut
+
+
+se precisar
+configura no modo grafico config as rotas dlci
+
+poe na interface serial
+escolhe o numero da dlci e atribui um nome
+
+em frame-relay
+coloca a porta de origem com destino da dlci com nome
+
+
+
+
+configurar o endereco ip de cada subinterface
+lembrando que pra nao dar overlap
+colocar endereco de rede diferente em cada subinterface
+config-if#int Serial0/0/0.16
+config-if#ip address 10.1.1.1 255.255.255.0
+
+
+
+para exibir as informacoes das controladoras
+>show controllers Serial0/0/0
+
+
+cuidar para os ips serem distribuidos nas subinterfaces
+pode dar conflito com os ip das interfaces
+
+
+depois criar os ip entre os switch e rede ethernet
+nas interfaces ethernet corretas
+config-if#ip add 10.1.10.1 255.255.255.0
+config-if#no shut
+para esse endereco (10.1.1.2) que serao enviados os pacotes com esse ip 10.1.11.0
+config#ip route 10.1.11.0 255.255.255.0 10.1.1.2
+
+
+rota padrao para enderecos nao conhecidos pelas sub redes
+enviar qualquer outro endereco nao conhecido para 10.1.1.1
+config#ip route 0.0.0.0 0.0.0.0 10.1.1.1
+
+
+
+rc 26 1611
+
+nas configuracoes modo grafico config
+frame relay tem as comutacoes dlci
+devem ser preenchidas manualmente
+junto com as interface
+
+
+mostra a tabela de rotas
+#sh arp
+
+
+remover uma rota
+config#no ip route rota_para_remover
+
+
+
+
+configurar rip exemplo
+
+R1(config)#router rip
+R1(config-router)#version 2
+R1(config-router)#network 10.0.0.0
+R1(config-router)#network 172.16.0.0
+
+R2(config)#router rip
+R2(config-router)#version 2
+R2(config-router)#network 192.168.0.0
+R2(config-router)#network 172.16.0.0
+
+
+
+
+comandos nao testado
+
+#show ip route
+#show running-config
+
+config-if#duplex auto
+config-if#speed auto
+
+#show controllers serial 0/0/0
+
+
+#show frame-relay map
+R4#show frame-relay pvc
+
+
+
+
+salvar as configuracoes para o sistema de inicializacao
+#copy startup-config running-config 
+
+
+/27
+32
+2**5
+
+28 4 bits 16 0-15
+28 4 bits 16 16-31
+27 5 bits 32 32-63
+27 5 bits 32 64-95 96-127
+
+

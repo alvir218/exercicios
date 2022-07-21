@@ -2011,3 +2011,57 @@ pip install matplotlib
 pip install numpy
 pip install pysimplegui
 pip install pylive
+
+
+
+
+desempacotador
+numeros é uma lista
+x, y, *restante = numeros
+*restante, x, y = numeros
+x, *restante, y = numeros
+em funcao significa todos e cada um como parametro individual
+o tamanho da lista deve ser o mesmo do numero de parametros
+** é usado em dicionarios e representa o valor das chaves
+
+
+
+usando o django teve uma classe que precisou ser inicializada sem os parenteses
+ela nao tinha argumento e quebrou a aplicacao ao ser instanciada com parenteses
+
+
+
+command line arguments
+parametros de execucao
+
+import sys
+
+print 'Number of arguments:', len(sys.argv), 'arguments.'
+print 'Argument List:', str(sys.argv)
+
+
+$ python test.py arg1 arg2 arg3
+
+
+Number of arguments: 4 arguments.
+Argument List: ['test.py', 'arg1', 'arg2', 'arg3']
+
+
+del objeto
+deleta o objeto
+se ouver outro com a mesma referencia
+nao sera completamente excluido
+ao inves disso so apagara a referencia
+
+
+
+
+
+ler parametros do terminal console prompt
+
+import sys
+for param in sys.argv :
+    print(param)
+
+
+

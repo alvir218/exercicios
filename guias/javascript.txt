@@ -1010,3 +1010,18 @@ var indexOfStevie = myArray.findIndex(i => i.hello === "stevie");
 
 melhor escrito
 myArray.findIndex(x => x.hello === 'stevie')
+
+
+
+
+
+
+node-red
+converter string em float
+let mensagem = {};   // start new
+mensagem.payload = (msg.payload).slice(0,-1);
+mensagem.payload = parseFloat(mensagem.payload)
+return mensagem
+
+
+

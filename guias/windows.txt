@@ -1,0 +1,41 @@
+criar estrutura de diretorios
+mkdir my_first_directory/my_second_directory
+
+obter velocidade da memoria ram
+wmic memorychip get speed
+
+
+ipconfig /all
+estado das configuracoes de rede
+
+ipconfig /release
+apaga as configuracoes de rede
+
+ipconfig /renew
+obtem novas configuracoes automaticamente com dhcp ou o que estava previamente em caso de static address
+
+
+xcopy some_source_dir new_destination_dir\ /E/H
+
+/E sub_diretorios
+/H arquivos ocultos
+
+move some_directory new_directory_name
+
+rmdir some_directory /Q/S
+
+/Q nao perguntar
+/S deletar subdiretorios
+
+
+copia recursimamente
+copia pulando arquivos em uso
+evuta mensagem de violacao
+xcopy origem destino /C /F /E /H /K /Y
+
+
+
+robocopy origem destino /e /tee /r:1 /w:1
+
+
+

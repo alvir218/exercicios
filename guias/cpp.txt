@@ -1,0 +1,9 @@
+compilador c para windows
+tdm-gcc
+
+ide
+visual studio code
+c/c++ intelisense da microsoft
+code runner do jun han ou c/c++ compile run do danielpinto8zz6
+
+

@@ -308,6 +308,7 @@ git com github
 
 git checkout master
 git merge suaBranch
+git merge origin/suaBranch
 junta a branch suaBranch com a master
 
 git branch -d deletarEssaBranch
@@ -353,5 +354,65 @@ e envia o funcionalidade da branch filha para release/0.1
 
 git flow release finish 0.1
 termina a funcionalidade e envia pra master
+
+
+
+
+baixar com todas as branch do repositorio
+git pull --all
+
+clonar com uma branch especifica
+git clone --branch <branchname> <remote-repo-url>
+git checkout --track origin/branch
+
+mudar e criar a branch
+git branch -M nome_da_branch
+
+dar um push em uma branch especifica
+git push origin HEAD:branch
+se a branch for a mesma desse push
+git push origin HEAD
+
+
+
+excluir branch
+// delete branch locally
+git branch -d localBranchName
+// delete branch remotely
+git push origin --delete remoteBranchName
+
+
+listar as branch
+git branch -a
+
+renomear branch
+git branch -m nome_anterior novo_nome
+tem que subir a nova branch manualmente
+tem que deletar a branch anterior manualmente
+
+
+
+git rm *
+git rm arquivo.ext
+remove algum arquivo do git e do computador
+
+
+desfazer modificacoes antes do commit
+git stash
+
+seguro
+git stash -u
+git stash list
+
+para desfazer
+git stash pop
+
+git stash drop
+para remover o completamente o desfazer
+
+
+listar os arquivos
+git ls-tree -r master --name-only
+
 
 

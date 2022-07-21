@@ -171,3 +171,343 @@ para separar uma string com espacos em um vetor de strings
 os vetores devem estar previamente declarados
 string[] vetorDeString = stringDeEntrada.Split(" ");
 
+
+
+
+
+primeira aplicacao console hello world
+
+using System;
+
+namespace DigitalInnovationOne {
+	
+	class Program{
+		static void Main(string[] args){
+			Console.WriteLine("hello world");
+		
+		}
+	}
+}
+
+
+
+
+
+int
+tipo inteiro
+
+for igual do c
+
+Console.WriteLine("escreve isso e pula linha do console");
+
+Console.WriteLine($"escreve e concatena com as variaveis {variavel}");
+
+
+o namespace por boas praticas é o nome do projeto escrito como classe
+nao parece ser opcional
+
+
+nessa instrucao
+a instancia foi feito em duas etapas
+
+Tipo variavel
+
+variavel = new Tipo(parametro1, parametro2);
+
+
+
+public object variavel
+cria um objeto generico em uma classe
+
+
+this.instancia
+mesmo funcionamento do cpp
+
+
+
+f5 pra debugar no vscode
+
+
+
+control..ponto
+reparo automatico
+
+
+throw new InvalidOperationException("descricao da excecao");
+comando para lancar uma excecao arbitraria
+
+
+
+tipos
+sbyte
+short
+int
+long
+byte
+ushort
+uint
+ulong
+char
+float
+double
+decimal
+bool
+
+
+lista.Length
+retorna o tamanho da lista
+nao precisa ()
+
+
+
+switch case igual c
+
+
+leitura = Console.ReadLine();
+entrada de valor pelo usuario
+
+
+break;
+igual c
+
+
+
+cadeia.StartsWith("caractere");
+retorna se inicia com o caractere do parametro
+
+
+
+
+variavel = System.IO.File.CreateText("texto.txt");
+cria e manipula arquivo de texto
+
+variavel.WriteLine("uma linha de texto");
+escreve no arquivo uma nova linha
+
+
+int[] vetor = new int[3];
+delclara e inicia um vetor de inteiros
+
+int[,] vetor = new int[3, 6];
+delclara e inicia um vetor bidimencional de inteiros
+
+int[,,] vetor = new int[1,2,3]
+delclara e inicia um vetor tridimencional de inteiros
+
+
+int[] vetor = new int[] {2,3,4};
+int[] a = {2,3,4}
+inicia e popula o vetor
+
+
+
+visibilidade de classes
+public
+
+protected
+somente classe e herdeira
+
+internal
+somente acessado do assembly de que faz parte
+
+private
+apenas a classe
+
+
+
+construtor
+
+class NomeDaClasse{
+tipo atributo1;
+tipo atributo2;
+
+	public NomeDaClasse(parametros){
+		this.parametro = valor;
+	}
+}
+
+
+
+
+heranca
+
+public class ClasseFilho : ClassePai, ClasseMae
+
+
+importador
+using Classe.Subclasse
+
+
+
+public struct
+igual c
+
+
+
+enum Cor{
+	vermelho,
+	verde,
+	azul
+}
+
+
+enum Alinhamento: sbyte{
+	Esquerda = -1,
+	Centro = 0,
+	Direita = 1
+}
+
+
+
+
+string[0].ToUpper();
+converte para letra maiuscula
+
+
+
+numero.Parse()
+numero.TryParse()
+forca pra retornar de uma string um decimal
+
+tem var no csharp
+semelhante ao java
+
+
+tem o variavel++
+nao testei o ++variavel
+
+
+
+foreach(var i in vetor){
+}
+
+
+
+comentarios mesmo do c
+
+
+nome.Equals("");
+retorna se valer o que esta no parametro
+
+string.IsNullOrEmpty(nome)
+retorna se esta vazio ou nulo
+
+
+
+estrutura de uma rota mvc padrao
+url: "{controller}/{action}/{id}"
+defaults: new {controller = "Home", action = "Index", id = UrlParameter.Optional},
+
+
+exemplo de uma rota personalizada
+url: "student/{id}/{name}/{standartId}"
+defaults: new {controller = "Student", action = "Index", id = UrlParameter.Optional, name = UrlParameter.Optional, standartId = UrlParameter.Optional},
+
+
+instalei o sdk .net core 3
+recomendado .net 5.0
+instalado o .net 5.0
+
+verificando instalacao
+dotnet
+dotnet --list-sdks
+
+
+instalar com visual studio community 2019
+asp.net e desenvolvimento web
+desenvolvimento para azure
+desenvolvimento com a plataforma universal do windows
+processamento e armazenamento de dados
+desenvolvimento para desktop com .net 
+desenvolvimento mobile com .net
+se precisar de mais no futuro voltar no instalador
+
+
+
+
+numeroReal.ToString("N1");
+arredonda para uma casa decimal
+
+
+Int32.Parse(parametro)
+converte para inteiro de 32bits
+
+
+
+public override void metodo(parametros){}
+sobrescrever metodos virtuais
+
+
+public string Nome { get; set; }
+get e set rapido
+
+
+
+instanciar objeto modo rapido
+var instancia = new Classe()
+{
+	atributo = 1,
+	atributo2 = "atributo2",
+	atributo3 = "atributo3"
+}
+
+
+
+lista
+var lista = new List<Classe>();
+
+lista.Add(new Classe()
+{
+	atributo1 = 1,
+	atributo2 = "dois",
+	atributo3 = 1.23
+});
+
+
+atributo como vetor
+var objeto = new Classe1(new Classe2[] 
+                {
+                    new Classe3(atributo1, atributo2.ToString()),
+                    new Classe3(atributo1, atributo2.ToString()),
+                    new Classe3(atributo1, atributo2.ToString())
+                }),
+                atributo3 = "tres"
+
+
+
+
+private readonly
+encapsulamento somente leitura
+usou _variavel para enfatizar
+
+
+
+public IList<Classe> metodo(parametros){}
+metodo que retorna lista
+
+.ToList();
+enfatiza retorno em lista
+
+
+
+para criar as paginas
+
+ViewModelInput
+Controller
+renomear a IActionResult
+
+criar uma razor view
+que criara a pagina
+
+criar os metodos http
+que usara as view
+controller
+
+aplica os passos anteriores na pagina
+_Layout.cshtml
+asp-area="" asp-controller="Usuario" asp-action="Cadastrar"
+
+inserido model output
+
+adicionado controller
+
